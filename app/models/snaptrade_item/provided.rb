@@ -64,6 +64,20 @@ module SnaptradeItem::Provided
     provider = snaptrade_provider
     raise StandardError, "SnapTrade provider not configured" unless provider
 
+    # Clean up any orphaned users for this family before registering.
+    # This prevents 400 conflicts when a previous registration saved to SnapTrade
+    # but not to the database (e.g. process crash or failed update! after register_user).
+    begin
+      all_users = provider.list_users
+      orphans = all_users.select { |uid| uid.start_with?("family_#{family_id}_") }
+      orphans.each do |orphan_id|
+        provider.delete_user(user_id: orphan_id)
+        Rails.logger.info "SnapTrade: Cleaned up orphaned user #{orphan_id} before re-registration"
+      end
+    rescue => e
+      Rails.logger.warn "SnapTrade: Orphan cleanup failed (continuing anyway): #{e.message}"
+    end
+
     # Use family ID with current timestamp to ensure uniqueness (avoids conflicts from previous deletions)
     unique_user_id = "family_#{family_id}_#{Time.current.to_i}"
 
