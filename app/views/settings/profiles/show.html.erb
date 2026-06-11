@@ -27,6 +27,12 @@
   <% end %>
 <% end %>
 
+<% if (billing_url = billing_management_url(Current.user)) %>
+  <%= settings_section title: t(".billing_title"), subtitle: t(".billing_subtitle") do %>
+    <%= render DS::Link.new(text: t(".billing_btn"), href: billing_url, variant: :outline, icon: "external-link", icon_position: "right", target: "_blank") %>
+  <% end %>
+<% end %>
+
 <% unless Current.user.ui_layout_intro? %>
   <%= settings_section title: Current.family&.moniker == "Group" ? t(".group_title", default: "Group") : t(".household_title"), subtitle: t(".household_subtitle", moniker_plural: family_moniker_plural_downcase, moniker: family_moniker_downcase) do %>
     <div class="space-y-4">

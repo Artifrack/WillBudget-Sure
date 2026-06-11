@@ -205,6 +205,9 @@ en:
         pending: Pending
         profile_subtitle: Customize how you appear on %{product_name}
         profile_title: Personal
+        billing_title: Billing & Notifications
+        billing_subtitle: Manage your family membership, billing plans, and notification preferences.
+        billing_btn: Open billing portal
         remove_invitation: Remove Invitation
         remove_member: Remove Member
         resend_confirmation_link: request a new confirmation email

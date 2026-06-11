@@ -5,6 +5,14 @@ module ApplicationHelper
     Rails.configuration.x.product_name
   end
 
+  def billing_management_url(user)
+    base = ENV["BILLING_SERVICE_URL"].presence
+    secret = ENV["USER_LINK_SECRET"].presence
+    return nil unless base && secret
+    sig = OpenSSL::HMAC.hexdigest("SHA256", secret, user.email)
+    "#{base}/me?u=#{CGI.escape(user.email)}&sig=#{sig}"
+  end
+
   def brand_name
     Rails.configuration.x.brand_name
   end
