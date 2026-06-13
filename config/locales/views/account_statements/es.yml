@@ -75,7 +75,7 @@ es:
       difference: Diferencia
       download: Descargar
       institution_name_hint: Pista de la entidad
-      ledger_amount: Registro de Sure
+      ledger_amount: Registro de WillBudget
       linked_to: Vinculado a %{account}.
       linking_title: Vínculo de cuenta
       link_suggestion: Sugerencia de vínculo
@@ -85,7 +85,7 @@ es:
       period_end_on: Fin del periodo
       period_start_on: Inicio del periodo
       reconciliation_title: Conciliación
-      reconciliation_unavailable: Añade un periodo de extracto y un saldo de apertura o cierre, y asegúrate de que Sure tenga historial de saldos para esas fechas.
+      reconciliation_unavailable: Añade un periodo de extracto y un saldo de apertura o cierre, y asegúrate de que WillBudget tenga historial de saldos para esas fechas.
       reject: Rechazar
       save: Guardar extracto
       statement_amount: Extracto

@@ -104,9 +104,9 @@ es:
       disconnect_confirm: "¿Desconectar %{name}?"
       encryption_warning:
         title: El cifrado de la base de datos no está configurado
-        message: Configura las claves de cifrado de Active Record antes de añadir tokens de Brex en producción. Sin claves de cifrado, Sure almacena las credenciales y las instantáneas del proveedor Brex en texto plano, como ocurre con otros registros de proveedores.
+        message: Configura las claves de cifrado de Active Record antes de añadir tokens de Brex en producción. Sin claves de cifrado, WillBudget almacena las credenciales y las instantáneas del proveedor Brex en texto plano, como ocurre con otros registros de proveedores.
       instructions:
-        copy_token_html: "Copia el token y añádelo abajo como una conexión con nombre. Sure almacena el token únicamente para sincronizar esta familia."
+        copy_token_html: "Copia el token y añádelo abajo como una conexión con nombre. WillBudget almacena el token únicamente para sincronizar esta familia."
         create_token: "Crea un token de API con estos ámbitos de solo lectura: accounts.cash.readonly, accounts.card.readonly, transactions.cash.readonly, transactions.card.readonly"
         open_tokens: Ve a los ajustes de tokens de desarrollador/API de Brex de la empresa que quieres conectar
         sign_in_html: "Visita %{link} e inicia sesión en la cuenta que quieres conectar"

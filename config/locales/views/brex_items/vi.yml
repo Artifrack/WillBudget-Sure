@@ -104,9 +104,9 @@ vi:
       disconnect_confirm: "Ngắt kết nối %{name}?"
       encryption_warning:
         title: Mã hóa cơ sở dữ liệu chưa được cấu hình
-        message: Cấu hình khóa mã hóa Active Record trước khi thêm mã thông báo Brex trong môi trường sản xuất. Không có khóa mã hóa, Sure lưu trữ thông tin xác thực nhà cung cấp Brex và ảnh chụp dưới dạng văn bản thuần túy như các bản ghi nhà cung cấp khác.
+        message: Cấu hình khóa mã hóa Active Record trước khi thêm mã thông báo Brex trong môi trường sản xuất. Không có khóa mã hóa, WillBudget lưu trữ thông tin xác thực nhà cung cấp Brex và ảnh chụp dưới dạng văn bản thuần túy như các bản ghi nhà cung cấp khác.
       instructions:
-        copy_token_html: "Sao chép mã thông báo và thêm làm kết nối có tên bên dưới. Sure chỉ lưu mã thông báo để đồng bộ gia đình này."
+        copy_token_html: "Sao chép mã thông báo và thêm làm kết nối có tên bên dưới. WillBudget chỉ lưu mã thông báo để đồng bộ gia đình này."
         create_token: "Tạo mã thông báo API với các phạm vi chỉ đọc sau: accounts.cash.readonly, accounts.card.readonly, transactions.cash.readonly, transactions.card.readonly"
         open_tokens: Đi đến cài đặt nhà phát triển/mã thông báo API Brex cho công ty bạn muốn kết nối
         sign_in_html: "Truy cập %{link} và đăng nhập vào tài khoản bạn muốn kết nối"

@@ -23,7 +23,7 @@ en:
         no_api_key:
           title: "API Key"
           heading: "Access your account data programmatically"
-          description: "Get programmatic access to your Sure data with a secure API key."
+          description: "Get programmatic access to your WillBudget data with a secure API key."
           what_you_can_do: "What you can do with the API:"
           feature_1: "Access your account data programmatically"
           feature_2: "Build custom integrations and applications"
@@ -66,7 +66,7 @@ en:
       new:
         title: "Create API Key"
         create_new_api_key: "Create New API Key"
-        subtitle: "Generate a new API key to access your Sure data programmatically."
+        subtitle: "Generate a new API key to access your WillBudget data programmatically."
         description: "Configure your new API key with a descriptive name and appropriate permissions."
         name_label: "API Key Name"
         name_placeholder: "e.g., My Budget App, Portfolio Tracker"

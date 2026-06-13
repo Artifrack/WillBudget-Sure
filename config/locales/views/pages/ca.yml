@@ -75,7 +75,7 @@ ca:
       coming_soon: Experiència d'introducció properament
       description: Estem creant una experiència d'inici més rica per conèixer els
         teus objectius, fites i necessitats diàries. De moment, ves a la barra lateral
-        del xat per iniciar una conversa amb Sure i explica'ns on et trobes al teu
+        del xat per iniciar una conversa amb WillBudget i explica'ns on et trobes al teu
         recorregut financer.
       not_authorized: La introducció només està disponible per a usuaris convidats.
       start_chatting: Comença a xatejar
@@ -86,15 +86,15 @@ ca:
       title: Política de privadesa
     redis_configuration_error:
       heading: Cal configurar Redis
-      page_title: Cal configurar Redis - Sure
+      page_title: Cal configurar Redis - WillBudget
       refresh_hint: Un cop hagis configurat Redis, recarrega aquesta pàgina per continuar.
       refresh_page: Recarrega la pàgina
       setup_guide_hint: Segueix la nostra guia completa de configuració de Docker
         per configurar Redis
-      subheading: La teva instal·lació de Sure amb self hosting necessita Redis configurat
+      subheading: La teva instal·lació de WillBudget amb self hosting necessita Redis configurat
         correctament.
       view_setup_guide: Veure la guia de configuració
-      why_required_body: Sure utilitza Redis per executar les tasques en segon pla
+      why_required_body: WillBudget utilitza Redis per executar les tasques en segon pla
         de Sidekiq, com ara la sincronització de dades de comptes, el processament
         d'importacions i altres operacions de fons que mantenen les teves dades financeres
         actualitzades.

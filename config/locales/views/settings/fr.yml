@@ -94,7 +94,7 @@ fr:
           body: Êtes-vous sûr(e) de vouloir réinitialiser votre compte ? Cela supprimera tous vos comptes, catégories, marchands, étiquettes et autres données. Cette action ne peut pas être annulée.
           title: Réinitialiser le compte?
         confirm_reset_with_sample_data:
-          body: Êtes-vous sûr(e) de vouloir réinitialiser votre compte et charger des données d'exemple ? Cela supprimera vos données existantes et les remplacera par des données de démonstration afin que vous puissiez explorer Sure en toute sécurité.
+          body: Êtes-vous sûr(e) de vouloir réinitialiser votre compte et charger des données d'exemple ? Cela supprimera vos données existantes et les remplacera par des données de démonstration afin que vous puissiez explorer WillBudget en toute sécurité.
           title: Réinitialiser le compte et charger des données d'exemple ?
         confirm_remove_invitation:
           body: Êtes-vous sûr(e) de vouloir supprimer l'invitation pour %{email}?

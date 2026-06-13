@@ -104,9 +104,9 @@ hu:
       disconnect_confirm: "%{name} szétkapcsolása?"
       encryption_warning:
         title: Az adatbázis-titkosítás nincs konfigurálva
-        message: Állítsd be az Active Record titkosítási kulcsokat, mielőtt Brex tokeneket adsz hozzá az éles környezetben. Titkosítási kulcsok nélkül a Sure a Brex szolgáltatói hitelesítő adatokat és pillanatfelvételeket más szolgáltatói rekordokhoz hasonlóan titkosítatlanul tárolja.
+        message: Állítsd be az Active Record titkosítási kulcsokat, mielőtt Brex tokeneket adsz hozzá az éles környezetben. Titkosítási kulcsok nélkül a WillBudget a Brex szolgáltatói hitelesítő adatokat és pillanatfelvételeket más szolgáltatói rekordokhoz hasonlóan titkosítatlanul tárolja.
       instructions:
-        copy_token_html: "Másold ki a tokent és add hozzá alább megnevezett kapcsolatként. A Sure csak a token nevű szinkronizáláshoz tárolja azt ehhez a háztartáshoz."
+        copy_token_html: "Másold ki a tokent és add hozzá alább megnevezett kapcsolatként. A WillBudget csak a token nevű szinkronizáláshoz tárolja azt ehhez a háztartáshoz."
         create_token: "Hozz létre API-tokent ezekkel a csak olvasható hatókörökkel: accounts.cash.readonly, accounts.card.readonly, transactions.cash.readonly, transactions.card.readonly"
         open_tokens: Menj a csatlakoztatni kívánt vállalat Brex fejlesztői/API-token beállításaiba
         sign_in_html: "Látogass el ide: %{link}, és lépj be a csatlakoztatni kívánt fiókba"

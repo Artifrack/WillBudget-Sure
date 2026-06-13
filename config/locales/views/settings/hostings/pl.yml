@@ -40,7 +40,7 @@ pl:
           yahoo_finance: Yahoo Finance
       assistant_settings:
         title: Asystent AI
-        description: Wybierz, jak odpowiada asystent czatu. Wbudowany asystent korzysta bezpośrednio ze skonfigurowanego dostawcy LLM. Zewnętrzny deleguje zapytania do zdalnego agenta AI, który może korzystać z narzędzi finansowych Sure przez MCP.
+        description: Wybierz, jak odpowiada asystent czatu. Wbudowany asystent korzysta bezpośrednio ze skonfigurowanego dostawcy LLM. Zewnętrzny deleguje zapytania do zdalnego agenta AI, który może korzystać z narzędzi finansowych WillBudget przez MCP.
         type_label: Typ asystenta
         type_builtin: Wbudowany (bezpośredni LLM)
         type_external: Zewnętrzny (zdalny agent)

@@ -51,16 +51,16 @@ hu:
       reduce_stress: Pénzügyi stressz vagy szorongás csökkentése
       submit: Tovább
     trial:
-      title: Próbáld ki a Sure-t 45 napig
+      title: Próbáld ki a WillBudget-t 45 napig
       data_deletion: Ezután az adatok törlődnek
       description_html: Ma kezdve alaposan megismerheted a terméket.<br/>Ha megtetszik, üzemeltesd saját magad, vagy járulj hozzá a fejlesztéshez, hogy tovább használhasd.
-      try_button: Próbáld ki a Sure-t 45 napig
+      try_button: Próbáld ki a WillBudget-t 45 napig
       continue_trial: Próbaidőszak folytatása
       upgrade: Frissítés
       how_it_works: Hogyan működik ez
       today: Ma
-      today_description: 45 napig ingyenesen hozzáférsz a Sure-höz az AWS-ünkön.
+      today_description: 45 napig ingyenesen hozzáférsz a WillBudget-höz az AWS-ünkön.
       in_40_days: 40 nap múlva (%{date})
       in_40_days_description: Értesítünk, hogy exportáld az adataidat.
       in_45_days: 45 nap múlva (%{date})
-      in_45_days_description: Töröljük az adataidat – járulj hozzá a fejlesztéshez, hogy tovább használhasd a Sure-t!
+      in_45_days_description: Töröljük az adataidat – járulj hozzá a fejlesztéshez, hogy tovább használhasd a WillBudget-t!

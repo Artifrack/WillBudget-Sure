@@ -104,9 +104,9 @@ pt-BR:
       disconnect_confirm: "Desconectar %{name}?"
       encryption_warning:
         title: A criptografia do banco de dados não está configurada
-        message: Configure as chaves de criptografia do Active Record antes de adicionar tokens da Brex em produção. Sem chaves de criptografia, o Sure armazena as credenciais e os instantâneos do provedor Brex em texto não criptografado, assim como outros registros de provedores.
+        message: Configure as chaves de criptografia do Active Record antes de adicionar tokens da Brex em produção. Sem chaves de criptografia, o WillBudget armazena as credenciais e os instantâneos do provedor Brex em texto não criptografado, assim como outros registros de provedores.
       instructions:
-        copy_token_html: "Copie o token e adicione-o abaixo como uma conexão nomeada. O Sure armazena o token apenas para sincronizar esta família."
+        copy_token_html: "Copie o token e adicione-o abaixo como uma conexão nomeada. O WillBudget armazena o token apenas para sincronizar esta família."
         create_token: "Crie um token de API com estes escopos de somente leitura: accounts.cash.readonly, accounts.card.readonly, transactions.cash.readonly, transactions.card.readonly"
         open_tokens: Acesse as configurações de tokens de desenvolvedor/API da Brex da empresa que você quer conectar
         sign_in_html: "Acesse %{link} e faça login na conta que você quer conectar"

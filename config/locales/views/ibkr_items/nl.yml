@@ -19,7 +19,7 @@ nl:
       setup_accounts: Accounts instellen
       delete: Verwijderen
       accounts_need_setup: Accounts moeten worden ingesteld
-      accounts_need_setup_description: Sommige accounts van IBKR moeten worden gekoppeld aan Sure-accounts.
+      accounts_need_setup_description: Sommige accounts van IBKR moeten worden gekoppeld aan WillBudget-accounts.
       no_accounts_discovered: Nog geen IBKR-accounts gevonden.
       no_accounts_discovered_description: Voer een synchronisatie uit nadat u uw Flex-query hebt geconfigureerd om accounts te vinden.
     setup_accounts:
@@ -36,7 +36,7 @@ nl:
       status:
         fetching_accounts: Accounts ophalen van Interactive Brokers...
         no_accounts_found_title: Geen accounts gevonden.
-        no_accounts_found_description: Sure kon geen IBKR-accounts vinden in het meest recente Flex-rapport.
+        no_accounts_found_description: WillBudget kon geen IBKR-accounts vinden in het meest recente Flex-rapport.
       available_accounts:
         title: Beschikbare accounts
         account_type_investment: Beleggingen

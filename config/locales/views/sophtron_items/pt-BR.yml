@@ -260,7 +260,7 @@ pt-BR:
       setup_instructions:
         step_1_html: 'Acesse <a href="%{url}" target="_blank" rel="noopener noreferrer" class="link">Sophtron</a> para obter suas credenciais de API'
         step_2: "Copie seu ID de usuário e sua chave de acesso das configurações da sua conta da Sophtron"
-        step_3: "Cole as credenciais abaixo e clique em Salvar; o Sure criará ou reutilizará seu ID de cliente da Sophtron automaticamente"
+        step_3: "Cole as credenciais abaixo e clique em Salvar; o WillBudget criará ou reutilizará seu ID de cliente da Sophtron automaticamente"
       field_descriptions_title: "Descrições dos campos:"
       field_descriptions:
         user_id_html: "<strong>ID de usuário:</strong> Sua credencial de ID de usuário da Sophtron"

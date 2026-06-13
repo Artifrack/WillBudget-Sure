@@ -98,7 +98,7 @@ es:
       add_another_brokerage: "Conectar otro bróker"
       delete: "Eliminar"
       setup_needed: "Las cuentas necesitan configuración"
-      setup_description: "Algunas cuentas de SnapTrade deben vincularse a cuentas de Sure."
+      setup_description: "Algunas cuentas de SnapTrade deben vincularse a cuentas de WillBudget."
       setup_action: "Configurar cuentas"
       setup_accounts_menu: "Configurar cuentas"
       manage_connections: "Gestionar conexiones"

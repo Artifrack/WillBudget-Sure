@@ -260,7 +260,7 @@ nl:
       setup_instructions:
         step_1_html: 'Ga naar <a href="%{url}" target="_blank" rel="noopener noreferrer" class="link">Sophtron</a> om uw API-inloggegevens te verkrijgen'
         step_2: "Kopieer uw gebruikers-ID en toegangssleutel uit uw Sophtron-accountinstellingen"
-        step_3: "Plak de inloggegevens hieronder en klik op Opslaan; Sure maakt of hergebruikt automatisch uw Sophtron-klant-ID"
+        step_3: "Plak de inloggegevens hieronder en klik op Opslaan; WillBudget maakt of hergebruikt automatisch uw Sophtron-klant-ID"
       field_descriptions_title: "Veldbeschrijvingen:"
       field_descriptions:
         user_id_html: "<strong>Gebruikers-ID:</strong> Uw Sophtron-gebruikers-ID-inloggegeven"

@@ -2,7 +2,7 @@
 vi:
   concerns:
     self_hostable:
-      redis_configured: "Redis đã được cấu hình đúng! Bây giờ bạn có thể thiết lập ứng dụng Sure của mình."
+      redis_configured: "Redis đã được cấu hình đúng! Bây giờ bạn có thể thiết lập ứng dụng WillBudget của mình."
   shared:
     confirm_modal:
       accept: Xác nhận

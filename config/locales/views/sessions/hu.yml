@@ -24,7 +24,7 @@ hu:
       forgot_password: Elfelejtetted a jelszavadat?
       password: Jelszó
       submit: Bejelentkezés
-      title: Sure
+      title: WillBudget
       password_placeholder: Add meg a jelszavadat
       openid_connect: Bejelentkezés OpenID Connect segítségével
       oidc: Bejelentkezés OpenID Connect segítségével

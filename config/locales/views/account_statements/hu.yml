@@ -75,7 +75,7 @@ hu:
       difference: Különbség
       download: Letöltés
       institution_name_hint: Intézménynév-tipp
-      ledger_amount: Sure főkönyv
+      ledger_amount: WillBudget főkönyv
       linked_to: "Összekapcsolva ezzel a számlával: %{account}."
       linking_title: Számlakapcsolat
       link_suggestion: Kapcsolati javaslat
@@ -85,7 +85,7 @@ hu:
       period_end_on: Időszak vége
       period_start_on: Időszak kezdete
       reconciliation_title: Egyeztetés
-      reconciliation_unavailable: Adj meg egy kimutatási időszakot és nyitó- vagy záróegyenleget, majd győződj meg arról, hogy a Sure rendelkezik egyenlegelőzményekkel ezekre a dátumokra.
+      reconciliation_unavailable: Adj meg egy kimutatási időszakot és nyitó- vagy záróegyenleget, majd győződj meg arról, hogy a WillBudget rendelkezik egyenlegelőzményekkel ezekre a dátumokra.
       reject: Elutasítás
       save: Kimutatás mentése
       statement_amount: Kimutatás

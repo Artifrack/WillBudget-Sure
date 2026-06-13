@@ -200,7 +200,7 @@ ca:
       setup_accounts_menu: Configura comptes
       setup_action: Configura comptes
       setup_description: Alguns comptes de SnapTrade necessiten ser enllaçats a comptes
-        de Sure.
+        de WillBudget.
       setup_needed: Els comptes necessiten configuració
       status: Darrera sincronització fa %{timestamp} - %{summary}
       status_never: Mai sincronitzat

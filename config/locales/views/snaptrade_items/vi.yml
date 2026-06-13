@@ -101,7 +101,7 @@ vi:
       add_another_brokerage: "Kết nối thêm brokerage"
       delete: "Xóa"
       setup_needed: "Tài khoản cần thiết lập"
-      setup_description: "Một số tài khoản từ SnapTrade cần được liên kết với tài khoản Sure."
+      setup_description: "Một số tài khoản từ SnapTrade cần được liên kết với tài khoản WillBudget."
       setup_action: "Thiết lập tài khoản"
       setup_accounts_menu: "Thiết lập tài khoản"
       manage_connections: "Quản lý kết nối"

@@ -16,7 +16,7 @@ pl:
         no_api_key:
           title: Klucz API
           heading: Uzyskaj programowy dostęp do danych konta
-          description: Uzyskaj programowy dostęp do danych Sure za pomocą bezpiecznego klucza API.
+          description: Uzyskaj programowy dostęp do danych WillBudget za pomocą bezpiecznego klucza API.
           what_you_can_do: 'Co możesz zrobić przez API:'
           feature_1: Uzyskiwać programowy dostęp do danych konta
           feature_2: Budować własne integracje i aplikacje

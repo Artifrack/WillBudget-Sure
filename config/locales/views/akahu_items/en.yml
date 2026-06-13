@@ -89,7 +89,7 @@ en:
       akahu_account_already_linked: This Akahu account is already linked.
     setup_accounts:
       title: Set Up Akahu Accounts
-      subtitle: Choose how each Akahu account should appear in Sure.
+      subtitle: Choose how each Akahu account should appear in WillBudget.
       no_credentials: Configure Akahu credentials first.
       api_error: Could not fetch Akahu accounts.
       fetch_failed: Could not fetch accounts

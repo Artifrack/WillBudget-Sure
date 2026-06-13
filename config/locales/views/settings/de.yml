@@ -60,7 +60,7 @@ de:
           body: Bist du sicher, dass du dein Konto zurücksetzen möchtest? Dadurch werden alle Konten, Kategorien, Händler, Tags und andere Daten gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.
           title: Konto zurücksetzen?
         confirm_reset_with_sample_data:
-          body: Bist du sicher, dass du dein Konto zurücksetzen und Beispieldaten laden möchtest? Dadurch werden deine vorhandenen Daten gelöscht und durch Demo-Daten ersetzt, sodass du Sure sicher erkunden kannst.
+          body: Bist du sicher, dass du dein Konto zurücksetzen und Beispieldaten laden möchtest? Dadurch werden deine vorhandenen Daten gelöscht und durch Demo-Daten ersetzt, sodass du WillBudget sicher erkunden kannst.
           title: Konto zurücksetzen und Beispieldaten laden?
         confirm_remove_invitation:
           body: Bist du sicher, dass du die Einladung für %{email} entfernen möchtest?

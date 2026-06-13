@@ -19,7 +19,7 @@ vi:
       setup_accounts: Thiết lập tài khoản
       delete: Xóa
       accounts_need_setup: Tài khoản cần thiết lập
-      accounts_need_setup_description: Một số tài khoản từ IBKR cần được liên kết với tài khoản Sure.
+      accounts_need_setup_description: Một số tài khoản từ IBKR cần được liên kết với tài khoản WillBudget.
       no_accounts_discovered: Chưa phát hiện tài khoản IBKR nào.
       no_accounts_discovered_description: Chạy đồng bộ sau khi cấu hình truy vấn Flex để phát hiện tài khoản.
     setup_accounts:
@@ -36,7 +36,7 @@ vi:
       status:
         fetching_accounts: Đang lấy tài khoản từ Interactive Brokers...
         no_accounts_found_title: Không tìm thấy tài khoản.
-        no_accounts_found_description: Sure không thể tìm thấy tài khoản IBKR nào trong báo cáo Flex mới nhất.
+        no_accounts_found_description: WillBudget không thể tìm thấy tài khoản IBKR nào trong báo cáo Flex mới nhất.
       available_accounts:
         title: Tài khoản có sẵn
         account_type_investment: Đầu tư

@@ -2,7 +2,7 @@
 hu:
   concerns:
     self_hostable:
-      redis_configured: "A Redis most megfelelően van konfigurálva! Mostantól beállíthatod a Sure alkalmazásodat."
+      redis_configured: "A Redis most megfelelően van konfigurálva! Mostantól beállíthatod a WillBudget alkalmazásodat."
   shared:
     confirm_modal:
       accept: Megerősítés

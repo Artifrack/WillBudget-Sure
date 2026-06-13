@@ -64,7 +64,7 @@ es:
           body: ¿Estás seguro de que deseas restablecer tu cuenta? Esto eliminará todas tus cuentas, categorías, comerciantes, etiquetas y otros datos. Esta acción no se puede deshacer.
           title: ¿Restablecer cuenta?
         confirm_reset_with_sample_data:
-          body: ¿Estás seguro de que deseas restablecer tu cuenta y cargar datos de ejemplo? Esto eliminará tus datos existentes y los reemplazará con datos de demostración para que puedas explorar Sure de forma segura.
+          body: ¿Estás seguro de que deseas restablecer tu cuenta y cargar datos de ejemplo? Esto eliminará tus datos existentes y los reemplazará con datos de demostración para que puedas explorar WillBudget de forma segura.
           title: ¿Restablecer cuenta y cargar datos de ejemplo?
         confirm_remove_invitation:
           body: ¿Estás seguro de que deseas eliminar la invitación para %{email}?

@@ -260,7 +260,7 @@ vi:
       setup_instructions:
         step_1_html: 'Truy cập <a href="%{url}" target="_blank" rel="noopener noreferrer" class="link">Sophtron</a> để lấy thông tin xác thực API'
         step_2: "Sao chép ID người dùng và Khóa truy cập từ cài đặt tài khoản Sophtron"
-        step_3: "Dán thông tin xác thực bên dưới và nhấn Lưu; Sure sẽ tự động tạo hoặc tái sử dụng ID khách hàng Sophtron"
+        step_3: "Dán thông tin xác thực bên dưới và nhấn Lưu; WillBudget sẽ tự động tạo hoặc tái sử dụng ID khách hàng Sophtron"
       field_descriptions_title: "Mô tả các trường:"
       field_descriptions:
         user_id_html: "<strong>ID người dùng:</strong> Thông tin xác thực ID người dùng Sophtron của bạn"

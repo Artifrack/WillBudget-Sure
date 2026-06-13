@@ -37,7 +37,7 @@ es:
           yahoo_finance: Yahoo Finance
       assistant_settings:
         title: Asistente de IA
-        description: Elige cómo responde el asistente del chat. "Integrado" utiliza directamente tu proveedor de LLM configurado. "Externo" delega en un agente remoto que puede interactuar con las herramientas financieras de Sure mediante MCP.
+        description: Elige cómo responde el asistente del chat. "Integrado" utiliza directamente tu proveedor de LLM configurado. "Externo" delega en un agente remoto que puede interactuar con las herramientas financieras de WillBudget mediante MCP.
         type_label: Tipo de asistente
         type_builtin: Integrado (LLM directo)
         type_external: Externo (agente remoto)

@@ -102,7 +102,7 @@ hu:
       add_another_brokerage: "Másik brókercég csatlakoztatása"
       delete: "Törlés"
       setup_needed: "Számlák beállítást igényelnek"
-      setup_description: "Egyes SnapTrade számlák összekapcsolásra várnak a Sure számláival."
+      setup_description: "Egyes SnapTrade számlák összekapcsolásra várnak a WillBudget számláival."
       setup_action: "Számlák beállítása"
       setup_accounts_menu: "Számlák beállítása"
       manage_connections: "Kapcsolatok kezelése"

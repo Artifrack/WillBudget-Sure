@@ -101,7 +101,7 @@ en:
       add_another_brokerage: "Connect another brokerage"
       delete: "Delete"
       setup_needed: "Accounts need setup"
-      setup_description: "Some accounts from SnapTrade need to be linked to Sure accounts."
+      setup_description: "Some accounts from SnapTrade need to be linked to WillBudget accounts."
       setup_action: "Setup Accounts"
       setup_accounts_menu: "Set Up Accounts"
       manage_connections: "Manage Connections"

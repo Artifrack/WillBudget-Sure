@@ -19,7 +19,7 @@ en:
       setup_accounts: Set up accounts
       delete: Delete
       accounts_need_setup: Accounts need setup
-      accounts_need_setup_description: Some accounts from IBKR need to be linked to Sure accounts.
+      accounts_need_setup_description: Some accounts from IBKR need to be linked to WillBudget accounts.
       no_accounts_discovered: No IBKR accounts discovered yet.
       no_accounts_discovered_description: Run a sync after configuring your Flex query to discover accounts.
     setup_accounts:
@@ -36,7 +36,7 @@ en:
       status:
         fetching_accounts: Fetching accounts from Interactive Brokers...
         no_accounts_found_title: No accounts found.
-        no_accounts_found_description: Sure could not find any IBKR accounts in the latest Flex report.
+        no_accounts_found_description: WillBudget could not find any IBKR accounts in the latest Flex report.
       available_accounts:
         title: Available accounts
         account_type_investment: Investment

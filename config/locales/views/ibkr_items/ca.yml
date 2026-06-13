@@ -16,7 +16,7 @@ ca:
     ibkr_item:
       accounts_need_setup: Els comptes necessiten configuració
       accounts_need_setup_description: Alguns comptes d'IBKR necessiten ser enllaçats
-        a comptes de Sure.
+        a comptes de WillBudget.
       delete: Elimina
       deletion_in_progress: Eliminació en curs
       error: Error
@@ -81,7 +81,7 @@ ca:
       page_title: Configura els comptes d'Interactive Brokers
       status:
         fetching_accounts: Obtenint comptes d'Interactive Brokers...
-        no_accounts_found_description: Sure no ha pogut trobar cap compte d'IBKR a
+        no_accounts_found_description: WillBudget no ha pogut trobar cap compte d'IBKR a
           l'últim informe Flex.
         no_accounts_found_title: No s'han trobat comptes.
       subtitle: Selecciona quins comptes de broker d'IBKR vols enllaçar.

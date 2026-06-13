@@ -58,7 +58,7 @@ ro:
           body: Ești sigur că vrei să-ți resetezi contul? Aceasta va șterge toate conturile, categoriile, comercianții, etichetele și alte date. Această acțiune nu poate fi anulată.
           title: Resetezi contul?
         confirm_reset_with_sample_data:
-          body: Ești sigur că vrei să-ți resetezi contul și să încarci date eșantion? Aceasta va șterge datele existente și le va înlocui cu date demo, astfel încât să poți explora Sure în siguranță.
+          body: Ești sigur că vrei să-ți resetezi contul și să încarci date eșantion? Aceasta va șterge datele existente și le va înlocui cu date demo, astfel încât să poți explora WillBudget în siguranță.
           title: Resetezi contul și încarci date eșantion?
         confirm_remove_invitation:
           body: Ești sigur că vrei să anulezi invitația pentru %{email}?

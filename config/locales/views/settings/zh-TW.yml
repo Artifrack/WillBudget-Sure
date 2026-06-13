@@ -57,7 +57,7 @@ zh-TW:
           body: 您確定要重設帳號嗎？這將刪除您所有的帳戶、類別、商家、標籤及其他資料。此操作無法復原。
           title: 重設帳號？
         confirm_reset_with_sample_data:
-          body: 您確定要重設帳號並載入範例資料嗎？這將刪除您現有的資料，並替換為示範資料，讓您可以安全地探索 Sure 的功能。
+          body: 您確定要重設帳號並載入範例資料嗎？這將刪除您現有的資料，並替換為示範資料，讓您可以安全地探索 WillBudget 的功能。
           title: 重設帳號並載入範例資料？
         confirm_remove_invitation:
           body: 您確定要移除對 %{email} 的邀請嗎？

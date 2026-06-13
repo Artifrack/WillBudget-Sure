@@ -121,7 +121,7 @@ fr:
       rule_import: "Import de règles"
       pdf_import: "Import PDF"
       document_import: "Import de document"
-      sure_import: "Import Sure"
+      sure_import: "Import WillBudget"
     steps:
       upload: Téléverser
       configure: Configurer
@@ -150,7 +150,7 @@ fr:
           rule_import: "Règle"
           pdf_import: "PDF"
           document_import: "Document"
-          sure_import: "Sure"
+          sure_import: "WillBudget"
         status:
           in_progress: En cours
           uploading: Traitement des lignes
@@ -177,7 +177,7 @@ fr:
       import_rules: Importer les règles
       import_transactions: Importer les transactions
       import_qif: Importer depuis Quicken (QIF)
-      import_sure: Importer depuis Sure
+      import_sure: Importer depuis WillBudget
       import_sure_description: Fichier .ndjson d'export complet
       import_file: Importer un document
       import_file_description: Analyse par IA pour les PDF et téléversement de fichiers avec recherche

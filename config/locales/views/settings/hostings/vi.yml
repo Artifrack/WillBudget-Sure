@@ -53,7 +53,7 @@ vi:
           binance_public: Binance
       assistant_settings:
         title: Trợ lý AI
-        description: Chọn cách trợ lý trò chuyện phản hồi. Tích hợp sẵn sử dụng nhà cung cấp LLM đã cấu hình trực tiếp. Bên ngoài ủy thác cho tác nhân AI từ xa có thể gọi lại các công cụ tài chính của Sure qua MCP.
+        description: Chọn cách trợ lý trò chuyện phản hồi. Tích hợp sẵn sử dụng nhà cung cấp LLM đã cấu hình trực tiếp. Bên ngoài ủy thác cho tác nhân AI từ xa có thể gọi lại các công cụ tài chính của WillBudget qua MCP.
         type_label: Loại trợ lý
         type_builtin: Tích hợp sẵn (LLM trực tiếp)
         type_external: Bên ngoài (tác nhân từ xa)

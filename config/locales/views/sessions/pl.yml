@@ -22,7 +22,7 @@ pl:
       forgot_password: Nie pamiętasz hasła?
       password: Hasło
       submit: Zaloguj się
-      title: Sure
+      title: WillBudget
       password_placeholder: Wpisz hasło
       openid_connect: Zaloguj się przez OpenID Connect
       oidc: Zaloguj się przez OpenID Connect

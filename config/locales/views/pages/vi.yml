@@ -12,14 +12,14 @@ vi:
       not_authorized: "Trang giới thiệu chỉ dành cho khách."
       welcome: "Chào mừng!"
       coming_soon: Trải nghiệm giới thiệu sắp ra mắt
-      description: "Chúng tôi đang xây dựng hành trình đăng ký phong phú hơn để tìm hiểu về mục tiêu, cột mốc và nhu cầu hàng ngày của bạn. Hiện tại, hãy chuyển đến thanh trò chuyện bên cạnh để bắt đầu cuộc trò chuyện với Sure và cho chúng tôi biết bạn đang ở đâu trong hành trình tài chính của mình."
+      description: "Chúng tôi đang xây dựng hành trình đăng ký phong phú hơn để tìm hiểu về mục tiêu, cột mốc và nhu cầu hàng ngày của bạn. Hiện tại, hãy chuyển đến thanh trò chuyện bên cạnh để bắt đầu cuộc trò chuyện với WillBudget và cho chúng tôi biết bạn đang ở đâu trong hành trình tài chính của mình."
       start_chatting: Bắt đầu trò chuyện
     redis_configuration_error:
-      page_title: Yêu cầu cấu hình Redis - Sure
+      page_title: Yêu cầu cấu hình Redis - WillBudget
       heading: Yêu cầu cấu hình Redis
-      subheading: Cài đặt Sure tự lưu trữ của bạn cần Redis được cấu hình đúng cách.
+      subheading: Cài đặt WillBudget tự lưu trữ của bạn cần Redis được cấu hình đúng cách.
       why_required_title: Tại sao Redis là bắt buộc?
-      why_required_body: Sure sử dụng Redis để hỗ trợ các công việc nền Sidekiq cho các tác vụ như đồng bộ dữ liệu tài khoản, xử lý nhập khẩu và các hoạt động nền khác giúp dữ liệu tài chính của bạn luôn cập nhật.
+      why_required_body: WillBudget sử dụng Redis để hỗ trợ các công việc nền Sidekiq cho các tác vụ như đồng bộ dữ liệu tài khoản, xử lý nhập khẩu và các hoạt động nền khác giúp dữ liệu tài chính của bạn luôn cập nhật.
       view_setup_guide: Xem hướng dẫn cài đặt
       setup_guide_hint: Làm theo hướng dẫn cài đặt Docker đầy đủ để cấu hình Redis
       refresh_hint: "Sau khi bạn đã cấu hình Redis, hãy làm mới trang này để tiếp tục."

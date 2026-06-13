@@ -34,7 +34,7 @@ ro:
       accounts_selected: conturi selectate
       api_error: "Eroare API: %{message}"
       cancel: Anulează
-      description: Selectați conturile pe care doriți să le conectați la contul dumneavoastră Sure.
+      description: Selectați conturile pe care doriți să le conectați la contul dumneavoastră WillBudget.
       link_accounts: Conectează conturile selectate
       no_accounts_found: Nu s-au găsit conturi. Vă rugăm să verificați configurația cheii API.
       no_api_key: Cheia API Lunch Flow nu este configurată. Vă rugăm să o configurați în Setări.

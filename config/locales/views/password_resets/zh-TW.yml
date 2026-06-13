@@ -1,7 +1,7 @@
 ---
 zh-TW:
   password_resets:
-    disabled: 透過 Sure 重設密碼的功能已停用。請透過您的身份驗證提供商（Identity Provider）來重設密碼。
+    disabled: 透過 WillBudget 重設密碼的功能已停用。請透過您的身份驗證提供商（Identity Provider）來重設密碼。
     edit:
       title: 重設密碼
     new:

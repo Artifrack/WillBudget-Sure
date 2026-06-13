@@ -73,7 +73,7 @@ ca:
           persona amb accés a aquesta clau podrà accedir a les teves dades segons
           els permisos que seleccionis.
         security_warning_title: Avís de seguretat
-        subtitle: Genera una nova clau API per accedir a les teves dades de Sure de
+        subtitle: Genera una nova clau API per accedir a les teves dades de WillBudget de
           manera programàtica.
         title: Crea clau API
       show:
@@ -118,7 +118,7 @@ ca:
           your_api_key: La teva clau API
         no_api_key:
           create_api_key: Crea clau API
-          description: Obtén accés programàtic a les teves dades de Sure amb una clau
+          description: Obtén accés programàtic a les teves dades de WillBudget amb una clau
             API segura.
           feature_1: Accedeix a les dades del teu compte de manera programàtica
           feature_2: Construeix integracions i aplicacions personalitzades

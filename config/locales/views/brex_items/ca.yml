@@ -127,13 +127,13 @@ ca:
       disconnect_label: Desconnecta %{name}
       encryption_warning:
         message: Configura les claus de xifrat d'Active Record abans d'afegir tokens
-          de Brex en producció. Sense claus de xifrat, Sure emmagatzema les credencials
+          de Brex en producció. Sense claus de xifrat, WillBudget emmagatzema les credencials
           i les instantànies del proveïdor Brex en text pla com altres registres de
           proveïdors.
         title: El xifrat de la base de dades no està configurat
       instructions:
         copy_token_html: Copia el token i afegeix-lo com a connexió amb nom a continuació.
-          Sure emmagatzema el token només per sincronitzar aquesta família.
+          WillBudget emmagatzema el token només per sincronitzar aquesta família.
         create_token: 'Crea un token API amb aquests permisos només de lectura: accounts.cash.readonly,
           accounts.card.readonly, transactions.cash.readonly, transactions.card.readonly'
         open_tokens: Ves a la configuració de tokens API/desenvolupador de Brex per

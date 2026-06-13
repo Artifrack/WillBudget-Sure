@@ -12,14 +12,14 @@ zh-CN:
       not_authorized: 引导介绍仅对访客用户开放。
       welcome: 欢迎！
       coming_soon: 引导体验即将推出
-      description: 我们正在构建更丰富的新手引导流程，以了解您的目标、里程碑以及日常需求。现在，您可以先前往聊天侧边栏，与 Sure 开始对话，并告诉我们您当前的财务阶段。
+      description: 我们正在构建更丰富的新手引导流程，以了解您的目标、里程碑以及日常需求。现在，您可以先前往聊天侧边栏，与 WillBudget 开始对话，并告诉我们您当前的财务阶段。
       start_chatting: 开始聊天
     redis_configuration_error:
-      page_title: 需要 Redis 配置 - Sure
+      page_title: 需要 Redis 配置 - WillBudget
       heading: 需要 Redis 配置
-      subheading: 您自托管的 Sure 安装需要正确配置 Redis。
+      subheading: 您自托管的 WillBudget 安装需要正确配置 Redis。
       why_required_title: 为什么需要 Redis？
-      why_required_body: Sure 使用 Redis 来驱动 Sidekiq 后台任务，例如同步账户数据、处理导入，以及其他保持财务数据最新的后台操作。
+      why_required_body: WillBudget 使用 Redis 来驱动 Sidekiq 后台任务，例如同步账户数据、处理导入，以及其他保持财务数据最新的后台操作。
       view_setup_guide: 查看设置指南
       setup_guide_hint: 按照完整的 Docker 设置指南配置 Redis
       refresh_hint: 配置好 Redis 后，请刷新此页面继续。

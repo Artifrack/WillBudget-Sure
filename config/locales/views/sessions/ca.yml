@@ -33,7 +33,7 @@ ca:
       password: Contrasenya
       password_placeholder: Introdueix la teva contrasenya
       submit: Inicia sessió
-      title: Sure
+      title: WillBudget
     openid_connect:
       account_linked: Compte enllaçat correctament a %{provider}
       failed: No s'ha pogut autenticar mitjançant OpenID Connect.

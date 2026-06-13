@@ -19,7 +19,7 @@ zh-CN:
       setup_accounts: 设置账户
       delete: 删除
       accounts_need_setup: 账户需要设置
-      accounts_need_setup_description: IBKR 的部分账户需要关联到 Sure 账户。
+      accounts_need_setup_description: IBKR 的部分账户需要关联到 WillBudget 账户。
       no_accounts_discovered: 尚未发现 IBKR 账户。
       no_accounts_discovered_description: 请在配置 Flex 查询后运行一次同步，以发现账户。
     setup_accounts:
@@ -36,7 +36,7 @@ zh-CN:
       status:
         fetching_accounts: 正在从 Interactive Brokers 获取账户...
         no_accounts_found_title: 未找到账户。
-        no_accounts_found_description: Sure 在最新的 Flex 报告中未找到任何 IBKR 账户。
+        no_accounts_found_description: WillBudget 在最新的 Flex 报告中未找到任何 IBKR 账户。
       available_accounts:
         title: 可用账户
         account_type_investment: 投资

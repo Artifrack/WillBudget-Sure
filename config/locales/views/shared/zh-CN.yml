@@ -2,7 +2,7 @@
 zh-CN:
   concerns:
     self_hostable:
-      redis_configured: Redis 现已正确配置！您现在可以设置您的 Sure 应用了。
+      redis_configured: Redis 现已正确配置！您现在可以设置您的 WillBudget 应用了。
   shared:
     confirm_modal:
       accept: 确认

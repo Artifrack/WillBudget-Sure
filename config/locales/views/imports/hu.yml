@@ -100,7 +100,7 @@ hu:
         account_label: Számla
         name_label: Név
         note_label: Megjegyzés
-        no_security_provider_warning: Az értékpapír-árszolgáltató nincs konfigurálva. Az ügyletek importálása működni fog, de a Sure nem tölti fel a korábbi árfolyamadatokat. Kérjük, menj a beállításokhoz és konfiguráld.
+        no_security_provider_warning: Az értékpapír-árszolgáltató nincs konfigurálva. Az ügyletek importálása működni fog, de a WillBudget nem tölti fel a korábbi árfolyamadatokat. Kérjük, menj a beállításokhoz és konfiguráld.
         date_format_label: Dátumformátum
         apply_configuration: Konfiguráció alkalmazása
       category_import:
@@ -252,7 +252,7 @@ hu:
       rule_import: "Szabályimportálás"
       pdf_import: "PDF importálás"
       document_import: "Dokumentumimportálás"
-      sure_import: "Sure importálás"
+      sure_import: "WillBudget importálás"
     steps:
       upload: Feltöltés
       configure: Konfigurálás
@@ -284,7 +284,7 @@ hu:
           rule_import: "Szabály"
           pdf_import: "PDF"
           document_import: "Dokumentum"
-          sure_import: "Sure"
+          sure_import: "WillBudget"
         status:
           in_progress: Folyamatban
           uploading: Sorok feldolgozása
@@ -311,7 +311,7 @@ hu:
       import_rules: Szabályok importálása
       import_transactions: Tranzakciók importálása
       import_qif: Importálás Quickenből (QIF)
-      import_sure: Importálás Sure-ból
+      import_sure: Importálás WillBudget-ból
       import_sure_description: Teljes exportból készült .ndjson fájl
       import_file: Dokumentum importálása
       import_file_description: Mesterséges intelligenciával segített PDF-elemzés és kereshető fájlfeltöltés

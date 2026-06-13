@@ -16,7 +16,7 @@ zh-CN:
         no_api_key:
           title: API 密钥
           heading: 以程序方式访问您的账户数据
-          description: 使用安全的 API 密钥以程序方式访问您的 Sure 数据。
+          description: 使用安全的 API 密钥以程序方式访问您的 WillBudget 数据。
           what_you_can_do: 使用 API 可以做什么：
           feature_1: 以程序方式访问您的账户数据
           feature_2: 构建自定义集成和应用程序
@@ -59,7 +59,7 @@ zh-CN:
       new:
         title: 创建 API 密钥
         create_new_api_key: 创建新 API 密钥
-        subtitle: 生成一个新的 API 密钥，以便以程序方式访问您的 Sure 数据。
+        subtitle: 生成一个新的 API 密钥，以便以程序方式访问您的 WillBudget 数据。
         description: 使用描述性名称和适当的权限配置新的 API 密钥。
         name_label: API 密钥名称
         name_placeholder: 例如：我的预算应用、投资组合追踪器

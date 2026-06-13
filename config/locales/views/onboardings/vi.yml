@@ -51,16 +51,16 @@ vi:
       reduce_stress: Giảm căng thẳng hoặc lo lắng về tài chính
       submit: Tiếp theo
     trial:
-      title: Dùng thử Sure trong 45 ngày
+      title: Dùng thử WillBudget trong 45 ngày
       data_deletion: Dữ liệu sẽ bị xóa sau đó
       description_html: Bắt đầu từ hôm nay bạn có thể trải nghiệm sản phẩm.<br/>Nếu thích, hãy tự lưu trữ hoặc đóng góp để tiếp tục sử dụng tại đây.
-      try_button: Dùng thử Sure trong 45 ngày
+      try_button: Dùng thử WillBudget trong 45 ngày
       continue_trial: Tiếp tục dùng thử
       upgrade: Nâng cấp
       how_it_works: Cách hoạt động ở đây
       today: Hôm nay
-      today_description: Bạn sẽ được truy cập miễn phí Sure trong 45 ngày trên AWS của chúng tôi.
+      today_description: Bạn sẽ được truy cập miễn phí WillBudget trong 45 ngày trên AWS của chúng tôi.
       in_40_days: Sau 40 ngày (%{date})
       in_40_days_description: Chúng tôi sẽ thông báo để nhắc bạn xuất dữ liệu.
       in_45_days: Sau 45 ngày (%{date})
-      in_45_days_description: Chúng tôi xóa dữ liệu của bạn — hãy đóng góp để tiếp tục sử dụng Sure tại đây!
+      in_45_days_description: Chúng tôi xóa dữ liệu của bạn — hãy đóng góp để tiếp tục sử dụng WillBudget tại đây!

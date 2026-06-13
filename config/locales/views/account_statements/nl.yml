@@ -75,7 +75,7 @@ nl:
       difference: Verschil
       download: Downloaden
       institution_name_hint: Hint voor instelling
-      ledger_amount: Sure-grootboek
+      ledger_amount: WillBudget-grootboek
       linked_to: Gekoppeld aan %{account}.
       linking_title: Accountkoppeling
       link_suggestion: Koppelsuggestie
@@ -85,7 +85,7 @@ nl:
       period_end_on: Einde periode
       period_start_on: Begin periode
       reconciliation_title: Afstemming
-      reconciliation_unavailable: Voeg een afschriftperiode en een begin- of eindsaldo toe en zorg ervoor dat Sure een saldogeschiedenis heeft voor die datums.
+      reconciliation_unavailable: Voeg een afschriftperiode en een begin- of eindsaldo toe en zorg ervoor dat WillBudget een saldogeschiedenis heeft voor die datums.
       reject: Afwijzen
       save: Afschrift opslaan
       statement_amount: Afschrift

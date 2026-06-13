@@ -16,7 +16,7 @@ zh-TW:
         no_api_key:
           title: "API 金鑰"
           heading: "透過程式化方式存取您的帳戶資料"
-          description: "透過安全的 API 金鑰，以程式化方式存取您的 Sure 資料。"
+          description: "透過安全的 API 金鑰，以程式化方式存取您的 WillBudget 資料。"
           what_you_can_do: "您可以使用 API 執行以下操作："
           feature_1: "以程式化方式存取您的帳戶資料"
           feature_2: "建立自定義整合功能與應用程式"

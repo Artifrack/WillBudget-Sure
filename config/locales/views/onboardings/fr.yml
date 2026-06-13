@@ -51,16 +51,16 @@ fr:
       reduce_stress: Réduire le stress financier ou l'anxiété
       submit: Suivant
     trial:
-      title: Essayez Sure pendant 45 jours
+      title: Essayez WillBudget pendant 45 jours
       data_deletion: Les données seront supprimées ensuite
       description_html: À partir d'aujourd'hui, vous pouvez tester le produit en profondeur.<br/>Si vous l'aimez, hébergez-le vous-même ou contribuez pour continuer à l'utiliser ici.
-      try_button: Essayer Sure pendant 45 jours
+      try_button: Essayer WillBudget pendant 45 jours
       continue_trial: Continuer l'essai
       upgrade: Mettre à niveau
       how_it_works: Comment ça fonctionne
       today: Aujourd'hui
-      today_description: Vous aurez un accès gratuit à Sure pendant 45 jours sur notre AWS.
+      today_description: Vous aurez un accès gratuit à WillBudget pendant 45 jours sur notre AWS.
       in_40_days: Dans 40 jours (%{date})
       in_40_days_description: Nous vous notifierons pour vous rappeler d'exporter vos données.
       in_45_days: Dans 45 jours (%{date})
-      in_45_days_description: Nous supprimons vos données — contribuez pour continuer à utiliser Sure ici !
+      in_45_days_description: Nous supprimons vos données — contribuez pour continuer à utiliser WillBudget ici !

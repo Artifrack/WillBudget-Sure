@@ -54,7 +54,7 @@ hu:
           binance_public: Binance
       assistant_settings:
         title: AI-asszisztens
-        description: Válaszd ki, hogyan válaszoljon a csevegési asszisztens. A beépített mód közvetlenül a beállított LLM-szolgáltatót használja. A külső mód egy távoli AI-ügynökhöz továbbítja a kérést, amely MCP-n keresztül hozzáférhet a Sure pénzügyi eszközeihez.
+        description: Válaszd ki, hogyan válaszoljon a csevegési asszisztens. A beépített mód közvetlenül a beállított LLM-szolgáltatót használja. A külső mód egy távoli AI-ügynökhöz továbbítja a kérést, amely MCP-n keresztül hozzáférhet a WillBudget pénzügyi eszközeihez.
         type_label: Asszisztens típusa
         type_builtin: Beépített (Built-in LLM)
         type_external: Külső (távoli ügynök)

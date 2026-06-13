@@ -75,7 +75,7 @@ zh-CN:
       difference: 差额
       download: 下载
       institution_name_hint: 机构提示
-      ledger_amount: Sure 账本
+      ledger_amount: WillBudget 账本
       linked_to: 已关联到 %{account}。
       linking_title: 账户关联
       link_suggestion: 关联建议
@@ -85,7 +85,7 @@ zh-CN:
       period_end_on: 周期结束
       period_start_on: 周期开始
       reconciliation_title: 对账
-      reconciliation_unavailable: 请先添加对账单周期以及期初或期末余额，然后确保 Sure 在这些日期有余额历史。
+      reconciliation_unavailable: 请先添加对账单周期以及期初或期末余额，然后确保 WillBudget 在这些日期有余额历史。
       reject: 拒绝
       save: 保存对账单
       statement_amount: 对账单

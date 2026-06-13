@@ -98,7 +98,7 @@ de:
       add_another_brokerage: "Weiteren Broker verbinden"
       delete: "Löschen"
       setup_needed: "Konten müssen eingerichtet werden"
-      setup_description: "Einige Konten von SnapTrade müssen Sure-Konten zugeordnet werden."
+      setup_description: "Einige Konten von SnapTrade müssen WillBudget-Konten zugeordnet werden."
       setup_action: "Konten einrichten"
       setup_accounts_menu: "Konten einrichten"
       manage_connections: "Verbindungen verwalten"

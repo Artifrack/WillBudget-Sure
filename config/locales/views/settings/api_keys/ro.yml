@@ -16,7 +16,7 @@ ro:
         no_api_key:
           title: "API Key"
           heading: "Accesează datele contului tău programatic"
-          description: "Obține acces programatic la datele tale Sure cu o cheie API securizată."
+          description: "Obține acces programatic la datele tale WillBudget cu o cheie API securizată."
           what_you_can_do: "Ce poți face cu API-ul:"
           feature_1: "Accesează datele contului tău programatic"
           feature_2: "Construiește integrări și aplicații personalizate"
@@ -37,7 +37,7 @@ ro:
           never_expires: "Nu expiră niciodată"
           permissions: "Permisiuni"
           usage_instructions_title: "Cum să folosești cheia ta API"
-          usage_instructions: "Include cheia ta API în antetul X-Api-Key atunci când faci cereri către API-ul Sure:"
+          usage_instructions: "Include cheia ta API în antetul X-Api-Key atunci când faci cereri către API-ul WillBudget:"
           regenerate_key: "Creează Cheie Nouă"
           revoke_key: "Revocă Cheia"
           revoke_confirmation: "Ești sigur că vrei să revocezi această cheie API? Această acțiune nu poate fi anulată și va dezactiva imediat toate aplicațiile care folosesc această cheie."

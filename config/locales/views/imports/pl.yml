@@ -4,7 +4,7 @@ pl:
     qif_category_selections:
       show:
         title: Wybierz kategorie i tagi
-        description: Wybierz, które kategorie i tagi z pliku QIF chcesz zaimportować do Sure. Odznaczone elementy zostaną usunięte z tych transakcji.
+        description: Wybierz, które kategorie i tagi z pliku QIF chcesz zaimportować do WillBudget. Odznaczone elementy zostaną usunięte z tych transakcji.
         categories_heading: Kategorie
         categories_found:
           one: Znaleziono 1 kategorię
@@ -121,7 +121,7 @@ pl:
       rule_import: Import reguł
       pdf_import: Import PDF
       document_import: Import dokumentu
-      sure_import: Import z Sure
+      sure_import: Import z WillBudget
     steps:
       upload: Przesyłanie
       configure: Konfiguracja
@@ -150,7 +150,7 @@ pl:
           rule_import: Reguła
           pdf_import: "PDF"
           document_import: Dokument
-          sure_import: "Sure"
+          sure_import: "WillBudget"
         status:
           in_progress: W toku
           uploading: Przetwarzanie wierszy
@@ -177,7 +177,7 @@ pl:
       import_rules: Importuj reguły
       import_transactions: Importuj transakcje
       import_qif: Importuj z Quicken (QIF)
-      import_sure: Importuj z Sure
+      import_sure: Importuj z WillBudget
       import_sure_description: Pełny plik eksportu .ndjson
       import_file: Importuj dokument
       import_file_description: Analiza PDF wspierana przez AI oraz przesyłanie przeszukiwalnych plików

@@ -104,7 +104,7 @@ pl:
       add_another_brokerage: Połącz kolejne biuro maklerskie
       delete: Usuń
       setup_needed: Konta wymagają konfiguracji
-      setup_description: Niektóre konta z SnapTrade muszą zostać połączone z kontami Sure.
+      setup_description: Niektóre konta z SnapTrade muszą zostać połączone z kontami WillBudget.
       setup_action: Konfiguruj konta
       setup_accounts_menu: Skonfiguruj konta
       manage_connections: Zarządzaj połączeniami

@@ -77,7 +77,7 @@ class SureApp extends StatelessWidget {
       ],
       child: Consumer<ThemeProvider>(
           builder: (context, themeProvider, _) => MaterialApp(
-                title: 'Sure Finances',
+                title: 'WillBudget',
                 debugShowCheckedModeBanner: false,
                 navigatorObservers:
                     TelemetryService.instance.navigatorObservers,

@@ -32,7 +32,7 @@ ca:
           title: Desconnectar l'assistent extern?
         description: Tria com respon l'assistent del xat. Integrat utilitza el teu
           proveïdor d'LLM configurat directament. Extern delega en un agent d'IA remot
-          que pot retrucar a les eines financeres de Sure via MCP.
+          que pot retrucar a les eines financeres de WillBudget via MCP.
         disconnect_button: Desconnecta
         disconnect_description: Elimina la connexió a l'assistent extern i torna a
           l'assistent integrat.

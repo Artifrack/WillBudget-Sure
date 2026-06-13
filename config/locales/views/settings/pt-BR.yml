@@ -78,7 +78,7 @@ pt-BR:
           body: Tem certeza de que deseja resetar sua conta? Isso excluirá todas as suas contas, categorias, comerciantes, tags e outros dados. Esta ação não pode ser desfeita.
           title: Resetar conta?
         confirm_reset_with_sample_data:
-          body: Tem certeza de que deseja redefinir sua conta e carregar dados de exemplo? Isso excluirá seus dados existentes e os substituirá por dados de demonstração para que você possa explorar o Sure com segurança.
+          body: Tem certeza de que deseja redefinir sua conta e carregar dados de exemplo? Isso excluirá seus dados existentes e os substituirá por dados de demonstração para que você possa explorar o WillBudget com segurança.
           title: Redefinir conta e carregar dados de exemplo?
         confirm_remove_invitation:
           body: Tem certeza de que deseja remover o convite para %{email}?

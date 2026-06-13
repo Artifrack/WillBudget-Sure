@@ -104,9 +104,9 @@ de:
       disconnect_confirm: "%{name} trennen?"
       encryption_warning:
         title: Datenbankverschlüsselung ist nicht konfiguriert
-        message: Konfigurieren Sie die Active Record-Verschlüsselungsschlüssel, bevor Sie Brex-Tokens in der Produktion hinzufügen. Ohne Verschlüsselungsschlüssel speichert Sure die Brex-Anbieter-Zugangsdaten und Snapshots im Klartext, wie bei anderen Anbieterdatensätzen.
+        message: Konfigurieren Sie die Active Record-Verschlüsselungsschlüssel, bevor Sie Brex-Tokens in der Produktion hinzufügen. Ohne Verschlüsselungsschlüssel speichert WillBudget die Brex-Anbieter-Zugangsdaten und Snapshots im Klartext, wie bei anderen Anbieterdatensätzen.
       instructions:
-        copy_token_html: "Kopieren Sie das Token und fügen Sie es unten als benannte Verbindung hinzu. Sure speichert das Token nur zur Synchronisierung dieser Familie."
+        copy_token_html: "Kopieren Sie das Token und fügen Sie es unten als benannte Verbindung hinzu. WillBudget speichert das Token nur zur Synchronisierung dieser Familie."
         create_token: "Erstellen Sie ein API-Token mit diesen schreibgeschützten Scopes: accounts.cash.readonly, accounts.card.readonly, transactions.cash.readonly, transactions.card.readonly"
         open_tokens: Gehen Sie zu den Brex-Entwickler-/API-Token-Einstellungen für das Unternehmen, das Sie verbinden möchten
         sign_in_html: "Besuchen Sie %{link} und melden Sie sich bei dem Konto an, das Sie verbinden möchten"

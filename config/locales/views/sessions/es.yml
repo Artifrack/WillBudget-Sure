@@ -22,7 +22,7 @@ es:
       forgot_password: ¿Has olvidado tu contraseña?
       password: Contraseña
       submit: Iniciar sesión
-      title: Sure
+      title: WillBudget
       password_placeholder: Introduce tu contraseña
       openid_connect: Iniciar sesión con OpenID Connect
       oidc: Iniciar sesión con OpenID Connect

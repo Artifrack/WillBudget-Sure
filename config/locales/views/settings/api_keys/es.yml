@@ -16,7 +16,7 @@ es:
         no_api_key:
           title: "Clave API"
           heading: "Accede a los datos de tu cuenta de forma programática"
-          description: "Obtén acceso programático a tus datos de Sure con una clave API segura."
+          description: "Obtén acceso programático a tus datos de WillBudget con una clave API segura."
           what_you_can_do: "Qué puedes hacer con la API:"
           feature_1: "Accede a los datos de tu cuenta de forma programática"
           feature_2: "Crea integraciones y aplicaciones personalizadas"

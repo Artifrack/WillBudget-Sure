@@ -46,16 +46,16 @@ tr:
       reduce_stress: Finansal stresi veya kaygıyı azaltmak
       submit: Sonraki
     trial:
-      title: Sure'u 45 gün deneyin
+      title: WillBudget'u 45 gün deneyin
       data_deletion: Veriler daha sonra silinecek
       description_html: Bugünden itibaren ürünü detaylı test edebilirsiniz.<br/>Beğenirseniz, kendiniz barındırın veya burada kullanmaya devam etmek için katkıda bulunun.
-      try_button: Sure'u 45 gün dene
+      try_button: WillBudget'u 45 gün dene
       continue_trial: Denemeye devam et
       upgrade: Yükselt
       how_it_works: Nasıl çalışır
       today: Bugün
-      today_description: AWS'mizde Sure'a 45 gün ücretsiz erişim elde edeceksiniz.
+      today_description: AWS'mizde WillBudget'a 45 gün ücretsiz erişim elde edeceksiniz.
       in_40_days: 40 gün içinde (%{date})
       in_40_days_description: Verilerinizi dışa aktarmanızı hatırlatmak için sizi bilgilendireceğiz.
       in_45_days: 45 gün içinde (%{date})
-      in_45_days_description: Verilerinizi siliyoruz — Sure'u burada kullanmaya devam etmek için katkıda bulunun!
+      in_45_days_description: Verilerinizi siliyoruz — WillBudget'u burada kullanmaya devam etmek için katkıda bulunun!

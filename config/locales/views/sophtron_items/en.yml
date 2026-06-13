@@ -260,7 +260,7 @@ en:
       setup_instructions:
         step_1_html: 'Visit <a href="%{url}" target="_blank" rel="noopener noreferrer" class="link">Sophtron</a> to obtain your API credentials'
         step_2: "Copy your User ID and Access Key from your Sophtron account settings"
-        step_3: "Paste the credentials below and click Save; Sure will create or reuse your Sophtron Customer ID automatically"
+        step_3: "Paste the credentials below and click Save; WillBudget will create or reuse your Sophtron Customer ID automatically"
       field_descriptions_title: "Field descriptions:"
       field_descriptions:
         user_id_html: "<strong>User ID:</strong> Your Sophtron User ID credential"

@@ -3,20 +3,20 @@ ca:
   subscriptions:
     create:
       trial_already_used: Ja has començat o completat una prova. Actualitza per continuar.
-      welcome: Benvingut/da a Sure!
+      welcome: Benvingut/da a WillBudget!
     self_hosted_alert: "%{product_name} no està disponible en mode autoallotjat."
     success:
       contribution_failed: Alguna cosa ha anat malament en processar la teva contribució.
         Torna-ho a provar.
-      welcome_with_contribution: Benvingut/da a Sure! Agraïm la teva contribució.
+      welcome_with_contribution: Benvingut/da a WillBudget! Agraïm la teva contribució.
     upgrade:
       account_settings: Configuració del compte
       already_contributing: Ja hi estàs contribuint. Gràcies!
-      contribute_and_support_sure: Contribueix i dona suport a Sure
+      contribute_and_support_sure: Contribueix i dona suport a WillBudget
       cta: Continua donant suport al desenvolupament d'aquest codi!
       header:
         support: Dona suport a
-        sure: Sure
+        sure: WillBudget
         today: avui
       page_title: Actualitza
       redirect_to_stripe: Al pas següent, se't redirigirà a Stripe, que gestiona les

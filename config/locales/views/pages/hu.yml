@@ -12,14 +12,14 @@ hu:
       not_authorized: "Az intro csak vendégfelhasználók számára érhető el."
       welcome: "Üdvözöllek!"
       coming_soon: Az intro hamarosan elérhető
-      description: "Gazdagabb bevezetési élményt fejlesztünk, hogy megismerjük a céljaidat, mérföldköveidet és mindennapi igényeidet. Addig is menj a csevegőoldalsávba, indíts egy beszélgetést a Sure-ral, és mesélj a pénzügyi útjaidról."
+      description: "Gazdagabb bevezetési élményt fejlesztünk, hogy megismerjük a céljaidat, mérföldköveidet és mindennapi igényeidet. Addig is menj a csevegőoldalsávba, indíts egy beszélgetést a WillBudget-ral, és mesélj a pénzügyi útjaidról."
       start_chatting: Csevegés indítása
     redis_configuration_error:
-      page_title: Redis konfiguráció szükséges – Sure
+      page_title: Redis konfiguráció szükséges – WillBudget
       heading: Redis konfiguráció szükséges
-      subheading: Az önállóan üzemeltetett Sure telepítésedhez megfelelően konfigurált Redis szükséges.
+      subheading: Az önállóan üzemeltetett WillBudget telepítésedhez megfelelően konfigurált Redis szükséges.
       why_required_title: Miért szükséges a Redis?
-      why_required_body: A Sure Redis-t használ a Sidekiq háttérfeladatokhoz, például a számlaadatok szinkronizálásához, importálások feldolgozásához és más háttérműveletekhez, amelyek naprakészen tartják a pénzügyi adataidat.
+      why_required_body: A WillBudget Redis-t használ a Sidekiq háttérfeladatokhoz, például a számlaadatok szinkronizálásához, importálások feldolgozásához és más háttérműveletekhez, amelyek naprakészen tartják a pénzügyi adataidat.
       view_setup_guide: Beállítási útmutató megtekintése
       setup_guide_hint: Kövesd az átfogó Docker beállítási útmutatónkat a Redis konfigurálásához
       refresh_hint: "Ha konfigurálta a Redis-t, frissítsd ezt az oldalt a folytatáshoz."

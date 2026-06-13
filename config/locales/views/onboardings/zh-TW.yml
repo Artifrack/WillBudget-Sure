@@ -46,16 +46,16 @@ zh-TW:
       reduce_stress: 減輕財務壓力或焦慮
       submit: 下一步
     trial:
-      title: 免費試用 Sure 45 天
+      title: 免費試用 WillBudget 45 天
       data_deletion: 屆時資料將被刪除
       description_html: 從今天開始，您可以深入體驗產品。<br/>如果您喜歡，可以自行託管或貢獻以繼續在這裡使用。
-      try_button: 試用 Sure 45 天
+      try_button: 試用 WillBudget 45 天
       continue_trial: 繼續試用
       upgrade: 升級
       how_it_works: 運作方式
       today: 今天
-      today_description: 您將在我們的 AWS 上獲得 45 天免費存取 Sure 的權限。
+      today_description: 您將在我們的 AWS 上獲得 45 天免費存取 WillBudget 的權限。
       in_40_days: 40 天後（%{date}）
       in_40_days_description: 我們會通知您提醒匯出資料。
       in_45_days: 45 天後（%{date}）
-      in_45_days_description: 我們將刪除您的資料 — 貢獻以繼續在這裡使用 Sure！
+      in_45_days_description: 我們將刪除您的資料 — 貢獻以繼續在這裡使用 WillBudget！

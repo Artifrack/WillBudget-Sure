@@ -297,7 +297,7 @@ ca:
           class="link">Sophtron</a> per obtenir les teves credencials API
         step_2: Copia el teu ID d'usuari i clau d'accés des de la configuració del
           teu compte Sophtron
-        step_3: Enganxa les credencials a continuació i fes clic a Desa; Sure crearà
+        step_3: Enganxa les credencials a continuació i fes clic a Desa; WillBudget crearà
           o reutilitzarà el teu ID de client de Sophtron automàticament
       setup_instructions_title: 'Instruccions de configuració:'
       update: Actualitza la configuració

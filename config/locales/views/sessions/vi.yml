@@ -24,7 +24,7 @@ vi:
       forgot_password: Quên mật khẩu?
       password: Mật khẩu
       submit: Đăng nhập
-      title: Sure
+      title: WillBudget
       password_placeholder: Nhập mật khẩu của bạn
       openid_connect: Đăng nhập với OpenID Connect
       oidc: Đăng nhập với OpenID Connect

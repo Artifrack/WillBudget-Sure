@@ -1,7 +1,7 @@
 ---
 hu:
   password_resets:
-    disabled: A jelszó-visszaállítás a Sure-n keresztül le van tiltva. Kérjük, állítsd vissza a jelszavadat az identitásszolgáltatódon keresztül.
+    disabled: A jelszó-visszaállítás a WillBudget-n keresztül le van tiltva. Kérjük, állítsd vissza a jelszavadat az identitásszolgáltatódon keresztül.
     sso_only_user: A fiókod egyszeri bejelentkezést használ hitelesítéshez. Kérjük, lépj kapcsolatba a rendszergazdával a hitelesítési adatok kezeléséhez.
     edit:
       title: Jelszó visszaállítása

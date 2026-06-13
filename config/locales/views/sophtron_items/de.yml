@@ -260,7 +260,7 @@ de:
       setup_instructions:
         step_1_html: 'Besuchen Sie <a href="%{url}" target="_blank" rel="noopener noreferrer" class="link">Sophtron</a>, um Ihre API-Zugangsdaten zu erhalten'
         step_2: "Kopieren Sie Ihre Benutzer-ID und Ihren Zugriffsschlüssel aus Ihren Sophtron-Kontoeinstellungen"
-        step_3: "Fügen Sie die Zugangsdaten unten ein und klicken Sie auf Speichern; Sure erstellt oder verwendet Ihre Sophtron-Kunden-ID automatisch"
+        step_3: "Fügen Sie die Zugangsdaten unten ein und klicken Sie auf Speichern; WillBudget erstellt oder verwendet Ihre Sophtron-Kunden-ID automatisch"
       field_descriptions_title: "Feldbeschreibungen:"
       field_descriptions:
         user_id_html: "<strong>Benutzer-ID:</strong> Ihre Sophtron-Benutzer-ID-Zugangsdaten"

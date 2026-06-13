@@ -63,9 +63,9 @@ ca:
       in_40_days_description: T'avisarem perquè recordis exportar les teves dades.
       in_45_days: D'aquí 45 dies (%{date})
       in_45_days_description: Eliminarem les teves dades — contribueix per continuar
-        fent servir Sure aquí!
-      title: Prova Sure durant 45 dies
+        fent servir WillBudget aquí!
+      title: Prova WillBudget durant 45 dies
       today: Avui
-      today_description: Tindràs accés gratuït a Sure durant 45 dies al nostre AWS.
-      try_button: Prova Sure durant 45 dies
+      today_description: Tindràs accés gratuït a WillBudget durant 45 dies al nostre AWS.
+      try_button: Prova WillBudget durant 45 dies
       upgrade: Actualitza

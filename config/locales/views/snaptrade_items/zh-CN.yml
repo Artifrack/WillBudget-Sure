@@ -102,7 +102,7 @@ zh-CN:
       add_another_brokerage: 再连接一个券商
       delete: 删除
       setup_needed: 账户需要设置
-      setup_description: SnapTrade 的部分账户需要关联到 Sure 账户。
+      setup_description: SnapTrade 的部分账户需要关联到 WillBudget 账户。
       setup_action: 设置账户
       setup_accounts_menu: 设置账户
       manage_connections: 管理连接

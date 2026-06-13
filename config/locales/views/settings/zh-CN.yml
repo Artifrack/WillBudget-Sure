@@ -171,7 +171,7 @@ zh-CN:
           body: 确定要重置您的账户吗？这将删除您的所有账户、分类、商户、标签和其他数据。此操作无法撤销。
           title: 重置账户？
         confirm_reset_with_sample_data:
-          body: 确定要重置账户并加载示例数据吗？这将删除现有数据并替换为演示数据，方便您安全体验 Sure。
+          body: 确定要重置账户并加载示例数据吗？这将删除现有数据并替换为演示数据，方便您安全体验 WillBudget。
           title: 重置账户并加载示例数据？
         confirm_remove_invitation:
           body: 确定要移除 %{email} 的邀请吗？
@@ -273,7 +273,7 @@ zh-CN:
       not_authorized: 未获授权
       bank_sync:
         page_title: 银行同步
-        lede: 连接外部账户，让交易、余额和持仓自动流入 Sure。
+        lede: 连接外部账户，让交易、余额和持仓自动流入 WillBudget。
       status:
         ok: 已连接
         warn: 需要处理
@@ -282,7 +282,7 @@ zh-CN:
       maturity:
         beta: Beta
         alpha: Alpha
-      drawer_trust_statement: 只读访问。Sure 绝不会移动您的资金，且您的凭证会被加密存储。
+      drawer_trust_statement: 只读访问。WillBudget 绝不会移动您的资金，且您的凭证会被加密存储。
       setup_steps:
         eyebrow: 设置
         need_help: 需要帮助？
@@ -361,7 +361,7 @@ zh-CN:
         step2: 创建一个仅启用读取权限的新 API key
         step3: 将您的 API Key 和 Secret 粘贴到下方
         no_withdraw_title: 仅限只读密钥
-        no_withdraw_body: 创建 Binance API key 时不要启用提币权限。Sure 只需要读取权限。
+        no_withdraw_body: 创建 Binance API key 时不要启用提币权限。WillBudget 只需要读取权限。
         ip_hint_title: 需要 IP 白名单
         ip_hint_body: 将应用服务器的出口 IP 添加到 Binance API Key 白名单：
         ip_hint_contact_admin: 请联系您的管理员获取应用服务器的出口 IP 地址。
@@ -378,7 +378,7 @@ zh-CN:
         step2: 仅创建一个具备 Query Funds 和 Query Closed Orders & Trades 权限的 API key。
         step3: 将 API key 和私钥粘贴到下方。
         read_only_title: 仅限只读交易所同步
-        read_only_body: 不要授予交易、撤单、提币、导出、账本、Earn、质押或转账权限。Sure 只导入余额、持仓和现货成交。
+        read_only_body: 不要授予交易、撤单、提币、导出、账本、Earn、质押或转账权限。WillBudget 只导入余额、持仓和现货成交。
         default_connection_name: Kraken
         add_connection: 添加 Kraken 连接
         update_connection: 更新连接
@@ -455,7 +455,7 @@ zh-CN:
         steps:
           step_1: 在您的 IBKR Client Portal 中，前往“Performance & Reports” > “Flex Queries”。
           step_2: 在“Activity Flex Query”区域点击“+”图标创建一个新查询。
-          step_3: 为查询命名（例如“Sure Sync”），然后查看下方的 Flex Query 详情并启用列出的部分、字段和配置选项。
+          step_3: 为查询命名（例如“WillBudget Sync”），然后查看下方的 Flex Query 详情并启用列出的部分、字段和配置选项。
           step_4: 保存查询，记下您的“Query ID”，然后使用“Flex Web Service Configuration”区域中的齿轮图标生成访问 Token。
           step_5: 将您的 Query ID 和 Token 粘贴到下方，保存配置，然后前往账户以链接发现的 IBKR 账户。
         flex_query_details:
@@ -491,7 +491,7 @@ zh-CN:
           date_time_separator: Date/Time Separator：；（分号）
           profit_and_loss: Profit and Loss：默认
           all_other_options: 其他所有配置选项：“No”
-        report_window_note: IBKR Flex reports 受您在 IBKR 中配置的查询窗口限制。Sure 将从此报告导入完整的当前持仓，以及最多最近 365 天的活动。
+        report_window_note: IBKR Flex reports 受您在 IBKR 中配置的查询窗口限制。WillBudget 将从此报告导入完整的当前持仓，以及最多最近 365 天的活动。
         sync: 同步
         disconnect_confirm: 断开 Interactive Brokers？
         query_id_label: Query ID

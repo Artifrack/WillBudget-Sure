@@ -104,9 +104,9 @@ en:
       disconnect_confirm: "Disconnect %{name}?"
       encryption_warning:
         title: Database encryption is not configured
-        message: Configure Active Record encryption keys before adding Brex tokens in production. Without encryption keys, Sure stores Brex provider credentials and snapshots in plaintext like other provider records.
+        message: Configure Active Record encryption keys before adding Brex tokens in production. Without encryption keys, WillBudget stores Brex provider credentials and snapshots in plaintext like other provider records.
       instructions:
-        copy_token_html: "Copy the token and add it as a named connection below. Sure stores the token only for syncing this family."
+        copy_token_html: "Copy the token and add it as a named connection below. WillBudget stores the token only for syncing this family."
         create_token: "Create an API token with these read-only scopes: accounts.cash.readonly, accounts.card.readonly, transactions.cash.readonly, transactions.card.readonly"
         open_tokens: Go to the Brex developer/API token settings for the company you want to connect
         sign_in_html: "Visit %{link} and log in to the account you want to connect"

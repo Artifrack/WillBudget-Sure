@@ -3,11 +3,11 @@ pl:
   subscriptions:
     self_hosted_alert: "%{product_name} nie jest dostępny w trybie self-hosted."
     upgrade:
-      contribute_and_support_sure: "Wspieraj i rozwijaj Sure"
+      contribute_and_support_sure: "Wspieraj i rozwijaj WillBudget"
       cta: "Wesprzyj dalszy rozwój tej bazy kodu!"
       header:
         support: "Wesprzyj"
-        sure: "Sure"
+        sure: "WillBudget"
         today: "już dziś"
       redirect_to_stripe: "W kolejnym kroku nastąpi przekierowanie do Stripe, który obsługuje płatności kartą."
       trialing:

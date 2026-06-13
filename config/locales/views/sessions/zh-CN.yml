@@ -24,7 +24,7 @@ zh-CN:
       forgot_password: 忘记密码？
       password: 密码
       submit: 登录
-      title: Sure
+      title: WillBudget
       password_placeholder: 输入您的密码
       openid_connect: 使用 OpenID Connect 登录
       oidc: 使用 OpenID Connect 登录

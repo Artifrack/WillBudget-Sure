@@ -102,7 +102,7 @@ en:
         account_label: Account
         name_label: Name
         note_label: Note
-        no_security_provider_warning: The security prices provider is not configured.  Your trade imports will work, but Sure will not backfill price history.  Please go to your settings to configure this.
+        no_security_provider_warning: The security prices provider is not configured.  Your trade imports will work, but WillBudget will not backfill price history.  Please go to your settings to configure this.
         date_format_label: Date format
         apply_configuration: Apply configuration
       category_import:
@@ -314,7 +314,7 @@ en:
       merchant_import: "Merchant import"
       pdf_import: "PDF import"
       document_import: "Document import"
-      sure_import: "Sure import"
+      sure_import: "WillBudget import"
     steps:
       upload: Upload
       configure: Configure
@@ -348,7 +348,7 @@ en:
           merchant_import: "Merchant"
           pdf_import: "PDF"
           document_import: "Document"
-          sure_import: "Sure"
+          sure_import: "WillBudget"
         status:
           in_progress: In progress
           uploading: Processing rows
@@ -377,7 +377,7 @@ en:
       import_rules: Import rules
       import_transactions: Import transactions
       import_qif: Import from Quicken (QIF)
-      import_sure: Import from Sure
+      import_sure: Import from WillBudget
       import_sure_description: Full-export .ndjson file
       import_file: Import document
       import_file_description: AI-powered analysis for PDFs and searchable file upload

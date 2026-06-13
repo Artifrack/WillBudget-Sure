@@ -77,7 +77,7 @@ pl:
           body: Czy na pewno chcesz zresetować swoje konto? Spowoduje to usunięcie wszystkich kont, kategorii, sprzedawców, tagów i innych danych. Tej akcji nie można cofnąć.
           title: Zresetować konto?
         confirm_reset_with_sample_data:
-          body: Czy na pewno chcesz zresetować swoje konto i załadować przykładowe dane? Spowoduje to usunięcie istniejących danych i zastąpienie ich danymi demonstracyjnymi, aby bezpiecznie poznawać Sure.
+          body: Czy na pewno chcesz zresetować swoje konto i załadować przykładowe dane? Spowoduje to usunięcie istniejących danych i zastąpienie ich danymi demonstracyjnymi, aby bezpiecznie poznawać WillBudget.
           title: Zresetować konto i załadować przykładowe dane?
         confirm_remove_invitation:
           body: Czy na pewno chcesz usunąć zaproszenie dla %{email}?

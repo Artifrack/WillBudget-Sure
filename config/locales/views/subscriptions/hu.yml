@@ -7,18 +7,18 @@ hu:
       page_title: "Frissítés"
       account_settings: "Fiókbeállítások"
       sign_out: "Kijelentkezés"
-      contribute_and_support_sure: "Járulj hozzá és támogasd a Sure-t"
+      contribute_and_support_sure: "Járulj hozzá és támogasd a WillBudget-t"
       cta: "Folytasd ennek a kódbázisnak a fejlesztésének támogatását!"
       header:
         support: "Támogasd"
-        sure: "Sure"
+        sure: "WillBudget"
         today: "ma"
       redirect_to_stripe: "A következő lépésben átirányítunk a Stripe-ra, amely kezeli a bankkártyás fizetéseket."
       trialing: "Az adataid %{days} nap múlva törlésre kerülnek"
       trial_over: "A próbaidőszakod lejárt"
     create:
-      welcome: "Üdvözlünk a Sure-ban!"
+      welcome: "Üdvözlünk a WillBudget-ban!"
       trial_already_used: "Már elindítottál vagy befejezted egy próbaidőszakot. A folytatáshoz kérlek frissítsd az előfizetésedet."
     success:
-      welcome_with_contribution: "Üdvözlünk a Sure-ban! Köszönjük a hozzájárulásodat."
+      welcome_with_contribution: "Üdvözlünk a WillBudget-ban! Köszönjük a hozzájárulásodat."
       contribution_failed: "Hiba történt a hozzájárulás feldolgozása során. Kérlek próbáld újra."

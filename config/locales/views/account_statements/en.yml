@@ -75,7 +75,7 @@ en:
       difference: Difference
       download: Download
       institution_name_hint: Institution hint
-      ledger_amount: Sure ledger
+      ledger_amount: WillBudget ledger
       linked_to: Linked to %{account}.
       linking_title: Account link
       link_suggestion: Link suggestion
@@ -85,7 +85,7 @@ en:
       period_end_on: Period end
       period_start_on: Period start
       reconciliation_title: Reconciliation
-      reconciliation_unavailable: Add a statement period and opening or closing balance, then make sure Sure has balance history for those dates.
+      reconciliation_unavailable: Add a statement period and opening or closing balance, then make sure WillBudget has balance history for those dates.
       reject: Reject
       save: Save statement
       statement_amount: Statement

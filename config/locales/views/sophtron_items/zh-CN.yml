@@ -260,7 +260,7 @@ zh-CN:
       setup_instructions:
         step_1_html: '访问 <a href="%{url}" target="_blank" rel="noopener noreferrer" class="link">Sophtron</a> 获取您的 API 凭据'
         step_2: "从 Sophtron 账户设置中复制您的 User ID 和 Access Key"
-        step_3: "将凭据粘贴到下方并点击保存；Sure 会自动创建或复用您的 Sophtron Customer ID"
+        step_3: "将凭据粘贴到下方并点击保存；WillBudget 会自动创建或复用您的 Sophtron Customer ID"
       field_descriptions_title: "字段说明："
       field_descriptions:
         user_id_html: "<strong>User ID：</strong>您的 Sophtron User ID 凭据"

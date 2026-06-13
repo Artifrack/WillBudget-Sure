@@ -19,7 +19,7 @@ hu:
       setup_accounts: Számlák beállítása
       delete: Törlés
       accounts_need_setup: A számlák beállítást igényelnek
-      accounts_need_setup_description: Az IBKR-ből importált néhány számlát össze kell kapcsolni a Sure-számlákkal.
+      accounts_need_setup_description: Az IBKR-ből importált néhány számlát össze kell kapcsolni a WillBudget-számlákkal.
       no_accounts_discovered: Még nem találhatók IBKR-számlák.
       no_accounts_discovered_description: Futtass egy szinkronizálást a Flex-lekérdezés konfigurálása után a számlák felderítéséhez.
     setup_accounts:
@@ -36,7 +36,7 @@ hu:
       status:
         fetching_accounts: Számlák lekérése az Interactive Brokers-től...
         no_accounts_found_title: Nem található számla.
-        no_accounts_found_description: A Sure nem talált IBKR-számlákat a legutóbbi Flex-jelentésben.
+        no_accounts_found_description: A WillBudget nem talált IBKR-számlákat a legutóbbi Flex-jelentésben.
       available_accounts:
         title: Elérhető számlák
         account_type_investment: Befektetés

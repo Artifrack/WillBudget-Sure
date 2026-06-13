@@ -172,7 +172,7 @@ vi:
           body: Bạn có chắc muốn đặt lại tài khoản? Thao tác này sẽ xóa tất cả tài khoản, danh mục, nhà cung cấp, nhãn và dữ liệu khác. Không thể hoàn tác.
           title: Đặt lại tài khoản?
         confirm_reset_with_sample_data:
-          body: Bạn có chắc muốn đặt lại tài khoản và tải dữ liệu mẫu? Thao tác này sẽ xóa dữ liệu hiện tại và thay thế bằng dữ liệu demo để bạn khám phá Sure an toàn.
+          body: Bạn có chắc muốn đặt lại tài khoản và tải dữ liệu mẫu? Thao tác này sẽ xóa dữ liệu hiện tại và thay thế bằng dữ liệu demo để bạn khám phá WillBudget an toàn.
           title: Đặt lại tài khoản và tải dữ liệu mẫu?
         confirm_remove_invitation:
           body: Bạn có chắc muốn xóa lời mời cho %{email}?
@@ -274,7 +274,7 @@ vi:
       not_authorized: Không được phép
       bank_sync:
         page_title: Đồng bộ ngân hàng
-        lede: Kết nối tài khoản bên ngoài để giao dịch, số dư và danh mục nắm giữ tự động đồng bộ vào Sure.
+        lede: Kết nối tài khoản bên ngoài để giao dịch, số dư và danh mục nắm giữ tự động đồng bộ vào WillBudget.
       status:
         ok: Đã kết nối
         warn: Cần hành động
@@ -283,7 +283,7 @@ vi:
       maturity:
         beta: Beta
         alpha: Alpha
-      drawer_trust_statement: "Chỉ đọc. Sure không bao giờ có thể chuyển tiền, và thông tin đăng nhập của bạn được lưu trữ mã hóa."
+      drawer_trust_statement: "Chỉ đọc. WillBudget không bao giờ có thể chuyển tiền, và thông tin đăng nhập của bạn được lưu trữ mã hóa."
       setup_steps:
         eyebrow: Thiết lập
         need_help: "Cần trợ giúp?"
@@ -362,7 +362,7 @@ vi:
         step2: "Tạo khóa API mới chỉ với quyền Bật Đọc"
         step3: "Dán Khóa API và Bí mật vào bên dưới"
         no_withdraw_title: "Chỉ khóa chỉ đọc"
-        no_withdraw_body: "Không bật quyền rút tiền khi tạo khóa API Binance. Sure chỉ cần quyền đọc."
+        no_withdraw_body: "Không bật quyền rút tiền khi tạo khóa API Binance. WillBudget chỉ cần quyền đọc."
         ip_hint_title: "Yêu cầu danh sách trắng IP"
         ip_hint_body: "Thêm IP đầu ra của máy chủ ứng dụng vào danh sách trắng Khóa API Binance:"
         ip_hint_contact_admin: "Liên hệ quản trị viên để lấy địa chỉ IP đầu ra của máy chủ ứng dụng."
@@ -382,7 +382,7 @@ vi:
         step2: "Tạo khóa API chỉ với Truy vấn Quỹ và Truy vấn Lệnh & Giao dịch Đã Đóng."
         step3: "Dán khóa API và khóa riêng vào bên dưới."
         read_only_title: "Chỉ đồng bộ sàn giao dịch chỉ đọc"
-        read_only_body: "Không cấp quyền giao dịch, hủy, rút tiền, xuất, sổ cái, Earn, đặt cược hoặc chuyển. Sure chỉ nhập số dư, danh mục nắm giữ và giao dịch giao ngay."
+        read_only_body: "Không cấp quyền giao dịch, hủy, rút tiền, xuất, sổ cái, Earn, đặt cược hoặc chuyển. WillBudget chỉ nhập số dư, danh mục nắm giữ và giao dịch giao ngay."
         default_connection_name: Kraken
         add_connection: Thêm kết nối Kraken
         update_connection: Cập nhật kết nối
@@ -459,7 +459,7 @@ vi:
         steps:
           step_1: 'Trong Client Portal IBKR, điều hướng đến "Hiệu suất & Báo cáo" > "Flex Queries".'
           step_2: 'Nhấn biểu tượng "+" trong phần "Activity Flex Query" để tạo truy vấn mới.'
-          step_3: 'Đặt tên truy vấn (ví dụ: "Sure Sync"), sau đó xem chi tiết Flex Query bên dưới và bật các phần, trường và tùy chọn cấu hình được liệt kê.'
+          step_3: 'Đặt tên truy vấn (ví dụ: "WillBudget Sync"), sau đó xem chi tiết Flex Query bên dưới và bật các phần, trường và tùy chọn cấu hình được liệt kê.'
           step_4: 'Lưu truy vấn, ghi chú "Query ID", rồi dùng biểu tượng bánh răng trong phần "Flex Web Service Configuration" để tạo Token truy cập.'
           step_5: "Dán Query ID và Token vào bên dưới, lưu cấu hình, rồi vào Tài khoản để liên kết các tài khoản IBKR đã phát hiện."
         flex_query_details:
@@ -495,7 +495,7 @@ vi:
           date_time_separator: "Dấu phân cách ngày/giờ: ; (chấm phẩy)"
           profit_and_loss: "Lãi và lỗ: Mặc định"
           all_other_options: 'Tất cả tùy chọn cấu hình khác: "Không"'
-        report_window_note: "Báo cáo IBKR Flex bị giới hạn trong cửa sổ truy vấn bạn cấu hình trong IBKR. Sure sẽ nhập toàn bộ danh mục nắm giữ hiện tại cộng với tối đa 365 ngày hoạt động gần nhất từ báo cáo này."
+        report_window_note: "Báo cáo IBKR Flex bị giới hạn trong cửa sổ truy vấn bạn cấu hình trong IBKR. WillBudget sẽ nhập toàn bộ danh mục nắm giữ hiện tại cộng với tối đa 365 ngày hoạt động gần nhất từ báo cáo này."
         sync: Đồng bộ
         disconnect_confirm: Ngắt kết nối Interactive Brokers?
         query_id_label: Query ID

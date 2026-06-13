@@ -75,7 +75,7 @@ de:
       difference: Differenz
       download: Herunterladen
       institution_name_hint: Hinweis zum Institut
-      ledger_amount: Sure-Buchung
+      ledger_amount: WillBudget-Buchung
       linked_to: Verknüpft mit %{account}.
       linking_title: Kontoverknüpfung
       link_suggestion: Verknüpfungsvorschlag
@@ -85,7 +85,7 @@ de:
       period_end_on: Ende des Zeitraums
       period_start_on: Beginn des Zeitraums
       reconciliation_title: Abgleich
-      reconciliation_unavailable: Fügen Sie einen Kontoauszugszeitraum und einen Anfangs- oder Schlusssaldo hinzu und stellen Sie sicher, dass Sure für diese Daten einen Saldoverlauf hat.
+      reconciliation_unavailable: Fügen Sie einen Kontoauszugszeitraum und einen Anfangs- oder Schlusssaldo hinzu und stellen Sie sicher, dass WillBudget für diese Daten einen Saldoverlauf hat.
       reject: Ablehnen
       save: Kontoauszug speichern
       statement_amount: Kontoauszug

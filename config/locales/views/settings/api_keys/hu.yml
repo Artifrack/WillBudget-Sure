@@ -23,7 +23,7 @@ hu:
         no_api_key:
           title: "API-kulcs"
           heading: "Fiókadatok elérése API-n keresztül"
-          description: "Szerezz programozható hozzáférést a Sure-adataidhoz egy biztonságos API-kulccsal."
+          description: "Szerezz programozható hozzáférést a WillBudget-adataidhoz egy biztonságos API-kulccsal."
           what_you_can_do: "Mit tehetsz az API-val:"
           feature_1: "Fiókadatok elérése API-n keresztül"
           feature_2: "Egyéni integrációk és alkalmazások készítése"
@@ -66,7 +66,7 @@ hu:
       new:
         title: "API-kulcs létrehozása"
         create_new_api_key: "Új API-kulcs létrehozása"
-        subtitle: "Generálj új API-kulcsot a Sure-adataid programozható eléréséhez."
+        subtitle: "Generálj új API-kulcsot a WillBudget-adataid programozható eléréséhez."
         description: "Konfiguráld az új API-kulcsodat leíró névvel és megfelelő jogosultságokkal."
         name_label: "API-kulcs neve"
         name_placeholder: "pl.: Éles alkalmazás, Elemzési irányítópult"

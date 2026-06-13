@@ -16,7 +16,7 @@ de:
         no_api_key:
           title: API-Schlüssel
           heading: Greife programmatisch auf deine Kontodaten zu
-          description: Erhalte programmatischen Zugriff auf deine Sure-Daten mit einem sicheren API-Schlüssel.
+          description: Erhalte programmatischen Zugriff auf deine WillBudget-Daten mit einem sicheren API-Schlüssel.
           what_you_can_do: "Was du mit der API tun kannst:"
           feature_1: Greife programmatisch auf deine Kontodaten zu.
           feature_2: Erstelle eigene Integrationen und Anwendungen.
@@ -37,7 +37,7 @@ de:
           never_expires: Läuft nie ab
           permissions: Berechtigungen
           usage_instructions_title: Verwendung deines API-Schlüssels
-          usage_instructions: "Füge deinen API-Schlüssel im X-Api-Key-Header ein, wenn du Anfragen an die Sure-API sendest:"
+          usage_instructions: "Füge deinen API-Schlüssel im X-Api-Key-Header ein, wenn du Anfragen an die WillBudget-API sendest:"
           regenerate_key: Neuen Schlüssel erstellen
           revoke_key: Schlüssel widerrufen
           revoke_confirmation: Bist du sicher, dass du diesen API-Schlüssel widerrufen möchtest? Diese Aktion kann nicht rückgängig gemacht werden und deaktiviert sofort alle Anwendungen, die diesen Schlüssel verwenden.

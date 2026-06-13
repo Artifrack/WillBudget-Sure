@@ -75,7 +75,7 @@ vi:
       difference: Chênh lệch
       download: Tải xuống
       institution_name_hint: Gợi ý tổ chức
-      ledger_amount: Sổ cái Sure
+      ledger_amount: Sổ cái WillBudget
       linked_to: Đã liên kết với %{account}.
       linking_title: Liên kết tài khoản
       link_suggestion: Gợi ý liên kết
@@ -85,7 +85,7 @@ vi:
       period_end_on: Kết thúc kỳ
       period_start_on: Bắt đầu kỳ
       reconciliation_title: Đối soát
-      reconciliation_unavailable: Thêm kỳ sao kê và số dư đầu hoặc cuối kỳ, sau đó đảm bảo Sure có lịch sử số dư cho các ngày đó.
+      reconciliation_unavailable: Thêm kỳ sao kê và số dư đầu hoặc cuối kỳ, sau đó đảm bảo WillBudget có lịch sử số dư cho các ngày đó.
       reject: Từ chối
       save: Lưu sao kê
       statement_amount: Sao kê

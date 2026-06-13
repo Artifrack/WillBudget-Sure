@@ -77,7 +77,7 @@ ca:
       difference: Diferència
       download: Descarrega
       institution_name_hint: Pista de la institució
-      ledger_amount: Llibre de Sure
+      ledger_amount: Llibre de WillBudget
       link_suggestion: Suggeriment d'enllaç
       linked_to: Enllaçat a %{account}.
       linking_title: Enllaç del compte
@@ -88,7 +88,7 @@ ca:
       period_start_on: Inici del període
       reconciliation_title: Conciliació
       reconciliation_unavailable: Afegeix un període d'extracte i un saldo inicial
-        o final, i comprova que Sure tingui historial de saldos per a aquestes dates.
+        o final, i comprova que WillBudget tingui historial de saldos per a aquestes dates.
       reject: Rebutja
       save: Desa l'extracte
       statement_amount: Extracte

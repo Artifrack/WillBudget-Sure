@@ -195,7 +195,7 @@ ca:
         confirm_reset_with_sample_data:
           body: Segur que vols restablir el teu compte i carregar dades d'exemple?
             Això eliminarà les teves dades existents i les substituirà per dades de
-            demostració perquè puguis explorar Sure amb seguretat.
+            demostració perquè puguis explorar WillBudget amb seguretat.
           title: Restablir el compte i carregar dades d'exemple?
         danger_zone_title: Zona perillosa
         delete_account: Elimina el compte
@@ -230,7 +230,7 @@ ca:
     providers:
       bank_sync:
         lede: Connecta comptes externs perquè transaccions, saldos i posicions flueixin
-          automàticament a Sure.
+          automàticament a WillBudget.
         page_title: Sincronització bancària
       binance_panel:
         api_key_label: Clau API
@@ -245,7 +245,7 @@ ca:
           de sortida del servidor de l'aplicació.
         ip_hint_title: Cal incloure la IP a la llista blanca
         no_withdraw_body: No activis permisos de retirada en crear la teva clau API
-          de Binance. Sure només necessita accés de lectura.
+          de Binance. WillBudget només necessita accés de lectura.
         no_withdraw_title: Només clau de lectura
         setup_instructions: 'Per connectar Binance, crea una clau API de només lectura:'
         step1_html: Ves a <a href="https://www.binance.com/en/my/settings/api-management"
@@ -274,7 +274,7 @@ ca:
         sync: Sincronitza
         syncing: Sincronitzant...
       connect: Connecta
-      drawer_trust_statement: Accés només de lectura. Sure mai no pot moure diners
+      drawer_trust_statement: Accés només de lectura. WillBudget mai no pot moure diners
         i les teves credencials s'emmagatzemen xifrades.
       empty_filter: Cap proveïdor coincideix amb el teu filtre.
       enable_banking_panel:
@@ -347,7 +347,7 @@ ca:
         query_id_placeholder_existing: Deixa en blanc per mantenir l'ID actual
         query_id_placeholder_new: Introdueix el teu ID de Flex Query d'IBKR
         report_window_note: Els informes Flex d'IBKR estan limitats a la finestra
-          de consulta configurada a IBKR. Sure importarà les posicions actuals completes
+          de consulta configurada a IBKR. WillBudget importarà les posicions actuals completes
           més fins a 365 dies d'activitat d'aquest informe.
         save_configuration: Desa la configuració
         sections:
@@ -382,7 +382,7 @@ ca:
             Queries".
           step_2: Fes clic a la icona "+" a la secció "Activity Flex Query" per crear
             una nova consulta.
-          step_3: Anomena la teva consulta (p. ex., "Sure Sync"), després revisa els
+          step_3: Anomena la teva consulta (p. ex., "WillBudget Sync"), després revisa els
             detalls de la Flex Query a sota i activa les seccions, camps i opcions
             de configuració llistades.
           step_4: Desa la consulta, anota el teu "Query ID", després usa la icona
@@ -409,7 +409,7 @@ ca:
         keep_api_key_placeholder: Deixa en blanc per mantenir la clau API existent
         keep_api_secret_placeholder: Deixa en blanc per mantenir la clau privada existent
         read_only_body: No atorguis permisos de trading, cancel·lació, retirada, exportació,
-          llibre major, Earn, staking o transferència. Sure només importa saldos,
+          llibre major, Earn, staking o transferència. WillBudget només importa saldos,
           posicions i operacions spot.
         read_only_title: Sincronització només de lectura amb l'exchange
         setup_accounts: Configura compte

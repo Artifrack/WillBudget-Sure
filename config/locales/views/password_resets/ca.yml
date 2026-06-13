@@ -1,7 +1,7 @@
 ---
 ca:
   password_resets:
-    disabled: El restabliment de contrasenya a través de Sure està desactivat. Restableix
+    disabled: El restabliment de contrasenya a través de WillBudget està desactivat. Restableix
       la teva contrasenya a través del teu proveïdor d'identitat.
     edit:
       title: Restableix la contrasenya

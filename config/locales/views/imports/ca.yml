@@ -72,7 +72,7 @@ ca:
         leave_empty: Deixa-ho buit
         name_label: Nom
         no_security_provider_warning: El proveïdor de preus de valors no està configurat.
-          Les teves importacions d'operacions funcionaran, però Sure no recuperarà
+          Les teves importacions d'operacions funcionaran, però WillBudget no recuperarà
           l'historial de preus. Ves a la configuració per configurar-ho.
         note_label: Nota
         price_label: Preu
@@ -333,7 +333,7 @@ ca:
       import_portfolio: Importa inversions
       import_qif: Importa des de Quicken (QIF)
       import_rules: Importa regles
-      import_sure: Importa des de Sure
+      import_sure: Importa des de WillBudget
       import_sure_description: Fitxer .ndjson d'exportació completa
       import_transactions: Importa transaccions
       import_ynab: Importa des de YNAB
@@ -452,7 +452,7 @@ ca:
           pdf_import: PDF
           qif_import: QIF
           rule_import: Regla
-          sure_import: Sure
+          sure_import: WillBudget
           trade_import: Operació
           transaction_import: Transacció
       title: Importacions
@@ -465,7 +465,7 @@ ca:
       pdf_import: Importació PDF
       qif_import: Importació QIF
       rule_import: Importació de regles
-      sure_import: Importació Sure
+      sure_import: Importació WillBudget
       trade_import: Importació d'operacions
       transaction_import: Importació de transaccions
     update:
