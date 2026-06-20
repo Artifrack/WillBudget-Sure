@@ -2,6 +2,8 @@
 # Toggle by setting EMBED_SIDEKIQ=true on the web service in Railway.
 # To switch back to a separate worker: remove EMBED_SIDEKIQ and re-enable the worker service.
 if ENV["EMBED_SIDEKIQ"] == "true"
+  require "sidekiq/embedded"
+
   Rails.application.config.after_initialize do
     next if Rails.env.test?
     next if defined?(Rails::Console)
