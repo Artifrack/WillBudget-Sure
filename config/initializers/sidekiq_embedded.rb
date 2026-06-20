@@ -21,6 +21,20 @@ if ENV["EMBED_SIDEKIQ"] == "true"
 
     Rails.logger.info("[SidekiqEmbedded] Starting embedded Sidekiq within web process")
 
+    # config/sidekiq.yml is only read by the sidekiq CLI, not in embedded mode.
+    # Load queues and concurrency explicitly so embedded Sidekiq watches the right queues.
+    sidekiq_yml = Rails.root.join("config/sidekiq.yml")
+    if sidekiq_yml.exist?
+      require "yaml"
+      require "erb"
+      yml = YAML.safe_load(ERB.new(sidekiq_yml.read).result, permitted_classes: [Symbol]) || {}
+      queues = (yml[:queues] || yml["queues"])
+      if queues.present?
+        Sidekiq.default_configuration.queues = queues.map { |q| q.is_a?(Array) ? [q[0].to_s, q[1].to_i] : [q.to_s, 1] }
+        Rails.logger.info("[SidekiqEmbedded] Loaded queues from sidekiq.yml: #{Sidekiq.default_configuration.queues.inspect}")
+      end
+    end
+
     embedded = Sidekiq::Embedded.new(Sidekiq.default_configuration)
     embedded.run
 
