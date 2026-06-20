@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user
   before_action :ensure_admin, only: %i[reset reset_with_sample_data]
+  skip_authentication only: :avatar
+  skip_before_action :set_user, only: :avatar
 
   def resend_confirmation_email
     if @user.resend_confirmation_email
@@ -74,6 +76,15 @@ class UsersController < ApplicationController
   def rule_prompt_settings
     @user.update!(rule_prompt_settings_params)
     redirect_back_or_to settings_profile_path
+  end
+
+  def avatar
+    user = User.find_by(id: params[:id])
+    if user&.profile_image&.attached?
+      redirect_to user.profile_image.variant(:small).url, allow_other_host: true
+    else
+      head :not_found
+    end
   end
 
   private
