@@ -27,16 +27,20 @@ threads_max = Integer(ENV.fetch("RAILS_MAX_THREADS") { 3 })
 threads threads_min, threads_max
 
 if rails_env == "production"
-  # If you are running more than 1 thread per process, the workers count
-  # should be equal to the number of processors (CPU cores) in production.
-  #
-  # It defaults to 1 because it's impossible to reliably detect how many
-  # CPU cores are available. Make sure to set the `WEB_CONCURRENCY` environment
-  # variable to match the number of processors.
-  workers_count = Integer(ENV.fetch("WEB_CONCURRENCY") { 1 })
-  workers workers_count if workers_count > 1
+  if ENV["EMBED_SIDEKIQ"] != "true"
+    # If you are running more than 1 thread per process, the workers count
+    # should be equal to the number of processors (CPU cores) in production.
+    #
+    # It defaults to 1 because it's impossible to reliably detect how many
+    # CPU cores are available. Make sure to set the `WEB_CONCURRENCY` environment
+    # variable to match the number of processors.
+    workers_count = Integer(ENV.fetch("WEB_CONCURRENCY") { 1 })
+    workers workers_count if workers_count > 1
 
-  preload_app!
+    preload_app!
+  end
+  # When EMBED_SIDEKIQ=true, Puma runs in single mode (no fork) so Sidekiq
+  # threads started in after_initialize are not corrupted by forking.
 end
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
