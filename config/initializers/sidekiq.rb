@@ -58,6 +58,7 @@ end
 
 Sidekiq.configure_server do |config|
   config.redis = redis_config
+  config.shutdown_timeout = Integer(ENV.fetch("SIDEKIQ_SHUTDOWN_TIMEOUT") { 90 })
 
   # Initialize auto-sync scheduler when Sidekiq server starts
   config.on(:startup) do
