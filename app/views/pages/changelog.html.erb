@@ -1,27 +1,73 @@
 <%= content_for :page_title, t(".title") %>
 
 <div class="bg-container shadow-border-xs rounded-xl p-4 grow overflow-y-auto">
-  <div class="flex flex-col md:flex-row justify-between gap-4 mb-12 last:mb-0">
-    <div class="w-full md:w-1/3">
-      <div class="md:px-3 flex items-center gap-3">
-        <% if @release_notes[:avatar].present? %>
-          <div class="text-inverse shrink-0 w-9 h-9">
-            <%= image_tag @release_notes[:avatar], class: "rounded-full w-full h-full object-cover" %>
-          </div>
-        <% else %>
-          <div class="bg-gray-300 text-gray-600 shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-sm font-medium">
-            <%= @release_notes[:username]&.first&.upcase || "?" %>
-          </div>
-        <% end %>
-        <div>
-          <a class="text-primary font-medium text-sm" href="https://github.com/<%= @release_notes[:username] %>"><%= "@#{@release_notes[:username]}" %></a>
-          <div class="text-secondary text-sm"><%= @release_notes[:published_at]&.strftime("%B %d, %Y") || "Date unavailable" %></div>
+  <% if @changelog_entries.present? %>
+    <%# WillBudget-specific changelog from billing service %>
+    <% latest = @changelog_entries.first %>
+    <div class="mb-8">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="text-xs font-mono bg-surface px-2 py-0.5 rounded text-secondary"><%= latest["version"] %></span>
+        <span class="text-xs text-secondary"><%= Date.parse(latest["published_at"]).strftime("%B %d, %Y") rescue "Recently" %></span>
+      </div>
+      <h2 class="text-xl font-semibold text-primary mb-3"><%= latest["title"] %></h2>
+      <% if latest["summary"].present? %>
+        <p class="text-secondary text-sm mb-4"><%= latest["summary"] %></p>
+      <% end %>
+      <% if latest["content"].present? %>
+        <%
+          markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, fenced_code_blocks: true, strikethrough: true)
+          rendered = markdown.render(latest["content"])
+        %>
+        <div class="text-secondary text-sm prose prose--github-release-notes">
+          <%= rendered.html_safe %>
+        </div>
+      <% end %>
+    </div>
+
+    <% if @changelog_entries.size > 1 %>
+      <div class="border-t border-alpha-black-10 pt-6">
+        <h3 class="text-sm font-medium text-secondary mb-4">Previous updates</h3>
+        <div class="flex flex-col gap-4">
+          <% @changelog_entries.drop(1).each do |entry| %>
+            <div class="border border-alpha-black-10 rounded-lg p-4">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-xs font-mono bg-surface px-2 py-0.5 rounded text-secondary"><%= entry["version"] %></span>
+                <span class="text-xs text-secondary"><%= Date.parse(entry["published_at"]).strftime("%B %d, %Y") rescue "" %></span>
+              </div>
+              <div class="text-sm font-medium text-primary mb-1"><%= entry["title"] %></div>
+              <% if entry["summary"].present? %>
+                <p class="text-xs text-secondary"><%= entry["summary"] %></p>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
+    <% end %>
+
+  <% else %>
+    <%# Fallback: upstream GitHub release notes %>
+    <div class="flex flex-col md:flex-row justify-between gap-4 mb-12 last:mb-0">
+      <div class="w-full md:w-1/3">
+        <div class="md:px-3 flex items-center gap-3">
+          <% if @release_notes[:avatar].present? %>
+            <div class="text-inverse shrink-0 w-9 h-9">
+              <%= image_tag @release_notes[:avatar], class: "rounded-full w-full h-full object-cover" %>
+            </div>
+          <% else %>
+            <div class="bg-gray-300 text-gray-600 shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-sm font-medium">
+              <%= @release_notes[:username]&.first&.upcase || "?" %>
+            </div>
+          <% end %>
+          <div>
+            <a class="text-primary font-medium text-sm" href="https://github.com/<%= @release_notes[:username] %>"><%= "@#{@release_notes[:username]}" %></a>
+            <div class="text-secondary text-sm"><%= @release_notes[:published_at]&.strftime("%B %d, %Y") || "Date unavailable" %></div>
+          </div>
+        </div>
+      </div>
+      <div class="w-full md:w-2/3 text-secondary text-sm prose prose--github-release-notes">
+        <h2 class="mb-5 text-xl text-primary"><%= @release_notes[:name] %></h2>
+        <%= (@release_notes[:body] || "No release notes available").html_safe %>
+      </div>
     </div>
-    <div class="w-full md:w-2/3 text-secondary text-sm prose prose--github-release-notes">
-      <h2 class="mb-5 text-xl text-primary"><%= @release_notes[:name] %></h2>
-      <%= (@release_notes[:body] || "No release notes available").html_safe %>
-    </div>
-  </div>
+  <% end %>
 </div>

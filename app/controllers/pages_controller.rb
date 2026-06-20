@@ -42,11 +42,10 @@ class PagesController < ApplicationController
   end
 
   def changelog
-    @release_notes = github_provider.fetch_latest_release_notes
-
-    # Fallback if no release notes are available
-    if @release_notes.nil?
-      @release_notes = {
+    @changelog_entries = fetch_billing_changelog
+    if @changelog_entries.blank?
+      @release_notes = github_provider.fetch_latest_release_notes
+      @release_notes ||= {
         avatar: "https://github.com/we-promise.png",
         username: "we-promise",
         name: t("pages.release_notes_unavailable.name"),
@@ -54,7 +53,6 @@ class PagesController < ApplicationController
         body: t("pages.release_notes_unavailable.body_html")
       }
     end
-
     render layout: "settings"
   end
 
@@ -143,6 +141,26 @@ class PagesController < ApplicationController
 
     def github_provider
       Provider::Registry.get_provider(:github)
+    end
+
+    def fetch_billing_changelog
+      billing_url = ENV["BILLING_SERVICE_URL"].presence
+      return [] unless billing_url
+      Rails.cache.fetch("billing_changelog", expires_in: 1.hour) do
+        begin
+          uri = URI.parse("#{billing_url}/api/changelog")
+          response = Net::HTTP.get_response(uri)
+          if response.is_a?(Net::HTTPSuccess)
+            parsed = JSON.parse(response.body)
+            parsed["entries"] || []
+          else
+            []
+          end
+        rescue => e
+          Rails.logger.warn("[PagesController] Failed to fetch changelog from billing API: #{e.message}")
+          []
+        end
+      end
     end
 
     def build_cashflow_sankey_data(net_totals, income_totals, expense_totals, currency)
