@@ -569,6 +569,10 @@ Rails.application.routes.draw do
         get "test_multiple_scopes_required", to: "test#multiple_scopes_required"
       end
     end
+
+    namespace :billing do
+      get "avatars", to: "avatars#index"
+    end
   end
 
 
