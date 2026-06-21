@@ -2,8 +2,8 @@
 
 <%= settings_section do %>
   <% if @guide_toc.present? %>
-    <nav class="guide-toc bg-container-hover border border-alpha-black-10 rounded-xl p-4 mb-6 text-sm">
-      <p class="font-medium text-primary mb-2">Contents</p>
+    <nav class="guide-toc bg-container-hover border border-alpha-black-10 rounded-xl p-4 mb-6 text-sm [&_ul]:space-y-1 [&_ul_ul]:pl-4 [&_ul_ul]:mt-1 [&_li]:list-none [&_a]:text-accent [&_a]:hover:underline [&_a]:block [&_a]:py-0.5">
+      <p class="font-medium text-primary mb-3">Contents</p>
       <%= @guide_toc %>
     </nav>
   <% end %>
