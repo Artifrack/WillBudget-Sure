@@ -6,15 +6,15 @@ class Settings::GuidesController < ApplicationController
       [ t("breadcrumbs.home"), root_path ],
       [ t("breadcrumbs.guides"), nil ]
     ]
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
-      autolink: true,
-      tables: true,
-      fenced_code_blocks: true,
-      strikethrough: true,
-      superscript: true
-    )
     raw_content = fetch_guide_content
-    @guide_content = markdown.render(raw_content)
+
+    md_opts = { autolink: true, tables: true, fenced_code_blocks: true, strikethrough: true, superscript: true }
+    toc_md   = Redcarpet::Markdown.new(Redcarpet::Render::HTML_TOC.new, **md_opts)
+    body_md  = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(with_toc_data: true), **md_opts)
+
+    toc_html = toc_md.render(raw_content)
+    @guide_toc     = toc_html.present? ? toc_html.html_safe : nil
+    @guide_content = body_md.render(raw_content).html_safe
   end
 
   private

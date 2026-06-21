@@ -1,7 +1,13 @@
 <%= content_for :page_title, t(".page_title") %>
 
 <%= settings_section do %>
+  <% if @guide_toc.present? %>
+    <nav class="guide-toc bg-container-hover border border-alpha-black-10 rounded-xl p-4 mb-6 text-sm">
+      <p class="font-medium text-primary mb-2">Contents</p>
+      <%= @guide_toc %>
+    </nav>
+  <% end %>
   <div class="prose prose-sm max-w-none">
-    <%= @guide_content.html_safe %>
+    <%= @guide_content %>
   </div>
 <% end %>
