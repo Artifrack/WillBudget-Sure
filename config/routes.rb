@@ -197,6 +197,7 @@ Rails.application.routes.draw do
 
   get "exports/archive/:token", to: "archived_exports#show", as: :archived_export
 
+  get "changelog/history", to: "pages#changelog_history"
   get "changelog", to: "pages#changelog"
   get "feedback", to: "pages#feedback"
   patch "dashboard/preferences", to: "pages#update_preferences"

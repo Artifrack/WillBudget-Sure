@@ -4,7 +4,7 @@
   <% if @changelog_entries.present? %>
     <%# WillBudget-specific changelog from billing service %>
     <% latest = @changelog_entries.first %>
-    <div class="mb-8">
+    <div class="mb-6">
       <div class="flex items-center gap-2 mb-1">
         <span class="text-xs font-mono bg-surface px-2 py-0.5 rounded text-secondary"><%= latest["version"] %></span>
         <span class="text-xs text-secondary"><%= Date.parse(latest["published_at"]).strftime("%B %d, %Y") rescue "Recently" %></span>
@@ -22,27 +22,25 @@
           <%= rendered.html_safe %>
         </div>
       <% end %>
+      <% if latest["commit_from"].present? && latest["commit_to"].present? %>
+        <div class="mt-4">
+          <%= link_to "View all changes on GitHub →",
+                "https://github.com/Artifrack/WillBudget-Sure/compare/#{latest["commit_from"]}...#{latest["commit_to"]}",
+                target: "_blank", rel: "noopener noreferrer",
+                class: "text-xs text-accent hover:underline" %>
+        </div>
+      <% end %>
     </div>
 
-    <% if @changelog_entries.size > 1 %>
-      <div class="border-t border-alpha-black-10 pt-6">
-        <h3 class="text-sm font-medium text-secondary mb-4">Previous updates</h3>
-        <div class="flex flex-col gap-4">
-          <% @changelog_entries.drop(1).each do |entry| %>
-            <div class="border border-alpha-black-10 rounded-lg p-4">
-              <div class="flex items-center gap-2 mb-1">
-                <span class="text-xs font-mono bg-surface px-2 py-0.5 rounded text-secondary"><%= entry["version"] %></span>
-                <span class="text-xs text-secondary"><%= Date.parse(entry["published_at"]).strftime("%B %d, %Y") rescue "" %></span>
-              </div>
-              <div class="text-sm font-medium text-primary mb-1"><%= entry["title"] %></div>
-              <% if entry["summary"].present? %>
-                <p class="text-xs text-secondary"><%= entry["summary"] %></p>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
+    <div class="border-t border-alpha-black-10 pt-4">
+      <%= link_to changelog_history_path,
+            class: "inline-flex items-center gap-1.5 text-sm text-accent hover:underline" do %>
+        All updates
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+          <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 0 1 .02-1.06L11.168 10 7.23 6.29a.75.75 0 1 1 1.04-1.08l4.5 4.25a.75.75 0 0 1 0 1.08l-4.5 4.25a.75.75 0 0 1-1.06-.02Z" clip-rule="evenodd" />
+        </svg>
+      <% end %>
+    </div>
 
   <% else %>
     <%# Fallback: upstream GitHub release notes %>

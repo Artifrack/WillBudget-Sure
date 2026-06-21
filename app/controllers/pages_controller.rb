@@ -56,6 +56,11 @@ class PagesController < ApplicationController
     render layout: "settings"
   end
 
+  def changelog_history
+    @changelog_entries = fetch_billing_changelog
+    render layout: "settings"
+  end
+
   def feedback
     render layout: "settings"
   end

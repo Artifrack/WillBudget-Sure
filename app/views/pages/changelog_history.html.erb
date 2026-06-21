@@ -1,0 +1,37 @@
+<%= content_for :page_title, "All Updates" %>
+
+<div class="bg-container shadow-border-xs rounded-xl p-4 grow overflow-y-auto">
+  <div class="flex items-center gap-3 mb-6">
+    <%= link_to changelog_path, class: "text-secondary hover:text-primary" do %>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+        <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 0 1-.02 1.06L8.832 10l3.938 3.71a.75.75 0 1 1-1.04 1.08l-4.5-4.25a.75.75 0 0 1 0-1.08l4.5-4.25a.75.75 0 0 1 1.06.02Z" clip-rule="evenodd" />
+      </svg>
+    <% end %>
+    <h2 class="text-lg font-semibold text-primary">All Updates</h2>
+  </div>
+
+  <% if @changelog_entries.present? %>
+    <div class="flex flex-col divide-y divide-alpha-black-10">
+      <% @changelog_entries.each do |entry| %>
+        <div class="py-5 first:pt-0">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs font-mono bg-surface px-2 py-0.5 rounded text-secondary"><%= entry["version"] %></span>
+            <span class="text-xs text-secondary"><%= Date.parse(entry["published_at"]).strftime("%B %d, %Y") rescue "" %></span>
+          </div>
+          <h3 class="text-base font-semibold text-primary mb-2"><%= entry["title"] %></h3>
+          <% if entry["summary"].present? %>
+            <p class="text-sm text-secondary mb-3"><%= entry["summary"] %></p>
+          <% end %>
+          <% if entry["commit_from"].present? && entry["commit_to"].present? %>
+            <%= link_to "View all changes on GitHub →",
+                  "https://github.com/Artifrack/WillBudget-Sure/compare/#{entry["commit_from"]}...#{entry["commit_to"]}",
+                  target: "_blank", rel: "noopener noreferrer",
+                  class: "text-xs text-accent hover:underline" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p class="text-sm text-secondary">No updates yet.</p>
+  <% end %>
+</div>
