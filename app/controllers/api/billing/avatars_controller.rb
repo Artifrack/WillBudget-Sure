@@ -28,9 +28,9 @@ class Api::Billing::AvatarsController < ApplicationController
 
   private
 
-  def authorized?
-    key = ENV["BILLING_API_KEY"].presence
-    return false unless key
-    request.headers["Authorization"] == "Bearer #{key}"
-  end
+    def authorized?
+      key = ENV["BILLING_API_KEY"].presence
+      return false unless key
+      request.headers["Authorization"] == "Bearer #{key}"
+    end
 end

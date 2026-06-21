@@ -81,7 +81,7 @@ class UsersController < ApplicationController
   def avatar
     user = User.find_by(id: params[:id])
     if user&.profile_image&.attached?
-      redirect_to user.profile_image.variant(:small).url, allow_other_host: true
+      redirect_to url_for(user.profile_image.variant(:small))
     else
       head :not_found
     end

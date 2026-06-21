@@ -27,10 +27,10 @@ if ENV["EMBED_SIDEKIQ"] == "true"
     if sidekiq_yml.exist?
       require "yaml"
       require "erb"
-      yml = YAML.safe_load(ERB.new(sidekiq_yml.read).result, permitted_classes: [Symbol]) || {}
+      yml = YAML.safe_load(ERB.new(sidekiq_yml.read).result, permitted_classes: [ Symbol ]) || {}
       queues = (yml[:queues] || yml["queues"])
       if queues.present?
-        Sidekiq.default_configuration.queues = queues.map { |q| q.is_a?(Array) ? [q[0].to_s, q[1].to_i] : [q.to_s, 1] }
+        Sidekiq.default_configuration.queues = queues.map { |q| q.is_a?(Array) ? [ q[0].to_s, q[1].to_i ] : [ q.to_s, 1 ] }
         Rails.logger.info("[SidekiqEmbedded] Loaded queues from sidekiq.yml: #{Sidekiq.default_configuration.queues.inspect}")
       end
     end

@@ -239,7 +239,9 @@ class AccountsController < ApplicationController
 
     def visible_provider_items(items)
       items.select do |item|
-        item.respond_to?(:accounts) && (item.accounts.map(&:id) & @accessible_account_ids).any?
+        next true unless item.respond_to?(:accounts)
+        linked_ids = item.accounts.map(&:id)
+        linked_ids.empty? || (linked_ids & @accessible_account_ids).any?
       end
     end
 
