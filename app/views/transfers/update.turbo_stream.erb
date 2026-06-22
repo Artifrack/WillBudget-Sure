@@ -1,7 +1,10 @@
 <% if @transfer.destroyed? %>
   <%# Rejected: clear the pending match indicators without a full page reload %>
-  <% inflow = @transfer.inflow_transaction; inflow.transfer = nil %>
-  <% outflow = @transfer.outflow_transaction; outflow.transfer = nil %>
+  <%# Reset association caches so the partial re-queries the DB (transfer is gone) %>
+  <% inflow = @transfer.inflow_transaction %>
+  <% inflow.association(:transfer_as_inflow).reset; inflow.association(:transfer_as_outflow).reset %>
+  <% outflow = @transfer.outflow_transaction %>
+  <% outflow.association(:transfer_as_inflow).reset; outflow.association(:transfer_as_outflow).reset %>
   <%= turbo_stream.replace dom_id(inflow, "transfer_match"),
                           partial: "transactions/transfer_match",
                           locals: { transaction: inflow } %>
