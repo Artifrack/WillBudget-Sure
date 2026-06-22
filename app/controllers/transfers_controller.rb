@@ -156,6 +156,7 @@ class TransfersController < ApplicationController
       @transfer = Transfer
                     .where(id: params[:id])
                     .where(inflow_transaction_id: accessible_transaction_ids)
+                    .or(Transfer.where(id: params[:id], outflow_transaction_id: accessible_transaction_ids))
                     .first!
     end
 

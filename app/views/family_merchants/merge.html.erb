@@ -2,9 +2,8 @@
   <% dialog.with_header(title: t(".title"), subtitle: t(".description")) %>
   <% dialog.with_body do %>
     <%= styled_form_with url: perform_merge_family_merchants_path, method: :post, class: "space-y-4" do |f| %>
-      <%= f.collection_select :target_id,
-            @merchants,
-            :id, :name,
+      <%= f.select :target_id,
+            options_from_collection_for_select(@merchants, :id, :name),
             { prompt: t(".select_target"), label: t(".target_label") },
             { required: true } %>
 
