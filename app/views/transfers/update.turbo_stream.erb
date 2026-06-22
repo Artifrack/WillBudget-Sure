@@ -1,4 +1,15 @@
-<% unless @transfer.destroyed? %>
+<% if @transfer.destroyed? %>
+  <%# Rejected: clear the pending match indicators without a full page reload %>
+  <% inflow = @transfer.inflow_transaction; inflow.transfer = nil %>
+  <% outflow = @transfer.outflow_transaction; outflow.transfer = nil %>
+  <%= turbo_stream.replace dom_id(inflow, "transfer_match"),
+                          partial: "transactions/transfer_match",
+                          locals: { transaction: inflow } %>
+  <%= turbo_stream.replace dom_id(outflow, "transfer_match"),
+                          partial: "transactions/transfer_match",
+                          locals: { transaction: outflow } %>
+<% else %>
+  <%# keeping old `unless` logic inverted to `else` so the block is unchanged %>
   <%= turbo_stream.replace @transfer.inflow_transaction.entry %>
   <%= turbo_stream.replace @transfer.outflow_transaction.entry %>
 

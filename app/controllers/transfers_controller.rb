@@ -65,7 +65,15 @@ class TransfersController < ApplicationController
 
   def update
     outflow_account = @transfer.outflow_transaction.entry.account
-    return unless require_account_permission!(outflow_account, redirect_path: transactions_url)
+    inflow_account = @transfer.inflow_transaction.entry.account
+
+    unless Account.writable_by(Current.user).where(id: [ outflow_account.id, inflow_account.id ]).exists?
+      respond_to do |format|
+        format.html { redirect_back_or_to transactions_url, alert: t("accounts.not_authorized") }
+        format.turbo_stream { stream_redirect_back_or_to(transactions_url, alert: t("accounts.not_authorized")) }
+      end
+      return
+    end
 
     Transfer.transaction do
       update_transfer_status

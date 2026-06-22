@@ -2,16 +2,29 @@
   <% dialog.with_header(title: t(".title"), subtitle: t(".description")) %>
   <% dialog.with_body do %>
     <%= styled_form_with url: perform_merge_family_merchants_path, method: :post, class: "space-y-4" do |f| %>
-      <%= f.select :target_id,
-            options_from_collection_for_select(@merchants, :id, :name),
-            { prompt: t(".select_target"), label: t(".target_label") },
+      <%= f.collection_select :target_id,
+            @merchants,
+            :id, :name,
+            { prompt: t(".select_target"), label: t(".target_label"), searchable: true },
             { required: true } %>
 
-      <div class="space-y-2">
+      <div class="space-y-2" data-controller="list-filter">
         <p class="text-sm font-medium text-primary"><%= t(".sources_label") %></p>
-        <div class="max-h-64 overflow-y-auto space-y-1 border border-secondary rounded-lg p-2">
+        <div class="flex items-center bg-container border border-secondary rounded-lg focus-ring-within transition-shadow">
+          <%= render DS::SearchInput.new(
+            variant: :embedded,
+            placeholder: t("helpers.select.search_placeholder"),
+            data: {
+              list_filter_target: "input",
+              action: "input->list-filter#filter"
+            }
+          ) %>
+        </div>
+        <div class="max-h-56 overflow-y-auto space-y-1 border border-secondary rounded-lg p-2"
+             data-list-filter-target="list">
           <% @merchants.each do |merchant| %>
-            <label class="flex items-center gap-2 p-2 hover:bg-surface-hover rounded cursor-pointer">
+            <label class="filterable-item flex items-center gap-2 p-2 hover:bg-surface-hover rounded cursor-pointer"
+                   data-filter-name="<%= merchant.name %>">
               <%= check_box_tag "source_ids[]", merchant.id, false, class: "rounded border-secondary" %>
               <span class="text-sm text-primary"><%= merchant.name %></span>
               <% if merchant.is_a?(ProviderMerchant) %>
