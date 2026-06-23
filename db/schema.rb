@@ -1539,9 +1539,12 @@ ActiveRecord::Schema[7.2].define(version: 2026_06_17_120000) do
     t.uuid "outflow_transaction_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "inflow_account_id"
+    t.uuid "outflow_account_id"
     t.index ["inflow_transaction_id", "outflow_transaction_id"], name: "idx_on_inflow_transaction_id_outflow_transaction_id_412f8e7e26", unique: true
     t.index ["inflow_transaction_id"], name: "index_rejected_transfers_on_inflow_transaction_id"
     t.index ["outflow_transaction_id"], name: "index_rejected_transfers_on_outflow_transaction_id"
+    t.index ["inflow_account_id", "outflow_account_id"], name: "idx_rejected_transfers_account_pair"
   end
 
   create_table "rule_actions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
