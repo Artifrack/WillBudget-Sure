@@ -88,7 +88,12 @@ class TransfersController < ApplicationController
 
   def destroy
     outflow_account = @transfer.outflow_transaction.entry.account
-    return unless require_account_permission!(outflow_account, redirect_path: transactions_url)
+    inflow_account = @transfer.inflow_transaction.entry.account
+
+    unless Account.writable_by(Current.user).where(id: [ outflow_account.id, inflow_account.id ]).exists?
+      redirect_back_or_to transactions_url, alert: t("accounts.not_authorized")
+      return
+    end
 
     @transfer.destroy!
     redirect_back_or_to transactions_url, notice: t(".success")
