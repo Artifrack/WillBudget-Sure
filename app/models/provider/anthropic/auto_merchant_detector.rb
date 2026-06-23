@@ -106,11 +106,15 @@ class Provider::Anthropic::AutoMerchantDetector
         - User-provided merchants should only be used when the match is unambiguous
         - Favor null over false positives; only return values when 80%+ confident
         - NEVER return a name/URL for generic descriptions ("Paycheck", "Local diner", "ATM", "POS DEBIT")
+        - NEVER identify a person's name as a merchant (e.g. "Daniel Smith", "Payment to Sarah", "John D.") — return null
+        - Payment processors (PayPal, SumUp, Square, Stripe, Venmo) appearing as a PREFIX followed by a merchant name: extract the actual merchant after the prefix, NOT the processor itself. E.g. "PAYPAL *RAILWAY" → "Railway", "SUMUP *ALIEXPRESS" → "AliExpress"
+        - If the payment processor appears alone with no identifiable merchant after it, return null
 
         Decision order:
-          1. Identify from your knowledge of global businesses
-          2. Otherwise, match against the user-provided merchants
-          3. Otherwise, return null for both fields
+          1. Strip payment processor prefixes (PayPal *, SumUp *, Square *, etc.) and identify the trailing merchant
+          2. Otherwise, identify from your knowledge of global businesses
+          3. Otherwise, match against the user-provided merchants
+          4. Otherwise, return null for both fields
       INSTRUCTIONS
     end
 

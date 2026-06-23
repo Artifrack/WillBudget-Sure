@@ -184,7 +184,16 @@ class Transaction::Search
 
     def apply_merchant_filter(query, merchants)
       return query unless merchants.present?
-      query.joins(:merchant).where(merchants: { name: merchants })
+      no_merchant = merchants.include?("__none__")
+      named = merchants.reject { |m| m == "__none__" }
+
+      if no_merchant && named.empty?
+        query.where(merchant_id: nil)
+      elsif no_merchant
+        query.left_joins(:merchant).where("transactions.merchant_id IS NULL OR merchants.name IN (?)", named)
+      else
+        query.joins(:merchant).where(merchants: { name: named })
+      end
     end
 
     def apply_tag_filter(query, tags)

@@ -19,6 +19,7 @@ en:
       import: Import merchants
       merge: Merge merchants
       title: Merchants
+      search_placeholder: Search merchants...
       family_title: "%{moniker} merchants"
       family_empty: "No %{moniker} merchants yet"
       provider_title: Provider merchants

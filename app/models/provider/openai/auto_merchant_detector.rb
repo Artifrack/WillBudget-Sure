@@ -79,6 +79,8 @@ class Provider::Openai::AutoMerchantDetector
       3. Return "null" for both if uncertain or generic (e.g. "Paycheck", "Local diner")
       4. Don't include "www." in URLs (use "amazon.com" not "www.amazon.com")
       5. Favor "null" over guessing - only return values if 80%+ confident
+      6. NEVER identify a person's name as a merchant (e.g. "John Smith", "Payment to Sarah") — return "null"
+      7. Payment processors as prefix (PayPal *, SumUp *, Square *): extract the merchant AFTER the prefix, not the processor
 
       Example output format:
       {"merchants": [{"transaction_id": "txn_001", "business_name": "Amazon", "business_url": "amazon.com"}]}
@@ -98,10 +100,13 @@ class Provider::Openai::AutoMerchantDetector
       - User merchants are considered "manual" user-generated merchants and should only be used in 100% clear cases
       - Be slightly pessimistic.  We favor returning "null" over returning a false positive.
       - NEVER return a name or URL for generic transaction names (e.g. "Paycheck", "Laundromat", "Grocery store", "Local diner")
+      - NEVER identify a person's name as a merchant (e.g. "Daniel Smith", "Payment to Sarah", "John D.") — return null
+      - Payment processors (PayPal, SumUp, Square, Stripe, Venmo) appearing as a PREFIX followed by a merchant name: extract the actual merchant AFTER the prefix, not the processor itself
 
       Determining a value:
 
-      - First attempt to determine the name + URL from your knowledge of global businesses
+      - First, strip any payment processor prefix (e.g. "PAYPAL *", "SUMUP *", "SQ *") and identify the trailing merchant
+      - Otherwise, attempt to determine the name + URL from your knowledge of global businesses
       - If no certain match, attempt to match one of the user-provided merchants
       - If no match, return "null"
 
@@ -119,6 +124,26 @@ class Provider::Openai::AutoMerchantDetector
 
       ```
       Transaction name: "local diner"
+
+      Result:
+      - business_name: null
+      - business_url: null
+      ```
+
+      Example 3 (payment processor prefix):
+
+      ```
+      Transaction name: "PAYPAL *RAILWAY"
+
+      Result:
+      - business_name: "Railway"
+      - business_url: "railway.app"
+      ```
+
+      Example 4 (person's name — NOT a merchant):
+
+      ```
+      Transaction name: "Transfer to Daniel Smith"
 
       Result:
       - business_name: null
@@ -474,6 +499,11 @@ class Provider::Openai::AutoMerchantDetector
         - "STARBUCKS STORE #9876" → business_name: "Starbucks", business_url: "starbucks.com"
         - "NETFLIX.COM" → business_name: "Netflix", business_url: "netflix.com"
         - "UBER *TRIP" → business_name: "Uber", business_url: "uber.com"
+        - "PAYPAL *RAILWAY" → business_name: "Railway", business_url: "railway.app" (strip processor prefix, detect trailing merchant)
+        - "SUMUP *ALIEXPRESS" → business_name: "AliExpress", business_url: "aliexpress.com" (strip processor prefix)
+        - "SQ *LOCAL COFFEE" → business_name: "null", business_url: "null" (processor prefix, but trailing name is generic/unknown)
+        - "Daniel Smith" → business_name: "null", business_url: "null" (person's name, not a business)
+        - "Payment to Sarah" → business_name: "null", business_url: "null" (person's name)
         - "ACH WITHDRAWAL" → business_name: "null", business_url: "null" (generic)
         - "LOCAL DINER" → business_name: "null", business_url: "null" (generic/unknown)
         - "POS DEBIT 12345" → business_name: "null", business_url: "null" (generic)
@@ -482,6 +512,8 @@ class Provider::Openai::AutoMerchantDetector
         - Return "null" (as a string) for BOTH name and URL if you cannot confidently identify the business
         - Don't include "www." in URLs
         - Generic descriptions like "Paycheck", "Transfer", "ATM" should return "null"
+        - Person names (first + last name, "Payment to X", etc.) should always return "null"
+        - Strip payment processor prefixes (PayPal *, SumUp *, Square *, SQ *, Stripe *) and identify what follows
 
         Respond with ONLY this JSON format (no other text):
         {"merchants": [{"transaction_id": "...", "business_name": "...", "business_url": "..."}]}

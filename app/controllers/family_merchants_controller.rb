@@ -3,6 +3,7 @@ class FamilyMerchantsController < ApplicationController
 
   def index
     @breadcrumbs = [ [ t("breadcrumbs.home"), root_path ], [ t("breadcrumbs.merchants"), nil ] ]
+    @active_tab = params.fetch(:tab, "family")
 
     # Show all merchants for this family
     @all_family_merchants = Current.family.merchants.alphabetically
@@ -126,7 +127,7 @@ class FamilyMerchantsController < ApplicationController
     )
 
     if merger.merge!
-      redirect_to family_merchants_path, notice: t(".success", count: merger.merged_count)
+      redirect_to merge_family_merchants_path, notice: t(".success", count: merger.merged_count)
     else
       redirect_to merge_family_merchants_path, alert: t(".no_merchants_selected")
     end

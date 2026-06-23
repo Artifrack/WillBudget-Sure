@@ -10,6 +10,22 @@
         }
       ) %>
   <div class="my-2" id="list" data-list-filter-target="list">
+    <div class="filterable-item flex items-center gap-2 p-2" data-filter-name="<%= t(".no_merchant") %>">
+      <%= form.check_box :merchants,
+                         {
+                           multiple: true,
+                           checked: @q[:merchants]&.include?("__none__"),
+                           class: "checkbox checkbox--light"
+                         },
+                         "__none__",
+                         nil %>
+      <%= form.label :merchants, value: "__none__", class: "text-sm text-primary flex items-center gap-2" do %>
+        <div class="hidden lg:flex">
+          <%= render DS::FilledIcon.new(variant: :text, hex_color: "#94a3b8", text: "?", size: "sm", rounded: true) %>
+        </div>
+        <%= t(".no_merchant") %>
+      <% end %>
+    </div>
     <% Current.family.assigned_merchants_for(Current.user).alphabetically.each do |merchant| %>
       <div class="filterable-item flex items-center gap-2 p-2" data-filter-name="<%= merchant.name %>">
         <%= form.check_box :merchants,
