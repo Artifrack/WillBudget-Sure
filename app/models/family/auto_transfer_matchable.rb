@@ -125,8 +125,11 @@ module Family::AutoTransferMatchable
             existing_transfers.outflow_transaction_id = outflow_candidates.entryable_id
           )
           LEFT JOIN rejected_transfers ON (
-            rejected_transfers.inflow_transaction_id = inflow_candidates.entryable_id AND
-            rejected_transfers.outflow_transaction_id = outflow_candidates.entryable_id
+            (rejected_transfers.inflow_transaction_id = inflow_candidates.entryable_id AND
+             rejected_transfers.outflow_transaction_id = outflow_candidates.entryable_id)
+            OR
+            (rejected_transfers.inflow_account_id = inflow_candidates.account_id AND
+             rejected_transfers.outflow_account_id = outflow_candidates.account_id)
           )
           WHERE
             inflow_candidates.entryable_type = 'Transaction' AND
@@ -168,8 +171,11 @@ module Family::AutoTransferMatchable
             existing_transfers.outflow_transaction_id = outflow_candidates.entryable_id
           )
           LEFT JOIN rejected_transfers ON (
-            rejected_transfers.inflow_transaction_id = inflow_candidates.entryable_id AND
-            rejected_transfers.outflow_transaction_id = outflow_candidates.entryable_id
+            (rejected_transfers.inflow_transaction_id = inflow_candidates.entryable_id AND
+             rejected_transfers.outflow_transaction_id = outflow_candidates.entryable_id)
+            OR
+            (rejected_transfers.inflow_account_id = inflow_candidates.account_id AND
+             rejected_transfers.outflow_account_id = outflow_candidates.account_id)
           )
           WHERE
             inflow_candidates.entryable_type = 'Transaction' AND

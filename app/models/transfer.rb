@@ -30,7 +30,13 @@ class Transfer < ApplicationRecord
 
   def reject!
     Transfer.transaction do
-      RejectedTransfer.find_or_create_by!(inflow_transaction_id: inflow_transaction_id, outflow_transaction_id: outflow_transaction_id)
+      RejectedTransfer.find_or_create_by!(
+        inflow_transaction_id: inflow_transaction_id,
+        outflow_transaction_id: outflow_transaction_id
+      ) do |rt|
+        rt.inflow_account_id  = inflow_transaction.entry.account_id
+        rt.outflow_account_id = outflow_transaction.entry.account_id
+      end
       destroy!
     end
   end
