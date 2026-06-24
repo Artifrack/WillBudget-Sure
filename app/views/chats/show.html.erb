@@ -33,7 +33,11 @@
 
       <%# DESKTOP - Chat form %>
       <div class="px-4 pt-4 lg:pt-0 lg:mt-auto sticky lg:static left-0 bottom-0 w-full bg-surface">
-        <%= render "messages/chat_form", chat: @chat %>
+        <% if Current.user.ai_enabled? %>
+          <%= render "messages/chat_form", chat: @chat %>
+        <% else %>
+          <%= render "chats/ai_consent" %>
+        <% end %>
       </div>
     </div>
   <% end %>

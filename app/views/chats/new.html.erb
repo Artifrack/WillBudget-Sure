@@ -8,10 +8,15 @@
         message: t("chats.demo_banner_message") %>
     <% end %>
 
-    <div class="mt-auto py-8">
-      <%= render "chats/ai_greeting" %>
-    </div>
-
-    <%= render "messages/chat_form", chat: @chat %>
+    <% if Current.user.ai_enabled? %>
+      <div class="mt-auto py-8">
+        <%= render "chats/ai_greeting" %>
+      </div>
+      <%= render "messages/chat_form", chat: @chat %>
+    <% else %>
+      <div class="mt-auto py-8 px-4">
+        <%= render "chats/ai_consent" %>
+      </div>
+    <% end %>
   </div>
 <% end %>
