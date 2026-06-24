@@ -49,6 +49,17 @@
                       disabled: ENV["OPENAI_MODEL"].present?,
                       data: { "auto-submit-form-target": "auto" } %>
 
+  <%= form.text_field :chat_model,
+                      label: "Chat model (optional — overrides Enhancement model for AI chat only)",
+                      placeholder: Setting.openai_model.presence || "Uses Enhancement model when blank",
+                      value: Setting.chat_model,
+                      autocomplete: "off",
+                      autocapitalize: "none",
+                      spellcheck: "false",
+                      inputmode: "text",
+                      disabled: ENV["CHAT_MODEL"].present?,
+                      data: { "auto-submit-form-target": "auto" } %>
+
   <%= form.select :openai_json_mode,
                   options_for_select(
                     [

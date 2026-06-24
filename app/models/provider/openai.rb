@@ -8,10 +8,13 @@ class Provider::Openai < Provider
   SUPPORTED_MODELS = %w[gpt-4 gpt-5 o1 o3].freeze
   VISION_CAPABLE_MODEL_PREFIXES = %w[gpt-4o gpt-4-turbo gpt-4.1 gpt-5 o1 o3].freeze
 
-  # Returns the effective model that would be used by the provider.
-  # Priority: explicit ENV > Setting > DEFAULT_MODEL.
+  # Returns the effective model used for chat. Priority: CHAT_MODEL env/setting > OPENAI_MODEL env/setting > DEFAULT_MODEL.
   def self.effective_model
-    ENV.fetch("OPENAI_MODEL") { Setting.openai_model }.presence || DEFAULT_MODEL
+    ENV["CHAT_MODEL"].presence ||
+      Setting.chat_model.presence ||
+      ENV["OPENAI_MODEL"].presence ||
+      Setting.openai_model.presence ||
+      DEFAULT_MODEL
   end
 
   def self.configured?

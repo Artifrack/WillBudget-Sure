@@ -1,13 +1,31 @@
 <%= content_for :page_title, t(".page_title") %>
 
 <%= settings_section do %>
-  <% if @guide_toc.present? %>
-    <nav class="guide-toc bg-container-hover border border-alpha-black-10 rounded-xl p-4 mb-6 text-sm [&_ul]:space-y-1 [&_ul_ul]:pl-4 [&_ul_ul]:mt-1 [&_li]:list-none [&_a]:text-accent [&_a]:hover:underline [&_a]:block [&_a]:py-0.5">
-      <p class="font-medium text-primary mb-3">Contents</p>
-      <%= @guide_toc %>
-    </nav>
-  <% end %>
-  <div class="prose prose-sm max-w-none">
-    <%= @guide_content %>
+  <div class="<%= @pages.any? ? 'flex gap-6 items-start' : '' %>">
+    <% if @pages.any? %>
+      <aside class="w-56 shrink-0 sticky top-4">
+        <div class="bg-container-hover border border-alpha-black-10 rounded-xl p-4">
+          <p class="font-medium text-primary mb-3 text-sm">Guide</p>
+          <nav class="space-y-0.5">
+            <% @pages.each do |page| %>
+              <%= link_to page[:title], settings_guides_path(page: page[:slug]),
+                class: "block py-1.5 px-2 text-sm rounded-lg truncate #{ page[:slug] == @current_page_slug ? 'bg-accent/10 text-accent font-medium' : 'text-secondary hover:text-primary hover:bg-alpha-black-5' }" %>
+            <% end %>
+          </nav>
+        </div>
+      </aside>
+    <% end %>
+
+    <div class="flex-1 min-w-0">
+      <% if @guide_toc.present? %>
+        <nav class="guide-toc bg-container-hover border border-alpha-black-10 rounded-xl p-4 mb-6 text-sm [&_ul]:space-y-1 [&_ul_ul]:pl-4 [&_ul_ul]:mt-1 [&_li]:list-none [&_a]:text-accent [&_a]:hover:underline [&_a]:block [&_a]:py-0.5">
+          <p class="font-medium text-primary mb-3"><%= @pages.any? ? "On this page" : "Contents" %></p>
+          <%= @guide_toc %>
+        </nav>
+      <% end %>
+      <div class="prose prose-sm max-w-none">
+        <%= @guide_content %>
+      </div>
+    </div>
   </div>
 <% end %>
