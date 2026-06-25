@@ -217,9 +217,24 @@ class Sync < ApplicationRecord
       Rails.logger.info("Performing post-sync for #{syncable_type} (#{syncable.id})")
       syncable.perform_post_sync
       syncable.broadcast_sync_complete
+      notify_billing_classify
     rescue => e
       Rails.logger.error("Error performing post-sync for #{syncable_type} (#{syncable.id}): #{e.message}")
       report_error(e)
+    end
+
+    def notify_billing_classify
+      billing_url = ENV["BILLING_SERVICE_URL"].presence
+      return unless billing_url
+      uri = URI.parse("#{billing_url}/api/classify-merchants")
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = (uri.scheme == "https")
+      http.open_timeout = 2
+      http.read_timeout = 5
+      req = Net::HTTP::Post.new(uri.path, "Authorization" => "Bearer #{ENV["BILLING_API_KEY"]}")
+      http.request(req)
+    rescue => e
+      Rails.logger.warn("[Sync] Billing classify notify failed: #{e.message}")
     end
 
     def report_error(error)
