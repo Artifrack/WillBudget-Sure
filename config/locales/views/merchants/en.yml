@@ -13,9 +13,20 @@ en:
       name_placeholder: Merchant name
       website_placeholder: Website (e.g., starbucks.com)
       website_hint: Enter the merchant's website to automatically display their logo
+    create_provider:
+      success: Merchant added successfully
+    new_provider:
+      title: Add Provider Merchant
+      name_label: Merchant name
+      name_placeholder: e.g. Tesco, Starbucks
+      url_label: Website URL (optional)
+      url_hint: If provided and verified by AI, a shared provider merchant is created with a logo.
+      submit: Add Merchant
     index:
       empty: No merchants yet
       new: New merchant
+      new_provider: New provider merchant
+      new_family: New custom merchant
       import: Import merchants
       merge: Merge merchants
       title: Merchants

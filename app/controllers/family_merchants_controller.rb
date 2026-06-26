@@ -89,6 +89,83 @@ class FamilyMerchantsController < ApplicationController
     end
   end
 
+  def new_provider
+    # Renders a modal form; submit goes to create_provider
+  end
+
+  # GET /family_merchants/search?q=...
+  # Returns top-10 global merchants by txn count matching the query.
+  # Called client-side only when local search returns 0 results.
+  def search
+    q = params[:q].to_s.strip
+    return render json: [] if q.length < 2
+
+    merchants = Merchant
+      .where(type: "ProviderMerchant", family_id: nil)
+      .where("LOWER(name) LIKE ?", "%#{q.downcase}%")
+      .joins("LEFT JOIN transactions ON transactions.merchant_id = merchants.id")
+      .select("merchants.id, merchants.name, merchants.logo_url, merchants.website_url, COUNT(transactions.id) AS txn_count")
+      .group("merchants.id")
+      .order("txn_count DESC")
+      .limit(10)
+
+    render json: merchants.map { |m|
+      { id: m.id, name: m.name, logo_url: m.logo_url, website_url: m.website_url, txn_count: m.txn_count.to_i }
+    }
+  end
+
+  # POST /family_merchants/create_provider
+  # Creates a ProviderMerchant (if URL verified) or FamilyMerchant (if not).
+  # Body: { name:, url: (optional) }
+  def create_provider
+    name = params[:name].to_s.strip
+    url  = params[:url].to_s.strip.presence
+
+    if name.blank?
+      return respond_to do |format|
+        format.json { render json: { error: "name required" }, status: :unprocessable_entity }
+        format.html { redirect_to new_provider_family_merchants_path, alert: "Name is required" }
+      end
+    end
+
+    existing = ProviderMerchant.find_by("LOWER(name) = ?", name.downcase)
+    if existing
+      return respond_to do |format|
+        format.json { render json: { id: existing.id, name: existing.name, logo_url: existing.logo_url, type: "provider" } }
+        format.html { redirect_to family_merchants_path, notice: "#{existing.name} already exists as a provider merchant" }
+      end
+    end
+
+    verified = url && billing_verify_url(name, url)
+
+    if verified
+      merchant = ProviderMerchant.create!(
+        name: name,
+        website_url: url,
+        source: :willbudget,
+        provider_merchant_id: "wb_#{SecureRandom.hex(8)}"
+      )
+      merchant.generate_logo_url_from_website! rescue nil
+    else
+      merchant = FamilyMerchant.create!(
+        name: name,
+        website_url: url,
+        family: Current.family
+      )
+    end
+
+    respond_to do |format|
+      format.json { render json: { id: merchant.id, name: merchant.name, logo_url: merchant.logo_url, type: merchant.is_a?(ProviderMerchant) ? "provider" : "family" } }
+      format.html { redirect_to family_merchants_path, notice: t(".success", default: "Merchant added successfully") }
+      format.turbo_stream { redirect_to family_merchants_path, notice: t(".success", default: "Merchant added successfully") }
+    end
+  rescue ActiveRecord::RecordInvalid => e
+    respond_to do |format|
+      format.json { render json: { error: e.message }, status: :unprocessable_entity }
+      format.html { redirect_to new_provider_family_merchants_path, alert: e.message }
+    end
+  end
+
   def enhance
     cache_key = "enhance_provider_merchants:#{Current.family.id}"
 
@@ -141,6 +218,23 @@ class FamilyMerchantsController < ApplicationController
       @merchant = Current.family.merchants.find_by(id: params[:id]) ||
                   Current.family.assigned_merchants.find(params[:id])
       @family_merchant = @merchant # For backwards compatibility with views
+    end
+
+    def billing_verify_url(name, url)
+      billing_url = ENV["BILLING_SERVICE_URL"].presence
+      return false unless billing_url
+      uri = URI.parse("#{billing_url}/api/verify-merchant-url")
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = (uri.scheme == "https")
+      http.open_timeout = 2
+      http.read_timeout = 8
+      req = Net::HTTP::Post.new(uri.path, "Authorization" => "Bearer #{ENV["BILLING_API_KEY"]}", "Content-Type" => "application/json")
+      req.body = { name: name, url: url }.to_json
+      resp = http.request(req)
+      JSON.parse(resp.body)["verified"] == true
+    rescue => e
+      Rails.logger.warn("[FamilyMerchants] billing verify failed: #{e.message}")
+      false
     end
 
     def merchant_params

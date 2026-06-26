@@ -332,6 +332,9 @@ Rails.application.routes.draw do
       get :merge
       post :perform_merge
       post :enhance
+      get :search
+      get :new_provider
+      post :create_provider
     end
   end
 

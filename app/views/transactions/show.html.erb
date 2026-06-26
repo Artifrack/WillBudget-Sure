@@ -111,13 +111,17 @@
                 { label: t(".account_label") },
                 { disabled: true } %>
             <%= f.fields_for :entryable do |ef| %>
-              <%= ef.collection_select :merchant_id,
-                    Current.family.available_merchants_for(Current.user).alphabetically,
-                    :id, :name,
-                    { include_blank: t(".none"),
-                      label: t(".merchant_label"),
-                      variant: :logo, searchable: true, menu_placement: :auto, disabled: @entry.split_child? || !can_annotate_entry? },
-                    "data-auto-submit-form-target": "auto" %>
+              <div data-controller="merchant-picker"
+                   data-merchant-picker-search-url-value="<%= search_family_merchants_path %>"
+                   data-merchant-picker-create-url-value="<%= create_provider_family_merchants_path %>">
+                <%= ef.collection_select :merchant_id,
+                      Current.family.available_merchants_for(Current.user).alphabetically,
+                      :id, :name,
+                      { include_blank: t(".none"),
+                        label: t(".merchant_label"),
+                        variant: :logo, searchable: true, menu_placement: :auto, disabled: @entry.split_child? || !can_annotate_entry? },
+                      "data-auto-submit-form-target": "auto" %>
+              </div>
               <%= render DS::TagSelect.new(
                     form: ef,
                     tags: Current.family.tags.alphabetically,
