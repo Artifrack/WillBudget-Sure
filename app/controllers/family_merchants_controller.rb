@@ -4,10 +4,17 @@ class FamilyMerchantsController < ApplicationController
   def index
     @breadcrumbs = [ [ t("breadcrumbs.home"), root_path ], [ t("breadcrumbs.merchants"), nil ] ]
     @active_tab = params.fetch(:tab, "family")
+    @q = params[:q].to_s.strip
 
     # Show all merchants for this family
     @all_family_merchants = Current.family.merchants.alphabetically
     @all_provider_merchants = Current.family.assigned_merchants_for(Current.user).where(type: "ProviderMerchant").alphabetically
+
+    if @q.present?
+      pattern = "%#{@q.downcase}%"
+      @all_family_merchants = @all_family_merchants.where("LOWER(name) LIKE ?", pattern)
+      @all_provider_merchants = @all_provider_merchants.where("LOWER(name) LIKE ?", pattern)
+    end
 
     # Show recently unlinked ProviderMerchants (within last 30 days)
     # Exclude merchants that are already assigned to transactions (they appear in provider_merchants)
