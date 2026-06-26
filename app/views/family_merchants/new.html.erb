@@ -1,6 +1,47 @@
 <%= render DS::Dialog.new do |dialog| %>
   <% dialog.with_header(title: t(".title")) %>
   <% dialog.with_body do %>
-    <%= render "form", family_merchant: @family_merchant %>
+    <div class="flex rounded-lg bg-container-inset p-1 gap-1 mb-4">
+      <button type="button" id="btn-mode-family" onclick="switchMerchantMode('family')"
+              class="flex-1 py-1.5 text-sm font-medium rounded-md bg-container shadow-border-xs text-primary">
+        My Merchant
+      </button>
+      <button type="button" id="btn-mode-provider" onclick="switchMerchantMode('provider')"
+              class="flex-1 py-1.5 text-sm font-medium rounded-md text-secondary hover:text-primary">
+        Provider Merchant
+      </button>
+    </div>
+
+    <div id="section-mode-family">
+      <%= render "form", family_merchant: @family_merchant %>
+    </div>
+
+    <div id="section-mode-provider" style="display:none">
+      <p class="text-sm text-secondary mb-4"><%= t("family_merchants.new_provider.url_hint") %></p>
+      <%= form_with url: create_provider_family_merchants_path, method: :post, data: { turbo_frame: "_top" } do |f| %>
+        <div class="space-y-3">
+          <div>
+            <%= f.label :name, t("family_merchants.new_provider.name_label"), class: "form-field__label block mb-1" %>
+            <%= f.text_field :name, placeholder: t("family_merchants.new_provider.name_placeholder"), class: "form-field__input block w-full", required: true %>
+          </div>
+          <div>
+            <%= f.label :url, t("family_merchants.new_provider.url_label"), class: "form-field__label block mb-1" %>
+            <%= f.url_field :url, placeholder: "https://example.com", class: "form-field__input block w-full" %>
+          </div>
+          <%= f.submit t("family_merchants.new_provider.submit"), class: "btn-primary w-full mt-3" %>
+        </div>
+      <% end %>
+    </div>
+
+    <script>
+      function switchMerchantMode(mode) {
+        document.getElementById('section-mode-family').style.display = mode === 'family' ? '' : 'none';
+        document.getElementById('section-mode-provider').style.display = mode === 'provider' ? '' : 'none';
+        var activeClass = 'flex-1 py-1.5 text-sm font-medium rounded-md bg-container shadow-border-xs text-primary';
+        var inactiveClass = 'flex-1 py-1.5 text-sm font-medium rounded-md text-secondary hover:text-primary';
+        document.getElementById('btn-mode-family').className = mode === 'family' ? activeClass : inactiveClass;
+        document.getElementById('btn-mode-provider').className = mode === 'provider' ? activeClass : inactiveClass;
+      }
+    </script>
   <% end %>
 <% end %>
