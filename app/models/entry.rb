@@ -27,6 +27,7 @@ class Entry < ApplicationRecord
   validate :split_child_date_matches_parent
 
   before_destroy :prevent_individual_child_deletion, if: :split_child?
+  after_update :propagate_merchant_to_split_children
 
   scope :visible, -> {
     joins(:account).where(accounts: { status: [ "draft", "active" ] })
@@ -530,5 +531,16 @@ class Entry < ApplicationRecord
       return if destroyed_by_association || unsplitting
 
       throw :abort
+    end
+
+    def propagate_merchant_to_split_children
+      return unless split_parent? && entryable.respond_to?(:merchant_id)
+      return unless entryable.merchant_id.present? && entryable.saved_change_to_merchant_id?
+
+      child_entries.includes(:entryable).each do |child|
+        next unless child.entryable.respond_to?(:merchant_id)
+        next if child.entryable.merchant_id.present?
+        child.entryable.update_columns(merchant_id: entryable.merchant_id)
+      end
     end
 end

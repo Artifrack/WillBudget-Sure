@@ -101,7 +101,7 @@ class FamilyMerchantsController < ApplicationController
     return render json: [] if q.length < 2
 
     merchants = Merchant
-      .where(type: "ProviderMerchant", family_id: nil)
+      .where(type: "ProviderMerchant", family_id: nil, merged_into_id: nil)
       .where("LOWER(name) LIKE ?", "%#{q.downcase}%")
       .joins("LEFT JOIN transactions ON transactions.merchant_id = merchants.id")
       .select("merchants.id, merchants.name, merchants.logo_url, merchants.website_url, COUNT(transactions.id) AS txn_count")
@@ -152,6 +152,7 @@ class FamilyMerchantsController < ApplicationController
         website_url: url,
         family: Current.family
       )
+      billing_log_rejected_merchant(name, url) if url.present?
     end
 
     respond_to do |format|
@@ -235,6 +236,25 @@ class FamilyMerchantsController < ApplicationController
     rescue => e
       Rails.logger.warn("[FamilyMerchants] billing verify failed: #{e.message}")
       false
+    end
+
+    def billing_log_rejected_merchant(name, url)
+      billing_url = ENV["BILLING_SERVICE_URL"].presence
+      return unless billing_url
+      Thread.new do
+        begin
+          uri = URI.parse("#{billing_url}/api/log-rejected-merchant")
+          http = Net::HTTP.new(uri.host, uri.port)
+          http.use_ssl = (uri.scheme == "https")
+          http.open_timeout = 2
+          http.read_timeout = 5
+          req = Net::HTTP::Post.new(uri.path, "Authorization" => "Bearer #{ENV["BILLING_API_KEY"]}", "Content-Type" => "application/json")
+          req.body = { name: name, url: url, family_id: Current.family&.id, user_id: Current.user&.id }.to_json
+          http.request(req)
+        rescue => e
+          Rails.logger.warn("[FamilyMerchants] billing log rejected failed: #{e.message}")
+        end
+      end
     end
 
     def merchant_params

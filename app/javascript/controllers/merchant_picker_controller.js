@@ -188,29 +188,21 @@ export default class extends Controller {
   }
 
   _pick(id, name) {
-    // Update the hidden input value that the DS::Select component manages
-    if (this._hiddenInput) {
-      this._hiddenInput.value = id
-      this._hiddenInput.dispatchEvent(new Event("change", { bubbles: true }))
-    }
-    // Update the visible button label
+    if (this._hiddenInput) this._hiddenInput.value = id
     if (this._button) this._button.textContent = name
 
-    // Trigger form-dropdown#onSelect (same element that has data-action="dropdown:select->form-dropdown#onSelect")
-    if (this._selectEl) {
-      this._selectEl.dispatchEvent(new CustomEvent("dropdown:select", {
-        detail: { value: id, label: name },
-        bubbles: true
-      }))
-    }
-
-    // Close the select menu
+    // Close the select dropdown
     if (this._selectEl) {
       const ctrl = this.application.getControllerForElementAndIdentifier(this._selectEl, "select")
       if (ctrl) ctrl.close()
     }
 
     this._clearGlobal()
+
+    // Submit directly — the event chain (dropdown:select → form-dropdown#onSelect)
+    // is unreliable when called from async context (e.g. after an AJAX create).
+    const form = this.element.closest("form")
+    if (form) form.requestSubmit()
   }
 
   _esc(str) {
