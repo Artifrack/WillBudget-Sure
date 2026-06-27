@@ -18,10 +18,10 @@ en:
     new_provider:
       title: Add Provider Merchant
       name_label: Merchant name
-      name_placeholder: e.g. Tesco, Starbucks
+      name_placeholder: Merchant name
       url_label: Website URL (optional)
       url_hint: If provided and verified by AI, a shared provider merchant is created with a logo.
-      submit: Add Merchant
+      submit: Submit Provider Merchant
     index:
       empty: No merchants yet
       new: New merchant

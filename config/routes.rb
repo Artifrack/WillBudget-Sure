@@ -336,6 +336,9 @@ Rails.application.routes.draw do
       get :new_provider
       post :create_provider
     end
+    member do
+      post :suggest_logo
+    end
   end
 
   get :exchange_rate, to: "exchange_rates#show"

@@ -50,11 +50,21 @@
     if (!file) return;
     var reader = new FileReader();
     reader.onload = function(e) {
-      var dataUrl = e.target.result;
-      var preview = document.getElementById('fm-logo-preview');
-      var field = document.getElementById('fm-logo-url-field');
-      if (preview) { preview.src = dataUrl; preview.classList.remove('hidden'); }
-      if (field) field.value = dataUrl;
+      var img = new Image();
+      img.onload = function() {
+        var canvas = document.createElement('canvas');
+        canvas.width = 120; canvas.height = 120;
+        var ctx = canvas.getContext('2d');
+        var s = Math.min(img.width, img.height);
+        var ox = (img.width - s) / 2, oy = (img.height - s) / 2;
+        ctx.drawImage(img, ox, oy, s, s, 0, 0, 120, 120);
+        var dataUrl = canvas.toDataURL('image/png');
+        var preview = document.getElementById('fm-logo-preview');
+        var field = document.getElementById('fm-logo-url-field');
+        if (preview) { preview.src = dataUrl; preview.classList.remove('hidden'); }
+        if (field) field.value = dataUrl;
+      };
+      img.src = e.target.result;
     };
     reader.readAsDataURL(file);
   }

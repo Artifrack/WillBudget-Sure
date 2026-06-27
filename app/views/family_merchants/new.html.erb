@@ -17,24 +17,42 @@
     </div>
 
     <div id="section-mode-provider" style="display:none">
-      <%= form_with url: create_provider_family_merchants_path, method: :post, data: { turbo_frame: "_top" } do |f| %>
-        <div class="space-y-4">
-          <p class="text-xs text-subdued"><%= t("family_merchants.new_provider.url_hint") %></p>
-          <div class="relative flex items-center border border-secondary rounded-lg text-subdued">
-            <%= f.text_field :name, placeholder: t("family_merchants.new_provider.name_placeholder"), class: "form-field__input block w-full", required: true %>
+      <div class="bg-white rounded-xl border border-secondary shadow-xs p-4 space-y-4">
+        <p class="text-sm font-semibold text-primary"><%= t("family_merchants.new_provider.submit") %></p>
+        <%= form_with url: create_provider_family_merchants_path, method: :post, data: { turbo_frame: "_top" }, id: "provider-merchant-form" do |f| %>
+          <div class="space-y-3">
+            <p class="text-xs text-subdued"><%= t("family_merchants.new_provider.url_hint") %></p>
+            <div class="relative flex items-center border border-secondary rounded-lg text-subdued px-3 py-0.5">
+              <%= f.text_field :name, placeholder: t("family_merchants.new_provider.name_placeholder"), class: "form-field__input", required: true %>
+            </div>
+            <div class="relative flex items-center border border-secondary rounded-lg text-subdued px-3 py-0.5">
+              <%= f.text_field :url, placeholder: "example.com", class: "form-field__input", id: "provider-url-field" %>
+            </div>
+            <div id="provider-submit-wrap">
+              <%= f.submit t("family_merchants.new_provider.submit"), class: "btn-primary w-full" %>
+            </div>
+            <p class="text-xs text-subdued text-center" id="provider-status-msg"></p>
           </div>
-          <div class="relative flex items-center border border-secondary rounded-lg text-subdued">
-            <%= f.url_field :url, placeholder: "https://example.com", class: "form-field__input block w-full" %>
-          </div>
-          <div id="provider-submit-wrap">
-            <%= f.submit t("family_merchants.new_provider.submit"), class: "btn-primary w-full" %>
-          </div>
-          <p class="text-xs text-subdued text-center" id="provider-status-msg"></p>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
 
     <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var form = document.getElementById('provider-merchant-form');
+        if (form) {
+          form.addEventListener('submit', function() {
+            var urlField = document.getElementById('provider-url-field');
+            if (urlField && urlField.value) {
+              urlField.value = urlField.value.trim()
+                .replace(/^https?:\/\//i, '')
+                .replace(/^www\./i, '')
+                .replace(/\/.*$/, '');
+            }
+          });
+        }
+      });
+
       function switchMerchantMode(mode) {
         document.getElementById('section-mode-family').style.display = mode === 'family' ? '' : 'none';
         document.getElementById('section-mode-provider').style.display = mode === 'provider' ? '' : 'none';

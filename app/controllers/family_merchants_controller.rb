@@ -1,5 +1,5 @@
 class FamilyMerchantsController < ApplicationController
-  before_action :set_merchant, only: %i[edit update destroy]
+  before_action :set_merchant, only: %i[edit update destroy suggest_logo]
 
   def index
     @breadcrumbs = [ [ t("breadcrumbs.home"), root_path ], [ t("breadcrumbs.merchants"), nil ] ]
@@ -126,7 +126,8 @@ class FamilyMerchantsController < ApplicationController
   # Body: { name:, url: (optional) }
   def create_provider
     name = params[:name].to_s.strip
-    url  = params[:url].to_s.strip.presence
+    raw_url = params[:url].to_s.strip.presence
+    url = raw_url&.then { |u| u.sub(/\Ahttps?:\/\//i, "").sub(/\Awww\./i, "").sub(/\/.*\z/, "") }.presence
 
     if name.blank?
       return respond_to do |format|
@@ -171,6 +172,32 @@ class FamilyMerchantsController < ApplicationController
     respond_to do |format|
       format.json { render json: { error: e.message }, status: :unprocessable_entity }
       format.html { redirect_to new_provider_family_merchants_path, alert: e.message }
+    end
+  end
+
+  def suggest_logo
+    unless @merchant.is_a?(ProviderMerchant)
+      return render json: { error: "Logo suggestions are only for provider merchants" }, status: :unprocessable_entity
+    end
+    image_data = params[:image_data].to_s
+    unless image_data.start_with?("data:image/")
+      return render json: { error: "Invalid image data" }, status: :unprocessable_entity
+    end
+    billing_url = ENV["BILLING_SERVICE_URL"].presence
+    return render json: { error: "Billing service not configured" }, status: :service_unavailable unless billing_url
+    begin
+      uri = URI.parse("#{billing_url}/api/logo-suggestion")
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = (uri.scheme == "https")
+      http.open_timeout = 3
+      http.read_timeout = 20
+      req = Net::HTTP::Post.new(uri.path, "Authorization" => "Bearer #{ENV["BILLING_API_KEY"]}", "Content-Type" => "application/json")
+      req.body = { merchantId: @merchant.id, familyId: Current.family.id, imageData: image_data }.to_json
+      resp = http.request(req)
+      render json: JSON.parse(resp.body), status: resp.code.to_i
+    rescue => e
+      Rails.logger.warn("[FamilyMerchants] suggest_logo failed: #{e.message}")
+      render json: { error: e.message }, status: :service_unavailable
     end
   end
 

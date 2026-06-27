@@ -29,7 +29,9 @@ class ProviderMerchant < Merchant
   end
 
   # Generate logo URL from website_url using BrandFetch, if configured.
+  # Skip if there's already a custom logo (non-lettermark) — preserves billing service uploads.
   def generate_logo_url_from_website!
+    return if logo_url.present? && !logo_url.include?("fallback/lettermark")
     if website_url.present? && Setting.brand_fetch_client_id.present?
       domain = extract_domain(website_url)
       size = Setting.brand_fetch_logo_size
