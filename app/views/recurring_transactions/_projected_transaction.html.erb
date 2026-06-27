@@ -8,7 +8,9 @@
           <% if recurring_transaction.merchant.logo_url.present? %>
             <%= image_tag Setting.transform_brand_fetch_url(recurring_transaction.merchant.logo_url),
                 class: "w-9 h-9 rounded-full",
-                loading: "lazy" %>
+                loading: "lazy",
+                onerror: "brandfetchFallback(this)",
+                alt: recurring_transaction.merchant.name.to_s %>
           <% else %>
             <%= render DS::FilledIcon.new(
               variant: :text,

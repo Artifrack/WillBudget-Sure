@@ -90,7 +90,7 @@ class ProviderMerchant::Enhancer
       domain = extract_domain(business_url)
       return nil unless domain.present?
       size = Setting.brand_fetch_logo_size
-      "https://cdn.brandfetch.io/#{domain}/icon/fallback/lettermark/w/#{size}/h/#{size}?c=#{Setting.brand_fetch_client_id}"
+      "https://cdn.brandfetch.io/#{domain}/icon/fallback/404/w/#{size}/h/#{size}?c=#{Setting.brand_fetch_client_id}"
     end
 
     def extract_domain(url)

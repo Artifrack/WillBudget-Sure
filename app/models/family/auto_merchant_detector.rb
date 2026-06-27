@@ -130,7 +130,7 @@ class Family::AutoMerchantDetector
     def build_logo_url(business_url)
       return nil unless Setting.brand_fetch_client_id.present? && business_url.present?
       size = Setting.brand_fetch_logo_size
-      "#{default_logo_provider_url}/#{business_url}/icon/fallback/lettermark/w/#{size}/h/#{size}?c=#{Setting.brand_fetch_client_id}"
+      "#{default_logo_provider_url}/#{business_url}/icon/fallback/404/w/#{size}/h/#{size}?c=#{Setting.brand_fetch_client_id}"
     end
 
     def enhance_provider_merchant(merchant, auto_detection)
