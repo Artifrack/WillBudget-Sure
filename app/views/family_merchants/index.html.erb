@@ -40,18 +40,14 @@
 
   <% if @active_tab == "family" %>
     <section class="space-y-3">
-      <%= form_with url: family_merchants_path, method: :get, data: { controller: "auto-submit-form" } do |f| %>
+      <%= form_with url: family_merchants_path, method: :get do |f| %>
         <%= f.hidden_field :tab, value: "family" %>
         <div class="flex items-center bg-container border border-secondary rounded-lg focus-ring-within transition-shadow">
           <%= render DS::SearchInput.new(
             variant: :embedded,
             placeholder: t(".search_placeholder"),
             name: "q",
-            value: @q,
-            data: {
-              auto_submit_form_target: "auto",
-              autosubmit_trigger_event: "input"
-            }
+            value: @q
           ) %>
         </div>
       <% end %>
@@ -105,18 +101,14 @@
       <% end %>
 
       <div class="space-y-3">
-        <%= form_with url: family_merchants_path, method: :get, data: { controller: "auto-submit-form" } do |f| %>
+        <%= form_with url: family_merchants_path, method: :get do |f| %>
           <%= f.hidden_field :tab, value: "provider" %>
           <div class="flex items-center bg-container border border-secondary rounded-lg focus-ring-within transition-shadow">
             <%= render DS::SearchInput.new(
               variant: :embedded,
               placeholder: t(".search_placeholder"),
               name: "q",
-              value: @q,
-              data: {
-                auto_submit_form_target: "auto",
-                autosubmit_trigger_event: "input"
-              }
+              value: @q
             ) %>
           </div>
         <% end %>
