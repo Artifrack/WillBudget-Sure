@@ -150,7 +150,7 @@ class FamilyMerchantsController < ApplicationController
         name: name,
         website_url: url,
         source: :willbudget,
-        provider_merchant_id: "wb_#{SecureRandom.hex(8)}"
+        provider_merchant_id: "wb_u_#{SecureRandom.hex(8)}"
       )
       merchant.generate_logo_url_from_website! rescue nil
     else
@@ -159,7 +159,7 @@ class FamilyMerchantsController < ApplicationController
         website_url: url,
         family: Current.family
       )
-      billing_log_rejected_merchant(name, url) if url.present?
+      billing_log_rejected_merchant(name, url, merchant.id) if url.present?
     end
 
     respond_to do |format|
@@ -245,7 +245,7 @@ class FamilyMerchantsController < ApplicationController
       false
     end
 
-    def billing_log_rejected_merchant(name, url)
+    def billing_log_rejected_merchant(name, url, family_merchant_id = nil)
       billing_url = ENV["BILLING_SERVICE_URL"].presence
       return unless billing_url
       Thread.new do
@@ -256,7 +256,7 @@ class FamilyMerchantsController < ApplicationController
           http.open_timeout = 2
           http.read_timeout = 5
           req = Net::HTTP::Post.new(uri.path, "Authorization" => "Bearer #{ENV["BILLING_API_KEY"]}", "Content-Type" => "application/json")
-          req.body = { name: name, url: url, family_id: Current.family&.id, user_id: Current.user&.id }.to_json
+          req.body = { name: name, url: url, family_id: Current.family&.id, user_id: Current.user&.id, family_merchant_id: family_merchant_id&.to_s }.to_json
           http.request(req)
         rescue => e
           Rails.logger.warn("[FamilyMerchants] billing log rejected failed: #{e.message}")
@@ -267,7 +267,7 @@ class FamilyMerchantsController < ApplicationController
     def merchant_params
       # Handle both family_merchant and provider_merchant param keys
       key = params.key?(:family_merchant) ? :family_merchant : :provider_merchant
-      params.require(key).permit(:name, :color, :website_url)
+      params.require(key).permit(:name, :color, :website_url, :logo_url)
     end
 
     def all_family_merchants

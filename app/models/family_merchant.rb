@@ -4,6 +4,7 @@ class FamilyMerchant < Merchant
   belongs_to :family
 
   before_validation :set_default_color
+  before_save :normalize_logo_url
   before_save :generate_logo_url_from_website, if: :should_generate_logo?
 
   validates :color, presence: true
@@ -14,8 +15,12 @@ class FamilyMerchant < Merchant
       self.color = COLORS.sample
     end
 
+    def normalize_logo_url
+      self.logo_url = nil if logo_url.blank?
+    end
+
     def should_generate_logo?
-      website_url_changed? || (website_url.present? && logo_url.blank?)
+      website_url.present? && !logo_url_changed? && (website_url_changed? || logo_url.blank?)
     end
 
     def generate_logo_url_from_website

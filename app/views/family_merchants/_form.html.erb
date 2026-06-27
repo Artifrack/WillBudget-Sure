@@ -7,10 +7,21 @@
         <%= render "shared/form_errors", model: family_merchant %>
       <% end %>
 
-      <div class="w-fit m-auto mb-4">
-        <%= render partial: "shared/color_avatar", locals: { name: family_merchant.name, color: family_merchant.color } %>
+      <div class="w-fit m-auto mb-4 relative group" id="fm-avatar-wrap">
+        <% if family_merchant.logo_url.present? %>
+          <img id="fm-logo-preview" src="<%= family_merchant.logo_url %>" alt="" class="w-14 h-14 rounded-full object-contain border border-secondary bg-white">
+        <% else %>
+          <%= render partial: "shared/color_avatar", locals: { name: family_merchant.name, color: family_merchant.color } %>
+          <img id="fm-logo-preview" src="" alt="" class="w-14 h-14 rounded-full object-contain border border-secondary bg-white hidden">
+        <% end %>
+        <label class="absolute inset-0 flex items-center justify-center rounded-full bg-black/40 opacity-0 group-hover:opacity-100 cursor-pointer transition-opacity" title="Upload photo">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <input type="file" accept="image/*" class="sr-only" onchange="fmHandlePhoto(this)">
+        </label>
       </div>
-      <div class="flex gap-2 items-center justify-center">
+      <%= f.hidden_field :logo_url, id: "fm-logo-url-field", value: family_merchant.logo_url %>
+
+      <div class="flex gap-2 items-center justify-center" id="fm-color-swatches">
         <% FamilyMerchant::COLORS.each do |color| %>
           <label class="relative">
             <%= f.radio_button :color, color, class: "sr-only peer", data: { action: "change->color-avatar#handleColorChange" } %>
@@ -32,3 +43,19 @@
     </section>
   <% end %>
 </div>
+
+<script>
+  function fmHandlePhoto(input) {
+    var file = input.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      var dataUrl = e.target.result;
+      var preview = document.getElementById('fm-logo-preview');
+      var field = document.getElementById('fm-logo-url-field');
+      if (preview) { preview.src = dataUrl; preview.classList.remove('hidden'); }
+      if (field) field.value = dataUrl;
+    };
+    reader.readAsDataURL(file);
+  }
+</script>
