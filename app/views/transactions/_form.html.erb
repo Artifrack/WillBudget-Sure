@@ -85,14 +85,18 @@
   <%= render DS::Disclosure.new(title: t(".details")) do %>
     <section class="space-y-2">
       <%= f.fields_for :entryable do |ef| %>
-        <%= ef.collection_select :merchant_id,
-                  merchants,
-                  :id, :name,
-                  { include_blank: t(".none"),
-                    label: t(".merchant_label"),
-                    variant: :logo,
-                    searchable: true,
-                    menu_placement: :auto } %>
+        <div data-controller="merchant-picker"
+             data-merchant-picker-search-url-value="<%= search_family_merchants_path %>"
+             data-merchant-picker-create-url-value="<%= create_provider_family_merchants_path %>">
+          <%= ef.collection_select :merchant_id,
+                    merchants,
+                    :id, :name,
+                    { include_blank: t(".none"),
+                      label: t(".merchant_label"),
+                      variant: :logo,
+                      searchable: true,
+                      menu_placement: :auto } %>
+        </div>
         <%= render DS::TagSelect.new(
               form: ef,
               tags: tags,

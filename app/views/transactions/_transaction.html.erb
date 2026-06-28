@@ -23,13 +23,13 @@
           <%= render "transactions/transaction_category", transaction: transaction, variant: "mobile", in_split_group: in_split_group %>
           <% if transaction_security_logo_url.present? %>
             <%= image_tag Setting.transform_brand_fetch_url(transaction_security_logo_url),
-                class: "w-5 h-5 rounded-full absolute -bottom-1 -right-1 border border-secondary pointer-events-none",
+                class: "w-5 h-5 rounded-full absolute -bottom-1 -right-1 border border-secondary pointer-events-none object-contain shrink-0",
                 loading: "lazy",
                 onerror: "brandfetchFallback(this)",
                 alt: transaction.merchant&.name.to_s %>
           <% elsif transaction.merchant&.logo_url.present? %>
             <%= image_tag Setting.transform_brand_fetch_url(transaction.merchant.logo_url),
-                class: "w-5 h-5 rounded-full absolute -bottom-1 -right-1 border border-secondary pointer-events-none",
+                class: "w-5 h-5 rounded-full absolute -bottom-1 -right-1 border border-secondary pointer-events-none object-contain shrink-0",
                 loading: "lazy",
                 onerror: "brandfetchFallback(this)",
                 alt: transaction.merchant.name.to_s %>
@@ -48,13 +48,13 @@
                 ) %>
               <% elsif transaction_security_logo_url.present? %>
                 <%= image_tag Setting.transform_brand_fetch_url(transaction_security_logo_url),
-                    class: "w-9 h-9 rounded-full border border-secondary",
+                    class: "w-9 h-9 rounded-full border border-secondary object-contain shrink-0",
                     loading: "lazy",
                     onerror: "brandfetchFallback(this)",
                     alt: transaction.merchant&.name.to_s %>
               <% elsif transaction.merchant&.logo_url.present? %>
                 <%= image_tag Setting.transform_brand_fetch_url(transaction.merchant.logo_url),
-                    class: "w-9 h-9 rounded-full border border-secondary",
+                    class: "w-9 h-9 rounded-full border border-secondary object-contain shrink-0",
                     loading: "lazy",
                     onerror: "brandfetchFallback(this)",
                     alt: transaction.merchant.name.to_s %>
