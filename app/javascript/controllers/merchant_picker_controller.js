@@ -89,7 +89,7 @@ export default class extends Controller {
           ? `<img src="${this._esc(m.logo_url)}" class="w-6 h-6 rounded-full border border-secondary" loading="lazy" />`
           : `<span class="w-6 h-6 rounded-full bg-container-inset border border-secondary flex items-center justify-center text-xs font-medium shrink-0">${this._esc(m.name?.[0]?.toUpperCase() || "?")}</span>`
         item.innerHTML = `${icon}<span>${this._esc(m.name)}</span>`
-        item.addEventListener("click", () => this._pick(m.id, m.name))
+        item.addEventListener("click", (e) => { e.stopPropagation(); this._pick(m.id, m.name) })
         section.appendChild(item)
       }
     }
