@@ -39,6 +39,47 @@
 
   <%= yield :head %>
   <script>
+    (function() {
+      var _bgCache = {};
+      function _detectMerchantBg(imgEl) {
+        var src = imgEl.src;
+        if (!src) return;
+        if (_bgCache[src] !== undefined) { if (_bgCache[src]) imgEl.style.background = _bgCache[src]; return; }
+        var probe = new Image();
+        probe.crossOrigin = 'anonymous';
+        probe.onload = function() {
+          try {
+            var c = document.createElement('canvas');
+            c.width = Math.max(probe.naturalWidth, 1); c.height = Math.max(probe.naturalHeight, 1);
+            var ctx = c.getContext('2d');
+            ctx.drawImage(probe, 0, 0);
+            var d = ctx.getImageData(0, 0, c.width, c.height).data;
+            var hasAlpha = false, bright = 0, n = 0;
+            for (var i = 0; i < d.length; i += 4) {
+              if (d[i+3] < 200) { hasAlpha = true; }
+              else { bright += 0.299*d[i] + 0.587*d[i+1] + 0.114*d[i+2]; n++; }
+            }
+            var bg = (hasAlpha && n > 0) ? ((bright/n > 200) ? '#1c1c1e' : '#ffffff') : null;
+            _bgCache[src] = bg;
+            if (bg && imgEl.isConnected) imgEl.style.background = bg;
+          } catch(e) { _bgCache[src] = null; }
+        };
+        probe.onerror = function() { _bgCache[src] = null; };
+        probe.src = src;
+      }
+      function _initMerchantLogos() {
+        document.querySelectorAll('[data-merchant-logo]').forEach(function(img) {
+          if (img.dataset.bg) { img.style.background = img.dataset.bg; return; }
+          if (img.complete && img.naturalWidth > 0) { _detectMerchantBg(img); return; }
+          img.addEventListener('load', function() { _detectMerchantBg(img); }, { once: true });
+        });
+      }
+      document.addEventListener('DOMContentLoaded', _initMerchantLogos);
+      document.addEventListener('turbo:load', _initMerchantLogos);
+      document.addEventListener('turbo:frame-load', _initMerchantLogos);
+    })();
+  </script>
+  <script>
     function brandfetchFallback(img) {
       var src = img.src || '';
       var m = src.match(/cdn\.brandfetch\.io\/([^\/]+)\/(icon|symbol|logo)\/fallback\/404\/w\/(\d+)\/h\/(\d+)\?c=([^&]+)/);
