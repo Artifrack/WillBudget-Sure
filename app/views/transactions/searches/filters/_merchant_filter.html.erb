@@ -40,7 +40,10 @@
           <div class="hidden lg:flex">
             <% if merchant.logo_url.present? %>
               <%= image_tag Setting.transform_brand_fetch_url(merchant.logo_url),
-                  class: "w-6 h-6 rounded-full border border-secondary",
+                  class: "w-6 h-6 rounded-full border border-secondary object-contain",
+                  style: merchant.logo_bg_color.present? ? "background: #{merchant.logo_bg_color}" : nil,
+                  "data-merchant-logo": "1",
+                  "data-bg": merchant.logo_bg_color.to_s,
                   loading: "lazy",
                   onerror: "brandfetchFallback(this)",
                   alt: merchant.name %>

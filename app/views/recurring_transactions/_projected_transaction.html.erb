@@ -7,7 +7,10 @@
         <% if recurring_transaction.merchant.present? %>
           <% if recurring_transaction.merchant.logo_url.present? %>
             <%= image_tag Setting.transform_brand_fetch_url(recurring_transaction.merchant.logo_url),
-                class: "w-9 h-9 rounded-full",
+                class: "w-9 h-9 rounded-full object-contain",
+                style: recurring_transaction.merchant.logo_bg_color.present? ? "background: #{recurring_transaction.merchant.logo_bg_color}" : nil,
+                "data-merchant-logo": "1",
+                "data-bg": recurring_transaction.merchant.logo_bg_color.to_s,
                 loading: "lazy",
                 onerror: "brandfetchFallback(this)",
                 alt: recurring_transaction.merchant.name.to_s %>
