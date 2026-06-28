@@ -199,10 +199,16 @@ export default class extends Controller {
 
     this._clearGlobal()
 
-    // Submit directly — the event chain (dropdown:select → form-dropdown#onSelect)
-    // is unreliable when called from async context (e.g. after an AJAX create).
-    const form = this.element.closest("form")
-    if (form) form.requestSubmit()
+    // Re-fire the same event the DS Select controller dispatches on normal selection.
+    // form-dropdown#onSelect handles it and only calls requestSubmit() when the
+    // form has data-controller="auto-submit-form" — so the create-transaction form
+    // (which uses transaction-form, not auto-submit-form) won't auto-save.
+    if (this._selectEl) {
+      this._selectEl.dispatchEvent(new CustomEvent("dropdown:select", {
+        detail: { value: String(id), label: name },
+        bubbles: true
+      }))
+    }
   }
 
   _esc(str) {
