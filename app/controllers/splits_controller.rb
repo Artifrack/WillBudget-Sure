@@ -16,7 +16,7 @@ class SplitsController < ApplicationController
     raw_splits = raw_splits.values if raw_splits.respond_to?(:values)
 
     splits = raw_splits.map do |s|
-      { name: s[:name], amount: s[:amount].to_d * -1, category_id: s[:category_id].presence, excluded: s[:excluded] }
+      { name: s[:name], amount: s[:amount].to_d * -1, category_id: s[:category_id].presence, excluded: s[:excluded], merchant_id: s[:merchant_id].presence }
     end
 
     @entry.split!(splits)
@@ -51,7 +51,7 @@ class SplitsController < ApplicationController
     raw_splits = raw_splits.values if raw_splits.respond_to?(:values)
 
     splits = raw_splits.map do |s|
-      { name: s[:name], amount: s[:amount].to_d * -1, category_id: s[:category_id].presence, excluded: s[:excluded] }
+      { name: s[:name], amount: s[:amount].to_d * -1, category_id: s[:category_id].presence, excluded: s[:excluded], merchant_id: s[:merchant_id].presence }
     end
 
     Entry.transaction do
@@ -95,6 +95,6 @@ class SplitsController < ApplicationController
     end
 
     def split_params
-      params.require(:split).permit(splits: [ :name, :amount, :category_id, :excluded ])
+      params.require(:split).permit(splits: [ :name, :amount, :category_id, :excluded, :merchant_id ])
     end
 end

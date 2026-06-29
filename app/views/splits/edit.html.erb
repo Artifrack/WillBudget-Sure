@@ -66,6 +66,9 @@
                          name: "split[splits][#{index}][category_id]",
                          categories: @categories,
                          selected_id: child.entryable.try(:category_id) %>
+              <% if (mid = child.entryable.try(:merchant_id)) %>
+                <input type="hidden" name="split[splits][<%= index %>][merchant_id]" value="<%= mid %>">
+              <% end %>
               <button type="button"
                       class="w-8 h-8 shrink-0 flex items-center justify-center rounded-md text-secondary hover:text-primary hover:bg-surface-hover transition-colors"
                       aria-label="<%= t("splits.new.remove_row") %>"
