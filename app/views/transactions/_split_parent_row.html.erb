@@ -22,7 +22,8 @@
             <div class="hidden lg:flex">
               <%= render DS::FilledIcon.new(
                 variant: :text,
-                text: entry.name,
+                text: transaction.merchant&.name || entry.name,
+                hex_color: transaction.merchant&.logo_bg_color,
                 size: "lg",
                 rounded: true
               ) %>
