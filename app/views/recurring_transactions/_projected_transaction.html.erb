@@ -17,6 +17,7 @@
           <% else %>
             <%= render DS::FilledIcon.new(
               variant: :text,
+              hex_color: recurring_transaction.merchant.logo_bg_color,
               text: recurring_transaction.merchant.name,
               size: "lg",
               rounded: true

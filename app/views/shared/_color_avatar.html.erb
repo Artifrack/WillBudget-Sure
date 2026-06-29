@@ -1,11 +1,29 @@
 <%# locals: (name: nil, color: "#000") %>
 
-<% letter = name&.first || "?" %>
+<%
+  stop_words = %w[the of and for at by in on to a an ltd llc inc co]
+  raw_name = name.to_s.strip
+  if raw_name.length <= 5
+    display = raw_name.upcase
+  else
+    words = raw_name.split(/[\s\-_&\/\.]+/)
+    significant = words.reject { |w| stop_words.include?(w.downcase) }
+    significant = words if significant.empty?
+    initials = ""
+    significant.each do |word|
+      break if initials.length >= 3
+      initials += word[0].upcase
+      word[1..].each_char { |c| initials += c if c.match?(/[A-Z]/) && initials.length < 3 }
+    end
+    display = initials.slice(0, 3).presence || raw_name.first&.upcase || "?"
+  end
+  font_size_class = display.length <= 1 ? "text-sm" : display.length <= 2 ? "text-xs" : "text-[10px]"
+%>
 
 <% background_color = "color-mix(in srgb, #{color} 5%, white)" %>
 <% border_color = "color-mix(in srgb, #{color} 10%, white)" %>
 <span data-color-avatar-target="avatar"
       class="w-8 h-8 flex items-center justify-center rounded-full"
       style="background-color: <%= background_color %>; border-color: <%= border_color %>; color: <%= color %>">
-  <%= letter.upcase %>
+  <span class="font-medium uppercase <%= font_size_class %>"><%= display %></span>
 </span>

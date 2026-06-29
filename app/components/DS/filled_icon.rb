@@ -24,17 +24,8 @@ class DS::FilledIcon < DesignSystemComponent
     }
   }.freeze
 
-  # `description:` makes the icon meaningful — emits `role="img"` +
-  # `aria-label=description` so AT users hear it. Without `description:`,
-  # the wrapper defaults to `aria-hidden="true"` (decorative) on the
-  # assumption that adjacent DOM carries the accessible name. Pass
-  # `aria_hidden: false` if you want the visual exposed but the name
-  # already lives in surrounding text (rare).
-  #
-  # NOTE on the `:text` variant: only `text.first` is rendered (e.g.
-  # "Apple" → "A"). The single letter is decorative — relying on AT
-  # users to infer "Apple" from "A" is broken. Use `description:` to
-  # surface the full label, or ensure the adjacent text node carries it.
+  LETTERMARK_STOP_WORDS = %w[the of and for at by in on to a an ltd llc inc co].freeze
+
   def initialize(variant: :default, icon: nil, text: nil, hex_color: nil, size: "md", rounded: false, description: nil, aria_hidden: nil)
     @variant = variant.to_sym
     @icon = icon
@@ -60,10 +51,23 @@ class DS::FilledIcon < DesignSystemComponent
   end
 
   def text_classes
-    class_names(
-      "text-center font-medium uppercase",
-      SIZES[size][:text_size]
-    )
+    chars = display_text&.length || 1
+    size_class = case size
+                 when :sm
+                   chars <= 1 ? "text-xs" : chars <= 2 ? "text-[9px]" : "text-[8px]"
+                 when :md
+                   chars <= 1 ? "text-xs" : chars <= 2 ? "text-xs" : "text-[9px]"
+                 when :lg
+                   chars <= 1 ? "text-sm" : chars <= 2 ? "text-xs" : "text-[10px]"
+                 else
+                   SIZES[size][:text_size]
+                 end
+    class_names("text-center font-medium uppercase", size_class)
+  end
+
+  def display_text
+    return nil unless text
+    lettermark_text(text)
   end
 
   def container_styles
@@ -99,7 +103,7 @@ class DS::FilledIcon < DesignSystemComponent
     end
 
     def custom_fg_color
-      hex_color || "var(--color-gray-500)"
+      hex_color.presence || "#94a3b8"
     end
 
     def transparent_bg_color
@@ -108,5 +112,27 @@ class DS::FilledIcon < DesignSystemComponent
 
     def transparent_border_color
       "color-mix(in oklab, #{custom_fg_color} 10%, transparent)"
+    end
+
+    def lettermark_text(name)
+      return "?" if name.blank?
+      n = name.strip
+      return n.upcase if n.length <= 5
+
+      words = n.split(/[\s\-_&\/\.]+/)
+      significant = words.reject { |w| LETTERMARK_STOP_WORDS.include?(w.downcase) }
+      significant = words if significant.empty?
+
+      initials = ""
+      significant.each do |word|
+        break if initials.length >= 3
+        initials += word[0].upcase
+        word[1..].each_char do |c|
+          break if initials.length >= 3
+          initials += c if c.match?(/[A-Z]/)
+        end
+      end
+
+      initials.slice(0, 3).presence || name.first.upcase
     end
 end
