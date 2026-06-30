@@ -1,0 +1,2 @@
+[deploy]
+releaseCommand = "bundle exec rails db:migrate"
