@@ -122,8 +122,15 @@ export default class extends Controller {
       <p class="text-xs font-medium text-secondary">New merchant</p>
       <input data-field="name" type="text" value="${this._esc(name)}" placeholder="Merchant name"
              class="block w-full text-sm px-3 py-1.5 rounded-lg border border-secondary bg-container focus:outline-none focus:ring-1" />
-      <input data-field="url" type="url" placeholder="Website URL (optional — AI verifies)"
-             class="block w-full text-sm px-3 py-1.5 rounded-lg border border-secondary bg-container focus:outline-none focus:ring-1" />
+      <label class="flex items-center gap-2 cursor-pointer select-none">
+        <input data-field="personal" type="checkbox"
+               class="rounded border-secondary text-blue-600 focus:ring-blue-500 cursor-pointer" />
+        <span class="text-xs text-secondary">Personal payee (person, not a business)</span>
+      </label>
+      <div data-section="url">
+        <input data-field="url" type="url" placeholder="Website URL (optional — AI verifies)"
+               class="block w-full text-sm px-3 py-1.5 rounded-lg border border-secondary bg-container focus:outline-none focus:ring-1" />
+      </div>
       <div class="flex gap-2 pt-1">
         <button data-btn="add" type="button"
                 class="px-3 py-1.5 text-sm rounded-lg bg-blue-600 text-white hover:bg-blue-700 focus:outline-none">
@@ -136,10 +143,16 @@ export default class extends Controller {
       </div>
     `
 
+    const personalCheck = wrap.querySelector("[data-field='personal']")
+    const urlSection = wrap.querySelector("[data-section='url']")
+    personalCheck.addEventListener("change", () => {
+      urlSection.style.display = personalCheck.checked ? "none" : ""
+    })
+
     wrap.querySelector("[data-btn='add']").addEventListener("click", () => {
       const n = wrap.querySelector("[data-field='name']").value.trim()
-      const u = wrap.querySelector("[data-field='url']").value.trim()
-      this._submitAdd(n, u, wrap)
+      const u = personalCheck.checked ? "" : wrap.querySelector("[data-field='url']").value.trim()
+      this._submitAdd(n, u, wrap, personalCheck.checked)
     })
     wrap.querySelector("[data-btn='cancel']").addEventListener("click", () => {
       wrap.remove()
@@ -150,7 +163,7 @@ export default class extends Controller {
     this._menuEl.appendChild(wrap)
   }
 
-  async _submitAdd(name, url, formEl) {
+  async _submitAdd(name, url, formEl, personal = false) {
     if (!name) return
     if (!this.hasCreateUrlValue) return
 
@@ -163,6 +176,7 @@ export default class extends Controller {
       const body = new FormData()
       body.append("name", name)
       if (url) body.append("url", url)
+      if (personal) body.append("personal", "true")
       body.append("authenticity_token", csrf)
 
       const resp = await fetch(this.createUrlValue, {

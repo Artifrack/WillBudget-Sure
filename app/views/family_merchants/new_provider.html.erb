@@ -9,11 +9,22 @@
           <%= f.text_field :name, placeholder: t(".name_placeholder"), class: "form-field__input block w-full", required: true %>
         </div>
         <div>
+          <label class="flex items-center gap-2 cursor-pointer select-none mb-1">
+            <%= check_box_tag :personal, "true", false, id: "new_provider_personal", class: "rounded border-secondary text-blue-600 focus:ring-blue-500 cursor-pointer" %>
+            <span class="text-sm text-secondary">Personal payee (person, not a business)</span>
+          </label>
+        </div>
+        <div id="new_provider_url_section">
           <%= f.label :url, t(".url_label"), class: "form-field__label block mb-1" %>
           <%= f.url_field :url, placeholder: "https://example.com", class: "form-field__input block w-full" %>
         </div>
         <%= f.submit t(".submit"), class: "btn-primary w-full mt-3" %>
       </div>
     <% end %>
+    <script>
+      document.getElementById("new_provider_personal")?.addEventListener("change", function() {
+        document.getElementById("new_provider_url_section").style.display = this.checked ? "none" : "";
+      });
+    </script>
   <% end %>
 <% end %>

@@ -122,12 +122,15 @@ class FamilyMerchantsController < ApplicationController
   end
 
   # POST /family_merchants/create_provider
-  # Creates a ProviderMerchant (if URL verified) or FamilyMerchant (if not).
-  # Body: { name:, url: (optional) }
+  # Always creates a FamilyMerchant first. If a URL is provided and AI verifies it as a
+  # legitimate business, the merchant is immediately converted to a ProviderMerchant in-place
+  # (type flip via update_columns). If personal:true, skips AI and stays as FamilyMerchant.
+  # AI rejections are logged to billing for super-admin review and promotion.
   def create_provider
     name = params[:name].to_s.strip
     raw_url = params[:url].to_s.strip.presence
     url = raw_url&.then { |u| u.sub(/\Ahttps?:\/\//i, "").sub(/\Awww\./i, "").sub(/\/.*\z/, "") }.presence
+    personal = params[:personal].to_s == "true"
 
     if name.blank?
       return respond_to do |format|
@@ -144,23 +147,32 @@ class FamilyMerchantsController < ApplicationController
       end
     end
 
-    verified = url && billing_verify_url(name, url)
+    # Step 1: always create as FamilyMerchant (personal payees stop here)
+    merchant = FamilyMerchant.create!(
+      name: name,
+      website_url: personal ? nil : url,
+      family: Current.family
+    )
 
-    if verified
-      merchant = ProviderMerchant.create!(
-        name: name,
-        website_url: url,
-        source: :willbudget,
-        provider_merchant_id: "wb_u_#{SecureRandom.hex(8)}"
-      )
-      merchant.generate_logo_url_from_website! rescue nil
-    else
-      merchant = FamilyMerchant.create!(
-        name: name,
-        website_url: url,
-        family: Current.family
-      )
-      billing_log_rejected_merchant(name, url, merchant.id) if url.present?
+    unless personal
+      verified = url && billing_verify_url(name, url)
+
+      if verified
+        # Step 2a: AI approved — convert FamilyMerchant to ProviderMerchant in-place
+        # update_columns bypasses STI/model validations so family_id can be set to NULL
+        merchant.update_columns(
+          type: "ProviderMerchant",
+          source: "willbudget",
+          provider_merchant_id: "wb_u_#{SecureRandom.hex(8)}",
+          family_id: nil,
+          updated_at: Time.current
+        )
+        merchant = Merchant.find(merchant.id)
+        merchant.generate_logo_url_from_website! rescue nil
+      elsif url.present?
+        # Step 2b: AI rejected — stays as FamilyMerchant, logged for super-admin review
+        billing_log_rejected_merchant(name, url, merchant.id)
+      end
     end
 
     respond_to do |format|

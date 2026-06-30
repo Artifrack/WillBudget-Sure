@@ -341,6 +341,9 @@ class Account::ProviderImportAdapter
       return merchant
     end
 
+    # Skip creation if this merchant was intentionally deleted and blocklisted
+    return nil if merchant_blocked?(provider_merchant_id, source)
+
     # Create new merchant
     begin
       merchant = ProviderMerchant.create!(
@@ -1023,5 +1026,16 @@ class Account::ProviderImportAdapter
         ex.delete(provider) if ex[provider].empty?
       end
       ex
+    end
+
+    def merchant_blocked?(provider_merchant_id, source)
+      return false unless provider_merchant_id.present?
+      sql = ActiveRecord::Base.sanitize_sql_array([
+        "SELECT 1 FROM blocked_provider_merchants WHERE source = ? AND provider_merchant_id = ? LIMIT 1",
+        source.to_s, provider_merchant_id.to_s
+      ])
+      ActiveRecord::Base.connection.select_value(sql).present?
+    rescue StandardError
+      false
     end
 end
